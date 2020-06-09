@@ -1,9 +1,18 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import AppContext from '../context/app-context';
 
-const Word = ({ entry }) => {
-	// This component should receive a word as prop.
+const Word = () => {
 	const history = useHistory();
+	const { entry, setEntry, wordList } = useContext(AppContext);
+
+	const { wordId } = useParams();
+
+	useEffect(() => {
+		if (!entry.word) {
+			setEntry(wordList[wordId]);
+		}
+	})
 
 	return (
 		<>
