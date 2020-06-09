@@ -10,12 +10,11 @@ import wordList from '../data/data.json';
 
 const Main = () => {
 	const [letter, setLetter] = useState('A');
-	const [entry, setEntry] = useState({});
 
 	return (
 		<main>
 			<Header />
-			<AppContext.Provider value={{ wordList, entry, setEntry }}>
+			<AppContext.Provider value={{ wordList }}>
 				<Router>
 					<LetterNav setLetter={setLetter} />
 					<Switch>
