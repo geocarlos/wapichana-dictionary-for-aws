@@ -9,11 +9,8 @@ import AppContext from '../context/app-context';
 import wordList from '../data/data.json';
 
 const Main = () => {
-	// We will have routes here.
-	// We may use React Router
 	const [letter, setLetter] = useState('A');
 	const [entry, setEntry] = useState({});
-
 
 	return (
 		<main>
