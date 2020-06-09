@@ -1,13 +1,15 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
-const Word = ({ entry, setPage }) => {
+const Word = ({ entry }) => {
 	// This component should receive a word as prop.
+	const history = useHistory();
 
 	return (
 		<>
 			<h1>{entry.word}</h1>
 			<h3>{entry.definition}</h3>
-			<button onClick={() => setPage(0)}>Go Back</button>
+			<button onClick={() => history.push('/')}>Go Back</button>
 		</>
 	)
 }

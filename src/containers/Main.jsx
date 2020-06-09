@@ -3,6 +3,7 @@ import WordList from './WordList';
 import Word from './Word';
 import LetterNav from '../components/LetterNav';
 import Header from '../components/Header';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const Main = () => {
 	// We will have routes here.
@@ -21,7 +22,16 @@ const Main = () => {
 		<main>
 			<Header />
 			<LetterNav setLetter={setLetter} />
-			{pages[page]}
+			<Router>
+				<Switch>
+				<Route exact path="/">
+					<WordList letter={letter} setEntry={setEntry} />
+				</Route>
+				<Route path="/entry/:word">
+					<Word entry={entry} />
+				</Route>
+				</Switch>
+			</Router>
 		</main>
 	)
 }
