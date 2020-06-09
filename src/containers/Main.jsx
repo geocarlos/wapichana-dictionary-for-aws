@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import WordList from './WordList';
 import Word from './Word';
 import LetterNav from '../components/LetterNav';
 import Header from '../components/Header';
-import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AppContext from '../context/app-context';
 
 import wordList from '../data/data.json';
