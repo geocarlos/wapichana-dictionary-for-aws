@@ -19,8 +19,8 @@ const Main = () => {
 		<main>
 			<Header />
 			<AppContext.Provider value={{ wordList, entry, setEntry }}>
-				<LetterNav setLetter={setLetter} />
 				<Router>
+					<LetterNav setLetter={setLetter} />
 					<Switch>
 						<Route exact path="/">
 							<WordList letter={letter} />
