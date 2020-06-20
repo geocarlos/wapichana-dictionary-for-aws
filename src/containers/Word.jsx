@@ -9,11 +9,14 @@ const Word = () => {
 	const { wordId } = useParams();
 
 	return (
-		<>
+		<div style={{ margin: '10%' }}>
 			<h1>{wordList[wordId].word}</h1>
 			<h3>{wordList[wordId].definition}</h3>
+			<div>
+				Mais detalhes serão adicionados nesta página para a palavra selecionada.
+			</div>
 			<button onClick={() => history.push('/')}>Go Back</button>
-		</>
+		</div>
 	)
 }
 
