@@ -1217,13 +1217,15 @@
 					{
 						"example": "Askii! Aunaa ungary aichpan. ",
 						"exampleTranslation": "Puxa! Eu não sei."
-					},
-					{
-						"example": "At(Posp)",
-						"exampleTranslation": "1. Para; Ao"
 					}
 				]
-			},
+			}
+		]
+	},
+	"At": {
+		"entry": "At",
+		"gramm": "Posp",
+		"definitions": [
 			{
 				"definition": "Para; Ao",
 				"examples": [
@@ -1462,13 +1464,15 @@
 					{
 						"example": "Kainha’a ixa´iz aukaz ii.",
 						"exampleTranslation": " Tem nuvens no céu."
-					},
-					{
-						"example": "Aunaa (Partic/Vintr) ",
-						"exampleTranslation": "1. Não"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Aunaa": {
+		"entry": "Aunaa",
+		"gramm": "Partic/Vintr",
+		"definitions": [
 			{
 				"definition": "Não",
 				"examples": [
@@ -2352,7 +2356,7 @@
 					},
 					{
 						"example": "Bakaiayda’y (N)",
-						"exampleTranslation": "1. Cinco "
+						"exampleTranslation": "Cinco "
 					}
 				]
 			},
@@ -3209,13 +3213,15 @@
 					{
 						"example": " Bixuu ku’ukuu parakarin. ",
 						"exampleTranslation": "O caxiri da vovó é doce."
-					},
-					{
-						"example": "Bixui; bixu (N)",
-						"exampleTranslation": "1. Ferida"
-					}
+					}					
 				]
-			},
+			}
+		]
+	},
+	"Bixui; bixu": {
+		"entry": "Bixui; bixu",
+		"gramm": "S",
+		"definitions": [
 			{
 				"definition": "Ferida",
 				"examples": [
@@ -4145,13 +4151,15 @@
 					{
 						"example": "Unkainha’a baydap ungary dani’uru.",
 						"exampleTranslation": "Eu tenho um enteado."
-					},
-					{
-						"example": "Danum (N)",
-						"exampleTranslation": "1. Beira, margem."
 					}
 				]
-			},
+			}
+		]
+	},
+	"Danum": {
+		"entry": "Danum",
+		"gramm": "N",
+		"definitions": [
 			{
 				"definition": "Beira, margem.",
 				"examples": [
@@ -4656,13 +4664,15 @@
 					{
 						"example": " Suan taraykan dazaryy.",
 						"exampleTranslation": " O camaleão atravessou a restinga."
-					},
-					{
-						"example": " Dazan(Vtr)",
-						"exampleTranslation": "1. Partir; Rachar "
 					}
 				]
-			},
+			}
+		]
+	},
+	"Dazan": {
+		"entry": "Dazan",
+		"gramm": "Vtr",
+		"definitions": [
 			{
 				"definition": "Partir; Rachar ",
 				"examples": [
@@ -5281,8 +5291,8 @@
 				"definition": "Escorar",
 				"examples": [
 					{
-						"example": " Daunaiura diridian paturun. ",
-						"exampleTranslation": " O homem escorou seu esteio."
+						"example": "Daunaiura diridian paturun. ",
+						"exampleTranslation": "O homem escorou seu esteio."
 					}
 				]
 			}
@@ -5296,28 +5306,32 @@
 				"definition": "Quero-quero ",
 				"examples": [
 					{
-						"example": " Uruu ikudan diridiridan.",
-						"exampleTranslation": " Ela achou o filhote de quero-quero."
-					},
-					{
-						"example": "Diri’i (Part)",
-						"exampleTranslation": "1. Muito"
+						"example": "Uruu ikudan diridiridan.",
+						"exampleTranslation": "Ela achou o filhote de quero-quero."
 					}
 				]
-			},
+			}			
+		]
+	},
+	"Diri’i": {
+		"entry": "Diri’i",
+		"gramm": "Part",
+		"definitions": [
 			{
 				"definition": "Muito",
 				"examples": [
 					{
-						"example": " Uruu tumazun nii diri’i u’i.",
-						"exampleTranslation": " Ela precisa fazer muita farinha."
-					},
-					{
-						"example": "Di’it(Part)",
-						"exampleTranslation": "1.Nele; No"
+						"example": "Uruu tumazun nii diri’i u’i.",
+						"exampleTranslation": "Ela precisa fazer muita farinha."
 					}
 				]
-			},
+			}
+		]
+	},
+	"Di’it": {
+		"entry": "Di’it",
+		"gramm": "Part",
+		"definitions": [
 			{
 				"definition": "Nele; No",
 				"examples": [
@@ -5328,7 +5342,7 @@
 				]
 			},
 			{
-				"definition": "2.No Ungary myydan kuamai yryy di’it.",
+				"definition": "No Ungary myydan kuamai yryy di’it.",
 				"examples": [
 					{
 						"example": "Eu coloquei chapéu nele.",
@@ -6305,13 +6319,15 @@
 					{
 						"example": "Ungary maxaapan ywa’uz ichanap.",
 						"exampleTranslation": "Eu estou morando do outro lado do rio."
-					},
-					{
-						"example": "Id (Part) ",
-						"exampleTranslation": "1. Por"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Id": {
+		"entry": "Id",
+		"gramm": "Part",
+		"definitions": [
 			{
 				"definition": "Por",
 				"examples": [
