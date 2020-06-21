@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AppContext from '../context/app-context';
 
-import wordList from '../data/data.json';
+import wordList from '../data/content.json';
 
 const Main = () => {
 	const [letter, setLetter] = useState('A');

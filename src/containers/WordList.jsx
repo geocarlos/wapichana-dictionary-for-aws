@@ -9,9 +9,9 @@ const WordList = ({ letter = 'A'}) => {
 		<section className="wapi">
 			<h2 id={letter}>{letter}</h2>
 			<ul>
-				{wordList.map((d, i) => {
-					const check = letter.toLowerCase() === d.word[0]?.toLowerCase() || letter.toLowerCase() === d.word.substring(0, 2).toLowerCase();
-					return check && <li key={d.word + i}><Link to={`/${i}/${d.word}`}>{d.word}</Link> - {d.definition}</li>
+				{Object.keys(wordList).map((d, i) => {
+					const check = letter.toLowerCase() === d[0].toLowerCase() || letter.toLowerCase() === d.substring(0, 2).toLowerCase();
+					return check && <li key={d + i}><Link to={`/${i}/${d}`}>{d}</Link> - {wordList[d].definitions.map(d => d.definition).join('; ')}</li>
 				})}
 			</ul>
 		</section>
