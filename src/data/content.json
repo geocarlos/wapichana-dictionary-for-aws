@@ -17957,13 +17957,15 @@
 					{
 						"example": "Papaa tuman baydap tabai. ",
 						"exampleTranslation": "Papai fez um banco."
-					},
-					{
-						"example": "Tabiuru() [] ",
-						"exampleTranslation": ""
 					}
 				]
-			},
+			}
+		]
+	},
+	"Tabiuru": {
+		"entry": "Tabiuru",
+		"gramm": "S",
+		"definitions": [
 			{
 				"definition": "Bicho do qual o espírito, segundo a crença popular, produz o som que resulta de árvores que se roçam",
 				"examples": [
