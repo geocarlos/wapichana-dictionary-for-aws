@@ -852,7 +852,7 @@
 				]
 			},
 			{
-				"definition": "2.1 (Com kariwei, S) Algo que vai ser secado ",
+				"definition": "(Com kariwei, S) Algo que vai ser secado ",
 				"examples": [
 					{
 						"example": "Dynai arada’azukariwei. ",
@@ -1531,13 +1531,15 @@
 					{
 						"example": "Aupary atamyn kanuku san. ",
 						"exampleTranslation": "A árvore é da mata geral."
-					},
-					{
-						"example": "Auru’u (Dem)",
-						"exampleTranslation": "1. Aquela "
 					}
 				]
-			},
+			}
+		]
+	},
+	"Auru’u": {
+		"entry": "Auru’u",
+		"gramm": "Dem",
+		"definitions": [
 			{
 				"definition": "Aquela ",
 				"examples": [
@@ -2533,7 +2535,7 @@
 				"examples": [
 					{
 						"example": "Tem machado atrás da (= nas costas da) casa.",
-						"exampleTranslation": "3. (Com -antanap) Atrás de; do outro lado "
+						"exampleTranslation": "(Com -antanap) Atrás de; do outro lado "
 					}
 				]
 			},
@@ -4612,13 +4614,15 @@
 					{
 						"example": " Dawyzai pidian kadyz zakazkaba’u.",
 						"exampleTranslation": " O povo Dawyzai é corredor."
-					},
-					{
-						"example": "Da’y(Posp) ",
-						"exampleTranslation": "1. Sobre (de alguém)"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Da’y": {
+		"entry": "Da’y",
+		"gramm": "Posp",
+		"definitions": [
 			{
 				"definition": "Sobre (de alguém)",
 				"examples": [
@@ -5688,15 +5692,17 @@
 				"definition": "Para cima",
 				"examples": [
 					{
-						"example": "Watu zyytan duku it.",
+						"example": "Watu zyytan duku'it.",
 						"exampleTranslation": "O urubu voou para cima."
-					},
-					{
-						"example": " Dukuan (Vtr) ",
-						"exampleTranslation": "1. Entalar"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Dukuan": {
+		"entry": "Dukuan",
+		"gramm": "Vtr",
+		"definitions": [
 			{
 				"definition": "Entalar",
 				"examples": [
@@ -6409,13 +6415,15 @@
 					{
 						"example": " Papaa tuman idiki mamaa at.",
 						"exampleTranslation": " O papai fez fogão para a mamãe."
-					},
-					{
-						"example": "Idikinhayda’y (N)",
-						"exampleTranslation": "1. Três"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Idikinhayda’y": {
+		"entry": "Idikinhayda’y",
+		"gramm": "N",
+		"definitions": [
 			{
 				"definition": "Três",
 				"examples": [
@@ -6467,31 +6475,35 @@
 					{
 						"example": "Ungary idiu puaty ukuba.",
 						"exampleTranslation": "A minha oferenda é coxa do macaco."
-					},
-					{
-						"example": "Ii (Part) ",
-						"exampleTranslation": "1. Na; No; Em; Ao "
 					}
 				]
-			},
+			}
+		]
+	},
+	"Ii": {
+		"entry": "Ii",
+		"gramm": "Part",
+		"definitions": [
 			{
 				"definition": "Na; No; Em; Ao ",
 				"examples": [
 					{
 						"example": "Ungary makunka baaraz ii. ",
 						"exampleTranslation": "Eu fui ao lavrado."
-					},
-					{
-						"example": "Ik (Part) ",
-						"exampleTranslation": "1. De; Da; Do"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Ik": {
+		"entry": "Ik",
+		"gramm": "Part",
+		"definitions": [
 			{
 				"definition": "De; Da; Do",
 				"examples": [
 					{
-						"example": "Mamaa kawan dunui ik. ",
+						"example": "Mamaa kawan dunui ik.",
 						"exampleTranslation": "Mamãe chegou da cidade."
 					}
 				]
@@ -6637,19 +6649,21 @@
 					{
 						"example": "Irib inhaku baaraz ii.",
 						"exampleTranslation": "Há muito timbó no lavrado."
-					},
-					{
-						"example": "Inhan (Part)",
-						"exampleTranslation": "1. Se"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Inhan": {
+		"entry": "Inhan",
+		"gramm": "Part",
+		"definitions": [
 			{
 				"definition": "Se",
 				"examples": [
 					{
 						"example": "Zyn chikeinhan. ",
-						"exampleTranslation": " A mulher se lava."
+						"exampleTranslation": "A mulher se lava."
 					}
 				]
 			}
@@ -6875,13 +6889,15 @@
 					{
 						"example": " Idunary isuma’u.",
 						"exampleTranslation": " O jacundá está podre."
-					},
-					{
-						"example": "It (posp)",
-						"exampleTranslation": "1. Para; Ao; A"
 					}
 				]
-			},
+			}
+		]
+	},
+	"It": {
+		"entry": "It",
+		"gramm": "Posp",
+		"definitions": [
 			{
 				"definition": "Para; Ao; A",
 				"examples": [
@@ -6918,13 +6934,15 @@
 					{
 						"example": " Iwii ximerau pudidi’u.",
 						"exampleTranslation": " Os pêlos da vagina são pretos."
-					},
-					{
-						"example": " Ix (S) ",
-						"exampleTranslation": "1. Pêlo"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Ix": {
+		"entry": "Ix",
+		"gramm": "S",
+		"definitions": [
 			{
 				"definition": "Pêlo",
 				"examples": [
@@ -7489,13 +7507,15 @@
 					{
 						"example": " Kainha’a baydap tapi’iz panibizuu ",
 						"exampleTranslation": " Tem um boi no terreiro."
-					},
-					{
-						"example": "Kaipaa (Part)",
-						"exampleTranslation": "1. Assim"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Kaipaa": {
+		"entry": "Kaipaa",
+		"gramm": "Part",
+		"definitions": [
 			{
 				"definition": "Assim",
 				"examples": [
@@ -7521,7 +7541,7 @@
 				]
 			},
 			{
-				"definition": "2.Aizii wapichannau kaiwenyz pa’ukun.",
+				"definition": "Aizii wapichannau kaiwenyz pa’ukun.",
 				"examples": [
 					{
 						"example": "Hoje os Wapichana usam o seu timbó.",
@@ -7620,7 +7640,7 @@
 				]
 			},
 			{
-				"definition": "2.(Com –pan) Vivendo",
+				"definition": "(Com –pan) Vivendo",
 				"examples": [
 					{
 						"example": " Ungary kakypan. ",
@@ -7640,13 +7660,15 @@
 					{
 						"example": "Kakywaanary pidian kuty’ainhau da’y .",
 						"exampleTranslation": "As pessoas narram histórias antigas."
-					},
-					{
-						"example": " Kamaray’u (S)",
-						"exampleTranslation": "1. Pálido; Murcho "
 					}
 				]
-			},
+			}
+		]
+	},
+	"Kamaray’u": {
+		"entry": "Kamaray’u",
+		"gramm": "Vtr",
+		"definitions": [
 			{
 				"definition": "Pálido; Murcho ",
 				"examples": [
@@ -7682,7 +7704,7 @@
 				"examples": [
 					{
 						"example": "Zynaba chiken kamichi. A mulher lava roupa.",
-						"exampleTranslation": "2. Camisa"
+						"exampleTranslation": "Camisa"
 					}
 				]
 			},
@@ -7769,7 +7791,7 @@
 				]
 			},
 			{
-				"definition": "3.(Com –kudichan) Nascer do sol ",
+				"definition": "(Com –kudichan) Nascer do sol ",
 				"examples": [
 					{
 						"example": "Ungary kawan kamuu kudichanin.",
@@ -7778,7 +7800,7 @@
 				]
 			},
 			{
-				"definition": "4.(Com –dun) Verão",
+				"definition": "(Com –dun) Verão",
 				"examples": [
 					{
 						"example": " Tuxau kawan kamuu dun.",
@@ -8396,18 +8418,20 @@
 		"gramm": "Adv",
 		"definitions": [
 			{
-				"definition": "Sempre ",
+				"definition": "Sempre",
 				"examples": [
 					{
-						"example": "Karikeunan uruu kazanda’autinhan ungary tym. ",
+						"example": "Karikeunan uruu kazanda’autinhan ungary tym.",
 						"exampleTranslation": "Ela sempre sonha comigo."
-					},
-					{
-						"example": " Kasumin (S)",
-						"exampleTranslation": "1. Músculo"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Kasumin": {
+		"entry": "Kasumin",
+		"gramm": "S",
+		"definitions": [
 			{
 				"definition": "Músculo",
 				"examples": [
@@ -8654,15 +8678,17 @@
 					{
 						"example": "Ukaukii nii diaytam kauwiam. ",
 						"exampleTranslation": "Ela trouxe duas abóboras."
-					},
-					{
-						"example": " Kawinipinaatan (Vtr)",
-						"exampleTranslation": "1. Pagar "
 					}
 				]
-			},
+			}
+		]
+	},
+	"Kawinipinaatan": {
+		"entry": "Kawinipinaatan",
+		"gramm": "Vtr",
+		"definitions": [
 			{
-				"definition": "Pagar ",
+				"definition": "Pagar",
 				"examples": [
 					{
 						"example": " Yryy kawinipinaatan nii pa puchurunau.",
@@ -9175,13 +9201,15 @@
 					{
 						"example": "Kazan naydap panikenuway. ",
 						"exampleTranslation": "O tarão gosta de comer caracol."
-					},
-					{
-						"example": " Kazandaautinhan (S)",
-						"exampleTranslation": "1. Pesadelo; Sonho"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Kazandaautinhan": {
+		"entry": "Kazandaautinhan",
+		"gramm": "S",
+		"definitions": [
 			{
 				"definition": "Pesadelo; Sonho",
 				"examples": [
@@ -9687,7 +9715,7 @@
 				"definition": "Voltar",
 				"examples": [
 					{
-						"example": " Wakiwen cha’api’ik kuxan. ",
+						"example": "Wakiwen cha’api’ik kuxan.",
 						"exampleTranslation": "Vamos voltar cedo de novo."
 					}
 				]
@@ -9698,13 +9726,15 @@
 					{
 						"example": " Barara kiukiwen pa dikiin it. ",
 						"exampleTranslation": " O carangueijo anda de ré."
-					},
-					{
-						"example": "Kiwiichipa’u; Kiwiini’u (N) ",
-						"exampleTranslation": "1. Primeiro "
 					}
 				]
-			},
+			}
+		]
+	},
+	"Kiwiichipa’u; Kiwiini’u": {
+		"entry": "Kiwiichipa’u; Kiwiini’u",
+		"gramm": "N",
+		"definitions": [
 			{
 				"definition": "Primeiro ",
 				"examples": [
@@ -9824,7 +9854,7 @@
 				]
 			},
 			{
-				"definition": "2.Paran wynyn kizidia’u, aunaa tyry’y tyzka’u.",
+				"definition": "Paran wynyn kizidia’u, aunaa tyry’y tyzka’u.",
 				"examples": [
 					{
 						"example": "A água do mar é salgada, não dá para bebê-la.",
@@ -9992,7 +10022,7 @@
 				]
 			},
 			{
-				"definition": "3.(Com –wyypan) Pescando",
+				"definition": "(Com –wyypan) Pescando",
 				"examples": [
 					{
 						"example": " Aunaa kanum kubawyypan aizii. ",
@@ -10237,28 +10267,21 @@
 					{
 						"example": "Kukizai id wapichannau ukutpan. ",
 						"exampleTranslation": "Os Wapichana pescam com o timbó."
-					},
-					{
-						"example": " Kukuan; Kukuupan; (Vtr) ",
-						"exampleTranslation": "1. Benzer; Rezar"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Kukuan; Kukuupan;": {
+		"entry": "Kukuan; Kukuupan;",
+		"gramm": "Vtr",
+		"definitions": [
 			{
 				"definition": "Benzer; Rezar",
 				"examples": [
 					{
 						"example": "Marynau kukuuan karinhapaa’u. ",
 						"exampleTranslation": "O pajé benzeu o enfermo."
-					}
-				]
-			},
-			{
-				"definition": "Marynau kukuupan pidian karinhan.",
-				"examples": [
-					{
-						"example": "O pajé reza no doente.",
-						"exampleTranslation": ""
 					}
 				]
 			}
@@ -10615,15 +10638,17 @@
 				"definition": "Cuia",
 				"examples": [
 					{
-						"example": " Kuruachi kaimena’u bun nii. ",
+						"example": " Kuruachi kaimena’u bun nii.",
 						"exampleTranslation": "A cuia é boa para tigela."
-					},
-					{
-						"example": " Kuruba’ykan (Vintr) ",
-						"exampleTranslation": "1. Abrir as pernas"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Kuruba’ykan": {
+		"entry": "Kuruba’ykan",
+		"gramm": "Vtr",
+		"definitions": [
 			{
 				"definition": "Abrir as pernas",
 				"examples": [
@@ -11511,13 +11536,15 @@
 					{
 						"example": "Pidian madurunan. ",
 						"exampleTranslation": "A pessoa está doida."
-					},
-					{
-						"example": " Maichapkanii (S)",
-						"exampleTranslation": "1. Desconhecido "
 					}
 				]
-			},
+			}
+		]
+	},
+	"Maichapkanii": {
+		"entry": "Maichapkanii",
+		"gramm": "S",
+		"definitions": [
 			{
 				"definition": "Desconhecido ",
 				"examples": [
@@ -11756,22 +11783,24 @@
 					{
 						"example": "Baru pa’inha’u mamyna’u. ",
 						"exampleTranslation": "Machado novo é desamolado."
-					},
-					{
-						"example": "Man (Part) ",
-						"exampleTranslation": "1. Sufixo que indica incerteza"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Man": {
+		"entry": "Man",
+		"gramm": "Part",
+		"definitions": [
 			{
 				"definition": "Sufixo que indica incerteza",
 				"examples": [
 					{
-						"example": "Pygary wa’atin nii man? ",
+						"example": "Pygary wa’atin nii man?",
 						"exampleTranslation": "Será que você vem mesmo?"
 					},
 					{
-						"example": "Uruu kawan nii man da’ati aizii. ",
+						"example": "Uruu kawan nii man da’ati aizii.",
 						"exampleTranslation": "Talvez ela chegue hoje aqui."
 					}
 				]
@@ -11788,13 +11817,15 @@
 					{
 						"example": "Manaunuru yryy baydapa’u barakau ii idii.",
 						"exampleTranslation": "O urubu-rei é o único que tem pena branca."
-					},
-					{
-						"example": " Mana’u (S)",
-						"exampleTranslation": "1. Raso"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Mana’u": {
+		"entry": "Mana’u",
+		"gramm": "S",
+		"definitions": [
 			{
 				"definition": "Raso",
 				"examples": [
@@ -11990,13 +12021,15 @@
 					{
 						"example": "Ungary turian pa’inha’u manharibei.",
 						"exampleTranslation": "Eu comprei apagador novo."
-					},
-					{
-						"example": " Manhykynytanb (Vtr)",
-						"exampleTranslation": "1. Esquecer"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Manhykynytanb": {
+		"entry": "Manhykynytanb",
+		"gramm": "Vtr",
+		"definitions": [
 			{
 				"definition": "Esquecer",
 				"examples": [
@@ -12052,7 +12085,7 @@
 				]
 			},
 			{
-				"definition": "2.(Com –aa) Vinho de bacaba ",
+				"definition": "(Com –aa) Vinho de bacaba ",
 				"examples": [
 					{
 						"example": "Pygary tuman mapyzaa kadyny’u aizii.",
@@ -12405,13 +12438,15 @@
 					{
 						"example": "Matuku kawipena’u. ",
 						"exampleTranslation": "A cavadeira é cara."
-					},
-					{
-						"example": " Maturutain (S) ",
-						"exampleTranslation": "1. Nambi (qualquer animal de orelha cortada ou atrofiada). "
 					}
 				]
-			},
+			}
+		]
+	},
+	"Maturutain": {
+		"entry": "Maturutain",
+		"gramm": "S",
+		"definitions": [
 			{
 				"definition": "Nambi (qualquer animal de orelha cortada ou atrofiada). ",
 				"examples": [
@@ -12661,14 +12696,16 @@
 					},
 					{
 						"example": "Zyn maxa’apan kabain it.",
-						"exampleTranslation": "A mulher mestruada está em casa."
-					},
-					{
-						"example": " Maxaapan (Vtr)",
-						"exampleTranslation": "1. Morar"
+						"exampleTranslation": "A mulher menstruada está em casa."
 					}
 				]
-			},
+			}
+		]
+	},
+	"Maxaapan": {
+		"entry": "Maxaapan",
+		"gramm": "Vtr",
+		"definitions": [
 			{
 				"definition": "Morar",
 				"examples": [
@@ -12893,13 +12930,15 @@
 					{
 						"example": "Mazuaka ydary’u kaiwera tannaa.",
 						"exampleTranslation": "Queixo de velha é grande para cana."
-					},
-					{
-						"example": " Mazuwa’u (S) ",
-						"exampleTranslation": "1. Estreito"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Mazuwa’u": {
+		"entry": "Mazuwa’u",
+		"gramm": "S",
+		"definitions": [
 			{
 				"definition": "Estreito",
 				"examples": [
@@ -13386,15 +13425,17 @@
 					{
 						"example": "Na’iauram pymaxaapan?",
 						"exampleTranslation": "Onde você está morando?"
-					},
-					{
-						"example": "Na’ik (Conj) ",
-						"exampleTranslation": "1. E "
 					}
 				]
-			},
+			}
+		]
+	},
+	"Na’ik": {
+		"entry": "Na’ik",
+		"gramm": "Conj",
+		"definitions": [
 			{
-				"definition": "E ",
+				"definition": "E",
 				"examples": [
 					{
 						"example": "Ungary na’ik pygary.",
@@ -13459,13 +13500,15 @@
 					{
 						"example": "Kainha’a baydap kyryky paraydinhan naa’ii.",
 						"exampleTranslation": "Tem um galo ciscando lá."
-					},
-					{
-						"example": " Naadikchan (Vtr)",
-						"exampleTranslation": "1. Tirar o bucho; Tratar"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Naadikchan": {
+		"entry": "Naadikchan",
+		"gramm": "Vtr",
+		"definitions": [
 			{
 				"definition": "Tirar o bucho; Tratar",
 				"examples": [
@@ -13622,13 +13665,15 @@
 					{
 						"example": "Unnakan nii wyn muayn ii. ",
 						"exampleTranslation": "Eu vou buscar água no poço."
-					},
-					{
-						"example": "-Nau (Posp)",
-						"exampleTranslation": "1. Sufixo (plural)"
 					}
 				]
-			},
+			}
+		]
+	},
+	"-Nau": {
+		"entry": "-Nau",
+		"gramm": "Posp",
+		"definitions": [
 			{
 				"definition": "Sufixo (plural)",
 				"examples": [
@@ -13718,13 +13763,15 @@
 					{
 						"example": "Pydubat kabayn nazu’an. ",
 						"exampleTranslation": "Você passa por dentro de casa."
-					},
-					{
-						"example": "Nii (Posp) ",
-						"exampleTranslation": "1. Marcador de tempo verbal (passado ou futuro); Para"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Nii": {
+		"entry": "Nii",
+		"gramm": "Posp",
+		"definitions": [
 			{
 				"definition": "Marcador de tempo verbal (passado ou futuro); Para",
 				"examples": [
@@ -13931,13 +13978,15 @@
 					{
 						"example": "Uruu kaukidian nii diaytam paachiaa.",
 						"exampleTranslation": "Ela vai trazer duas melancias."
-					},
-					{
-						"example": "Pa’an (adv)",
-						"exampleTranslation": "1. Sim (de complementação)"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Pa’an": {
+		"entry": "Pa’an",
+		"gramm": "Adv",
+		"definitions": [
 			{
 				"definition": "Sim (de complementação)",
 				"examples": [
@@ -14137,13 +14186,15 @@
 					{
 						"example": "Kuty’yz pakutan kabayn pauwa’a.",
 						"exampleTranslation": "O pássaro pousou em cima da casa."
-					},
-					{
-						"example": "Paminhaytamkii (N) ",
-						"exampleTranslation": "1. Quatro "
 					}
 				]
-			},
+			}
+		]
+	},
+	"Paminhaytamkii": {
+		"entry": "Paminhaytamkii",
+		"gramm": "N",
+		"definitions": [
 			{
 				"definition": "Quatro ",
 				"examples": [
@@ -14379,13 +14430,15 @@
 					{
 						"example": "Parapi paidia’u wanhiynyi kadyyny’u id.",
 						"exampleTranslation": "Prato cheio de comida gostosa."
-					},
-					{
-						"example": " Paraskuu(S)",
-						"exampleTranslation": "1. Vidro"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Paraskuu": {
+		"entry": "Paraskuu",
+		"gramm": "S",
+		"definitions": [
 			{
 				"definition": "Vidro",
 				"examples": [
@@ -15155,31 +15208,35 @@
 					{
 						"example": "Ungary turii nii pizut mukau at. ",
 						"exampleTranslation": "Comprei chumbo para a espingarda."
-					},
-					{
-						"example": "Pu- (Part)",
-						"exampleTranslation": "1. Teu"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Pu-": {
+		"entry": "Pu-",
+		"gramm": "Part",
+		"definitions": [
 			{
 				"definition": "Teu",
 				"examples": [
 					{
 						"example": "Ungary tykpan putuba. ",
 						"exampleTranslation": "Eu vi a tua barriga."
-					},
-					{
-						"example": "Putaa (Part)",
-						"exampleTranslation": "1. Tu dás"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Putaa": {
+		"entry": "Putaa",
+		"gramm": "Part",
+		"definitions": [
 			{
 				"definition": "Tu dás",
 				"examples": [
 					{
-						"example": " Putaa wyry’y baru yy at.",
+						"example": "Putaa wyry’y baru yy at.",
 						"exampleTranslation": " Tu dás esse machado para ele."
 					}
 				]
@@ -15689,13 +15746,15 @@
 					{
 						"example": "Kainha’a baydap puuz maunap kabayn nii.",
 						"exampleTranslation": "Tem uma ponte perto de casa."
-					},
-					{
-						"example": " Puzai (S) ",
-						"exampleTranslation": "1. Escada"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Puzai": {
+		"entry": "Puzai",
+		"gramm": "S",
+		"definitions": [
 			{
 				"definition": "Escada",
 				"examples": [
@@ -15747,13 +15806,15 @@
 					{
 						"example": " Wyry’y kayzkin puzuda’u.",
 						"exampleTranslation": "Esta panela é frágil."
-					},
-					{
-						"example": "Py- (Part) ",
-						"exampleTranslation": "1. Teu"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Py-": {
+		"entry": "Py-",
+		"gramm": "Part",
+		"definitions": [
 			{
 				"definition": "Teu",
 				"examples": [
@@ -15972,7 +16033,7 @@
 				]
 			},
 			{
-				"definition": "2.(Com – a’u Quebrado; S)",
+				"definition": "(Com – a’u Quebrado; S)",
 				"examples": [
 					{
 						"example": "Tabai ramicha’u naik tadauka’u. ",
@@ -16697,13 +16758,15 @@
 					{
 						"example": "Uruu samuraichan.",
 						"exampleTranslation": "Ela está com gonorréia."
-					},
-					{
-						"example": "San (Part)",
-						"exampleTranslation": "1. De; Da"
 					}
 				]
-			},
+			}
+		]
+	},
+	"San": {
+		"entry": "San",
+		"gramm": "Part",
+		"definitions": [
 			{
 				"definition": "De; Da",
 				"examples": [
@@ -16935,13 +16998,15 @@
 					{
 						"example": "Sawat atamyn sastan nii . ",
 						"exampleTranslation": "Suspende a Madeira para serrar"
-					},
-					{
-						"example": "Saunuru (D) ",
-						"exampleTranslation": "1. Jenipapo"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Saunuru": {
+		"entry": "Saunuru ",
+		"gramm": "D",
+		"definitions": [
 			{
 				"definition": "Jenipapo",
 				"examples": [
@@ -17420,7 +17485,7 @@
 				]
 			},
 			{
-				"definition": "2.(Com –pa) Descansar ",
+				"definition": "(Com –pa) Descansar ",
 				"examples": [
 					{
 						"example": "Ungary daru suukpan pakaydinkiz ai.",
@@ -18262,13 +18327,15 @@
 					{
 						"example": " Wataraykan namach wa’u. ",
 						"exampleTranslation": " Atravessamos o igarapé do jacamim."
-					},
-					{
-						"example": " Tarian (Vtr)",
-						"exampleTranslation": "1. Assustar"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Tarian": {
+		"entry": "Tarian",
+		"gramm": "Vtr",
+		"definitions": [
 			{
 				"definition": "Assustar",
 				"examples": [
@@ -18470,13 +18537,15 @@
 					{
 						"example": " Pygary nanak tayribei ku’ukuu at. ",
 						"exampleTranslation": " Vá buscar tayribei para a vovó."
-					},
-					{
-						"example": " Tib (S)",
-						"exampleTranslation": "1. Cipó - típico"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Tib": {
+		"entry": "Tib",
+		"gramm": "S",
+		"definitions": [
 			{
 				"definition": "Cipó - típico",
 				"examples": [
@@ -19095,19 +19164,21 @@
 					{
 						"example": " Kainha’a tuzuwan ywa’uz ii. ",
 						"exampleTranslation": " Tem cachoeira no igarapé."
-					},
-					{
-						"example": " Tuzuzuwan (Vtr) ",
-						"exampleTranslation": "1. Dar o ponto "
 					}
 				]
-			},
+			}
+		]
+	},
+	"Tuzuzuwan": {
+		"entry": "Tuzuzuwan",
+		"gramm": "Vtr",
+		"definitions": [
 			{
 				"definition": "Dar o ponto ",
 				"examples": [
 					{
-						"example": "Maskunau tuzuzuwan kanyzyy. A velha está dando o ponto do tucupi.",
-						"exampleTranslation": ""
+						"example": "Maskunau tuzuzuwan kanyzyy.",
+						"exampleTranslation": "A velha está dando o ponto do tucupi."
 					}
 				]
 			}
@@ -19157,19 +19228,21 @@
 					{
 						"example": " Ungary tyktan chiperary bairii daku nii.",
 						"exampleTranslation": " Eu talhei o ferro para o bico da flecha."
-					},
-					{
-						"example": "Tym (Posp)",
-						"exampleTranslation": "1. Com"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Tym": {
+		"entry": "Tym",
+		"gramm": "Posp",
+		"definitions": [
 			{
 				"definition": "Com",
 				"examples": [
 					{
-						"example": " Zyn kawan paydan tym.",
-						"exampleTranslation": " A mulher chegou com seu filho."
+						"example": "Zyn kawan paydan tym.",
+						"exampleTranslation": "A mulher chegou com seu filho."
 					}
 				]
 			}
@@ -19457,13 +19530,15 @@
 					{
 						"example": "Waynau ukutan karixii.",
 						"exampleTranslation": "Nós colocamos timbó no lago."
-					},
-					{
-						"example": "Ukuba (Num)",
-						"exampleTranslation": "1. Um quarto"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Ukuba": {
+		"entry": "Ukuba",
+		"gramm": "Num",
+		"definitions": [
 			{
 				"definition": "Um quarto",
 				"examples": [
@@ -19515,13 +19590,15 @@
 					{
 						"example": "Urana dynaa kadyny’u.",
 						"exampleTranslation": "A carne da paca é gostosa."
-					},
-					{
-						"example": " Urari (S) ",
-						"exampleTranslation": "1. Veneno"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Urari": {
+		"entry": "Urari",
+		"gramm": "S",
+		"definitions": [
 			{
 				"definition": "Veneno",
 				"examples": [
@@ -20385,7 +20462,7 @@
 				]
 			},
 			{
-				"definition": "2.(Com –a’u)Quente",
+				"definition": "(Com –a’u)Quente",
 				"examples": [
 					{
 						"example": "Aizii wicha’u kamuu. ",
@@ -20499,7 +20576,7 @@
 				]
 			},
 			{
-				"definition": "2.(Com – bei) Acampamento ",
+				"definition": "(Com – bei) Acampamento ",
 				"examples": [
 					{
 						"example": "Na’iam wiizibei? Kanuku ii. ",
@@ -21119,13 +21196,15 @@
 					{
 						"example": "Pygary dap ydary’u. ",
 						"exampleTranslation": "A tua casa é grande."
-					},
-					{
-						"example": "Ykywyd () []",
-						"exampleTranslation": "1. Buzina"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Ykywyd": {
+		"entry": "Ykywyd",
+		"gramm": "S",
+		"definitions": [
 			{
 				"definition": "Buzina",
 				"examples": [
@@ -21162,13 +21241,15 @@
 					{
 						"example": "Ynau makun naa aizii? ",
 						"exampleTranslation": "Vocês vão embora agora?"
-					},
-					{
-						"example": " Yryy id (Loc)",
-						"exampleTranslation": "1. Por isso "
 					}
 				]
-			},
+			}
+		]
+	},
+	"Yryy id": {
+		"entry": "Yryy id",
+		"gramm": "Loc",
+		"definitions": [
 			{
 				"definition": "Por isso ",
 				"examples": [
@@ -22000,13 +22081,15 @@
 					{
 						"example": "Ungary zynad kiwen kunaykii kanuku ik.",
 						"exampleTranslation": "Minha prima voltou alegre do mato."
-					},
-					{
-						"example": " Zynyi (S)",
-						"exampleTranslation": "1. UrinaZynui kawawa´u. Urina fedorenta"
 					}
 				]
-			},
+			}
+		]
+	},
+	"Zynyi": {
+		"entry": "Zynyi",
+		"gramm": "S",
+		"definitions": [
 			{
 				"definition": "UrinaZynui kawawa´u. Urina fedorenta",
 				"examples": [
