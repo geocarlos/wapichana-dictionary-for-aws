@@ -131,7 +131,7 @@ main{
 	.wapi{
 
 		margin-left:10%;
-
+		min-width: 80%;
 		float:left;
 
 }
@@ -196,4 +196,11 @@ footer{
 
 	background:#8B131D;
 
+}
+
+.word-card {
+	border: solid thin lightgray;
+	padding: .5rem;
+	border-radius: .3rem;
+	box-shadow: 1px 1px 3px #DDD;
 }

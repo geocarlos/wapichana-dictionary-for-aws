@@ -1,18 +1,21 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../context/app-context';
+import PlayStop from '../components/PlayStop';
 
 const isNotNh = word => {
 	return word.substring(0,2).toLowerCase() !== 'nh'; 
 }
 
 const WordList = ({ letter = 'A'}) => {
-	const { wordList, audioList, deleteAudio, moveAudio } = useContext(AppContext);
+	const { wordList, audioList } = useContext(AppContext);
 	
 	const [audio, setAudio] = useState();
 
 	const play = url => {
-		console.log(url)
+		if (audio) {
+			audio.pause();
+		}
 		setAudio(new Audio(url));
 	}
 
@@ -25,10 +28,15 @@ const WordList = ({ letter = 'A'}) => {
 
 	useEffect(() => {
 		if (audio) {
+			audio.onended = stop;
 			audio.play();
 		}
 	}, [audio])
 
+	if (audio) {
+		console.log(audio.currentTime);
+		console.log(audio.duration);
+	}
 
 	return (
 		<section className="wapi">
@@ -36,17 +44,15 @@ const WordList = ({ letter = 'A'}) => {
 			<ul>
 				{Object.keys(wordList).filter(w => wordList[w] !== null).map((d, i) => {
 					const check = (letter.toLowerCase() === d[0].toLowerCase() && isNotNh(d)) || letter.toLowerCase() === d.substring(0, 2).toLowerCase();
-					return check && wordList[d] && <li key={d + i}>
-						<Link to={`/${i}/${d}`}>{d}</Link> - {wordList[d].definitions.map(d => d.definition).join('; ')}
-						<div>
-							{audioList[i] && (<>
-							<button onClick={() => play(audioList[i].audio)}>Play</button>
-							<button onClick={() => stop()}>Stop</button>
-							<button onClick={() => moveAudio(i)}>Move</button>
-							<button onClick={() => deleteAudio(i)}>Remove</button>
-							<span> Audio Number: {audioList[i].number}</span>
-							</>)}
-						</div>
+					return check && wordList[d] && <li className="word-card" key={d + i}>
+							<Link to={`/${i}/${d}`}>{d}</Link> - {wordList[d].definitions.map(d => d.definition).join('; ')}
+							<div>
+								{audioList[i] && <span onClick={() => {
+									audio && audio.src === audioList[i].audio ? stop() : play(audioList[i].audio);
+									}}>
+									<PlayStop isPlaying={audio && audio.src === audioList[i].audio} />
+								</span>}
+							</div>
 						</li>
 				})}
 			</ul>
