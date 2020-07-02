@@ -25,22 +25,10 @@ const Main = () => {
 		setAudioList(_list);
 	}
 
-	const save = () => {
-		console.log(JSON.stringify(audioList.map(a => (a || {}).number || null), null, 2))
-		fetch('http://localhost:3003/save', {
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			method: 'POST',
-			body: JSON.stringify(audioList.map(a => (a || {}).number || null), null, 2)
-		})
-	}
- 
 	return (
 		<main>
 			<Header />
 			<AppContext.Provider value={{ wordList, audioList, moveAudio, deleteAudio }}>
-				<button onClick={save}>Save</button>
 				<Router>
 					<LetterNav setLetter={setLetter} />
 					<Switch>
