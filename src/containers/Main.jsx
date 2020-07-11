@@ -6,29 +6,16 @@ import Header from '../components/Header';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AppContext from '../context/app-context';
 
-import wordList from '../data/content.json';
-import _audioList from '../data/audioList.json';
+import wordList from '../data/entries.json';
+const audioUrl = 'https://firebasestorage.googleapis.com/v0/b/wapichana-dictionary.appspot.com/o/';
 
 const Main = () => {
 	const [letter, setLetter] = useState('A');
-	const [audioList, setAudioList] = useState(_audioList.map(n => n ? {audio: `https://firebasestorage.googleapis.com/v0/b/wapichana-dictionary.appspot.com/o/audio_${n}.mp3?alt=media`, number: n} : n));
-
-	const moveAudio = i => {
-		const _list = audioList.slice(0);
-		_list.splice(i,0,null);
-		setAudioList(_list);
-	}
-
-	const deleteAudio = i => {
-		const _list = audioList.slice(0);
-		_list.splice(i,1);
-		setAudioList(_list);
-	}
-
+	
 	return (
 		<main>
 			<Header />
-			<AppContext.Provider value={{ wordList, audioList, moveAudio, deleteAudio }}>
+			<AppContext.Provider value={{ wordList, audioUrl }}>
 				<Router>
 					<LetterNav setLetter={setLetter} />
 					<Switch>
