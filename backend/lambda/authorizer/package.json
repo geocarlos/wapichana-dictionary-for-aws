@@ -1,0 +1,19 @@
+{
+  "name": "authorizer",
+  "version": "1.0.0",
+  "description": "Request authorizer",
+  "main": "index.js",
+  "scripts": {
+    "test": "",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jwt-decode": "^3.1.2"
+  },
+  "devDependencies": {
+    "webpack": "^5.11.0",
+    "webpack-cli": "^4.3.0"
+  }
+}
