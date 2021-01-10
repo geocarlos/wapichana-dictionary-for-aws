@@ -60,8 +60,8 @@ export default class ApiStack extends TaggingStack {
     constructor(scope: Construct, id: string, fnStack: FunctionStack, props?: StackProps) {
         super(scope, id, props);
 
-        const authorizer = new Function(this, 'authorizer', {
-            functionName: 'authorizer',
+        const authorizer = new Function(this, 'wapichana-dictionary-authorizer', {
+            functionName: 'wapichana-dictionary-authorizer',
             runtime: Runtime.NODEJS_12_X,
             handler: 'index.handler',
             code: Code.fromAsset('lambda/authorizer/dist'),
@@ -70,12 +70,12 @@ export default class ApiStack extends TaggingStack {
         });
 
        const dictionaryApi = new SecureApi(this, 'WapichanaDictionaryApi', fnStack.dictionaryFuction, authorizer);
-       const dictionaryResource = dictionaryApi.addMethod(`${this.apiBase}/wapichana-dictionary/entries`, ['GET', 'POST']);
+       const dictionaryResource = dictionaryApi.addMethod(`${this.apiBase}/entries`, ['GET', 'POST']);
        dictionaryApi.addMethod('{entry_id+}', ['PUT', 'GET', 'DELETE'], dictionaryResource);
        this.apis.push(dictionaryApi.api);
 
        const dictionaryOpenApi = new OpenApi(this, 'WapichanaDictionaryOpenApi', fnStack.dictionaryFuction);
-       const dictionaryOpenResource = dictionaryOpenApi.addMethod(`${this.apiBase}/wapichana-dictionary/entries`, ['GET']);
+       const dictionaryOpenResource = dictionaryOpenApi.addMethod(`${this.apiBase}/entries`, ['GET']);
        dictionaryOpenApi.addMethod('{entry_id+}', ['GET'], dictionaryOpenResource);
        this.apis.push(dictionaryOpenApi.api);
     }

@@ -6,7 +6,7 @@ const Word = () => {
 	const history = useHistory();
 	const { wordList, audioList } = useContext(AppContext);
 
-	const { wordId } = useParams();
+	const { wordId }: any = useParams();
 
 	return (
 		<div style={{ margin: '10%' }}>
@@ -14,10 +14,10 @@ const Word = () => {
 			<audio controls>
 				<source src={audioList[wordId].audio}/>
 			</audio>
-			{wordList[Object.keys(wordList)[wordId]].definitions.map((d, i)=> (
+			{wordList[Object.keys(wordList)[wordId]].definitions.map((d: any, i: number)=> (
 				<React.Fragment key={d.definition}>
 					<p>{`${i + 1}. ${d.definition}`}</p>
-					{d.examples.map(e => (
+					{d.examples.map((e: any) => (
 						<React.Fragment key={e.example}>
 							<p><b>{e.example}</b></p>
 							<p>{e.exampleTranslation}</p>

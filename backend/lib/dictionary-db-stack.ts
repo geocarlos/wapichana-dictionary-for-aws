@@ -21,6 +21,16 @@ export default class DatabaseStack extends TaggingStack {
                 writeCapacity: 1,
                 readCapacity: 1
             },
+            initialLetter: {
+                indexName: 'initialLetter',
+                partitionKey: {
+                    name: 'initialLetter',
+                    type: AttributeType.STRING
+                },
+                billingMode: BillingMode.PROVISIONED,
+                writeCapacity: 1,
+                readCapacity: 1
+            },
             definition: {
                 indexName: 'definition',
                 partitionKey: {
@@ -48,5 +58,6 @@ export default class DatabaseStack extends TaggingStack {
 
         this.entries.addGlobalSecondaryIndex(definitionIndexProps.entry);
         this.entries.addGlobalSecondaryIndex(definitionIndexProps.definition);
+        this.entries.addGlobalSecondaryIndex(definitionIndexProps.initialLetter);
     }
 }

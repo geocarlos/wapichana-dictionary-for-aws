@@ -38,8 +38,8 @@ export default class CognitoStack extends TaggingStack {
             }
         });
 
-        new CfnOutput(this, 'userPoolId', {
-            exportName: 'cognitoUserPoolId',
+        new CfnOutput(this, 'wdUserPoolId', {
+            exportName: 'wdCognitoUserPoolId',
             value: this.userPool.ref
         });
 
@@ -52,8 +52,8 @@ export default class CognitoStack extends TaggingStack {
             writeAttributes: ['email']
         });
 
-        new CfnOutput(this, 'userPoolclient', {
-            exportName: 'cognitoUserPoolClient',
+        new CfnOutput(this, 'wdUserPoolclient', {
+            exportName: 'wdCognitoUserPoolClient',
             value: this.userPoolClient.ref
         });
 
@@ -83,8 +83,8 @@ export default class CognitoStack extends TaggingStack {
             assumedBy: cognitoPrincipal
         });
 
-        const unauthRole = new Role(this, 'unauthRole', {
-            roleName: 'unauthRole',
+        const unauthRole = new Role(this, 'wdUnauthRole', {
+            roleName: 'wdUnauthRole',
             assumedBy: new FederatedPrincipal(
                 'cognito-identity.amazon.com',
                 {
@@ -112,8 +112,8 @@ export default class CognitoStack extends TaggingStack {
             }
         });
 
-        const authRole = new Role(this, 'authRole', {
-            roleName: 'authRole',
+        const authRole = new Role(this, 'wdAuthRole', {
+            roleName: 'wdAuthRole',
             assumedBy: new FederatedPrincipal(
                 'cognito-identity.amazon.com',
                 {
