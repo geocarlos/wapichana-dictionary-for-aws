@@ -1,10 +1,11 @@
-import { Construct, Stack, StackProps } from "@aws-cdk/core";
+import { Construct, StackProps } from "@aws-cdk/core";
 import { Code, Function, Runtime } from "@aws-cdk/aws-lambda";
 import { Effect, PolicyStatement } from "@aws-cdk/aws-iam";
 import DatabaseStack from './dictionary-db-stack';
 import S3BucketStack from "./dictionary-s3-stack";
+import TaggingStack from "./tagging-stack";
 
-export default class FunctionStack extends Stack {
+export default class FunctionStack extends TaggingStack {
     public readonly dictionaryFuction: Function;
 
     constructor(scope: Construct, id: string, dbStack: DatabaseStack, s3Stack: S3BucketStack, props?: StackProps) {

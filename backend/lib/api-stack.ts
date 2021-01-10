@@ -1,12 +1,13 @@
-import { Construct, Duration, Stack, StackProps } from "@aws-cdk/core";
+import { Construct, Duration, StackProps } from "@aws-cdk/core";
 import { IResource } from '@aws-cdk/aws-apigateway/lib/resource';
 import { LambdaRestApi, TokenAuthorizer } from '@aws-cdk/aws-apigateway';
 import { Code, Function, Runtime } from "@aws-cdk/aws-lambda";
 import SecureApi from "./secure-api";
 import OpenApi from "./open-api";
 import FunctionStack from "./dictionary-fn-stack";
+import TaggingStack from "./tagging-stack";
 
-export default class ApiStack extends Stack {
+export default class ApiStack extends TaggingStack {
     public static readonly paths: any = {};
     public readonly apis: LambdaRestApi[] = [];
     public readonly apiBase: string = 'api/v1';

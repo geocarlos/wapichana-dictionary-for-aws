@@ -1,7 +1,8 @@
-import { CfnOutput, Construct, RemovalPolicy, Stack, StackProps } from "@aws-cdk/core";
+import { CfnOutput, Construct, RemovalPolicy, StackProps } from "@aws-cdk/core";
 import { Bucket, HttpMethods } from '@aws-cdk/aws-s3';
+import TaggingStack from "./tagging-stack";
 
-export default class S3BucketStack extends Stack {
+export default class S3BucketStack extends TaggingStack {
     public readonly wapichanaBucket: Bucket;
     constructor(scope: Construct, id: string, props?: StackProps) {
         super(scope, id, props);

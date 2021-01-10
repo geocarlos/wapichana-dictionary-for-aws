@@ -1,12 +1,13 @@
 import { CfnIdentityPool, CfnUserPool, CfnUserPoolClient, CfnUserPoolGroup } from "@aws-cdk/aws-cognito";
 import { Effect, FederatedPrincipal, PolicyDocument, PolicyStatement, Role } from "@aws-cdk/aws-iam";
-import { CfnOutput, Construct, Stack, StackProps } from "@aws-cdk/core";
+import { CfnOutput, Construct, StackProps } from "@aws-cdk/core";
+import TaggingStack from "./tagging-stack";
 
 const USER_POOL_NAME = 'wdUserPool';
 const USER_POOL_CLIENT_NAME = 'wdClient';
 const USER_IDENTITY_POOL = 'wdIdentityPool';
 
-export default class CognitoStack extends Stack {
+export default class CognitoStack extends TaggingStack {
     public readonly userPool: CfnUserPool;
     public readonly userPoolClient: CfnUserPoolClient;
     public readonly userIdentityPool: CfnIdentityPool;
