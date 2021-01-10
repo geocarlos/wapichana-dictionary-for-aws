@@ -3,8 +3,8 @@ import { IResource } from '@aws-cdk/aws-apigateway/lib/resource';
 import { LambdaRestApi, TokenAuthorizer } from '@aws-cdk/aws-apigateway';
 import { Code, Function, Runtime } from "@aws-cdk/aws-lambda";
 import SecureApi from "./secure-api";
-import DictionaryStack from "./dictionary-db-stack";
 import OpenApi from "./open-api";
+import FunctionStack from "./dictionary-fn-stack";
 
 export default class ApiStack extends Stack {
     public static readonly paths: any = {};
@@ -56,7 +56,7 @@ export default class ApiStack extends Stack {
         }   
     }
 
-    constructor(scope: Construct, id: string, blogStack: DictionaryStack, props?: StackProps) {
+    constructor(scope: Construct, id: string, fnStack: FunctionStack, props?: StackProps) {
         super(scope, id, props);
 
         const authorizer = new Function(this, 'authorizer', {
@@ -68,14 +68,14 @@ export default class ApiStack extends Stack {
             memorySize: 1024
         });
 
-       const dictionaryApi = new SecureApi(this, 'WapichanaDictionaryApi', blogStack.blogFuction, authorizer);
+       const dictionaryApi = new SecureApi(this, 'WapichanaDictionaryApi', fnStack.dictionaryFuction, authorizer);
        const dictionaryResource = dictionaryApi.addMethod(`${this.apiBase}/entries`, ['GET', 'POST']);
-       dictionaryApi.addMethod('{uri+}', ['PUT', 'GET', 'DELETE'], dictionaryResource);
+       dictionaryApi.addMethod('{entry_id+}', ['PUT', 'GET', 'DELETE'], dictionaryResource);
        this.apis.push(dictionaryApi.api);
 
-       const dictionaryOpenApi = new OpenApi(this, 'WapichanaDictionaryOpenApi', blogStack.blogFuction);
-       const dictionaryOpenResource = dictionaryOpenApi.addMethod(`${this.apiBase}/posts`, ['GET']);
-       dictionaryOpenApi.addMethod('{uri+}', ['GET'], dictionaryOpenResource);
+       const dictionaryOpenApi = new OpenApi(this, 'WapichanaDictionaryOpenApi', fnStack.dictionaryFuction);
+       const dictionaryOpenResource = dictionaryOpenApi.addMethod(`${this.apiBase}/entries`, ['GET']);
+       dictionaryOpenApi.addMethod('{entry_id+}', ['GET'], dictionaryOpenResource);
        this.apis.push(dictionaryOpenApi.api);
     }
 }

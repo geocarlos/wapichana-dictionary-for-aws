@@ -3,48 +3,47 @@ import { AttributeType, BillingMode, Table } from '@aws-cdk/aws-dynamodb';
 import { Code, Function, Runtime } from "@aws-cdk/aws-lambda";
 import { Effect, PolicyStatement } from "@aws-cdk/aws-iam";
 
-export default class DictionaryStack extends Stack {
-    public readonly posts: Table;
-    public readonly categories: Table;
-    public readonly blogFuction: Function;
-    
+export default class DatabaseStack extends Stack {
+    public readonly entries: Table;
+    public readonly dictionaryFuction: Function;
+
     constructor(scope: Construct, id: string, props?: StackProps) {
         super(scope, id, props);
 
-        const languageIndexProps = {
-            indexName: 'language',
-            partitionKey: {
-                name: 'language',
-                type: AttributeType.STRING
+        const definitionIndexProps = {
+            entry: {
+                indexName: 'entry',
+                partitionKey: {
+                    name: 'entry',
+                    type: AttributeType.STRING
+                },
+                billingMode: BillingMode.PAY_PER_REQUEST
             },
-            billingMode: BillingMode.PAY_PER_REQUEST
+            definition: {
+                indexName: 'definition',
+                partitionKey: {
+                    name: 'definition',
+                    type: AttributeType.STRING
+                },
+                billingMode: BillingMode.PAY_PER_REQUEST
+            },
+
         }
 
-        this.posts = new Table(this, 'posts', {
-            tableName: 'posts',
+        this.entries = new Table(this, 'wapichana-entries', {
+            tableName: 'wapichana-entries',
             partitionKey: {
-                name: 'uri',
+                name: 'entry_id',
                 type: AttributeType.STRING
             },
             billingMode: BillingMode.PAY_PER_REQUEST,
             removalPolicy: RemovalPolicy.RETAIN
         });
 
-        this.posts.addGlobalSecondaryIndex(languageIndexProps)
+        this.entries.addGlobalSecondaryIndex(definitionIndexProps.entry);
+        this.entries.addGlobalSecondaryIndex(definitionIndexProps.definition);
 
-        this.categories = new Table(this, 'categories', {
-            tableName: 'categories',
-            partitionKey: {
-                name: 'name',
-                type: AttributeType.STRING
-            },
-            billingMode: BillingMode.PAY_PER_REQUEST,
-            removalPolicy: RemovalPolicy.RETAIN
-        });
-
-        this.categories.addGlobalSecondaryIndex(languageIndexProps);
-
-        this.blogFuction = new Function(this, 'blog-function', {
+        this.dictionaryFuction = new Function(this, 'dictionary-function', {
             functionName: 'blog-function',
             runtime: Runtime.NODEJS_12_X,
             handler: 'index.handler',
@@ -53,7 +52,7 @@ export default class DictionaryStack extends Stack {
                 new PolicyStatement({
                     effect: Effect.ALLOW,
                     actions: ['dynamodb:GetItem', 'dynamodb:UpdateItem', 'dynamodb:PutItem', 'dynamodb:DeleteItem', 'dynamodb:Scan', 'dynamodb:Query'],
-                    resources: [this.posts.tableArn, this.categories.tableArn, this.posts.tableArn + '/index/*', this.categories.tableArn + '/index/*']
+                    resources: [this.entries.tableArn, this.entries.tableArn + '/index/*']
                 })
             ]
         })
