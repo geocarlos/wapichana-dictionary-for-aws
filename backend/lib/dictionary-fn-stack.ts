@@ -11,10 +11,10 @@ export default class FunctionStack extends Stack {
         super(scope, id, props);
 
         this.dictionaryFuction = new Function(this, 'wapichana-dictionary-function', {
-            functionName: 'blog-function',
+            functionName: 'wapichana-dictionary-function',
             runtime: Runtime.NODEJS_12_X,
             handler: 'index.handler',
-            code: Code.fromAsset('lambda/blog/dist'),
+            code: Code.fromAsset('lambda/wapichana-dictionary/dist'),
             initialPolicy: [
                 new PolicyStatement({
                     effect: Effect.ALLOW,
@@ -23,7 +23,7 @@ export default class FunctionStack extends Stack {
                 }),
                 new PolicyStatement({
                     effect: Effect.ALLOW,
-                    actions: ['s3:GetObject', 's3:PutObject', 'ListObjects'],
+                    actions: ['s3:GetObject', 's3:PutObject', 's3:ListObjects'],
                     resources: [s3Stack.wapichanaBucket.bucketArn]
                 })
             ]

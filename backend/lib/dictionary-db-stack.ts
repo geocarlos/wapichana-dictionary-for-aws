@@ -1,7 +1,6 @@
 import { Construct, RemovalPolicy, Stack, StackProps } from "@aws-cdk/core";
 import { AttributeType, BillingMode, Table } from '@aws-cdk/aws-dynamodb';
-import { Code, Function, Runtime } from "@aws-cdk/aws-lambda";
-import { Effect, PolicyStatement } from "@aws-cdk/aws-iam";
+import { Function } from "@aws-cdk/aws-lambda";
 
 export default class DatabaseStack extends Stack {
     public readonly entries: Table;
@@ -17,7 +16,9 @@ export default class DatabaseStack extends Stack {
                     name: 'entry',
                     type: AttributeType.STRING
                 },
-                billingMode: BillingMode.PAY_PER_REQUEST
+                billingMode: BillingMode.PROVISIONED,
+                writeCapacity: 1,
+                readCapacity: 1
             },
             definition: {
                 indexName: 'definition',
@@ -25,36 +26,26 @@ export default class DatabaseStack extends Stack {
                     name: 'definition',
                     type: AttributeType.STRING
                 },
-                billingMode: BillingMode.PAY_PER_REQUEST
+                billingMode: BillingMode.PROVISIONED,
+                writeCapacity: 1,
+                readCapacity: 1
             },
 
         }
 
-        this.entries = new Table(this, 'wapichana-entries', {
-            tableName: 'wapichana-entries',
+        this.entries = new Table(this, 'wapichana-dictionary', {
+            tableName: 'wapichana-dictionary',
             partitionKey: {
                 name: 'entry_id',
                 type: AttributeType.STRING
             },
-            billingMode: BillingMode.PAY_PER_REQUEST,
+            billingMode: BillingMode.PROVISIONED,
+            writeCapacity: 1,
+            readCapacity: 1,
             removalPolicy: RemovalPolicy.RETAIN
         });
 
         this.entries.addGlobalSecondaryIndex(definitionIndexProps.entry);
         this.entries.addGlobalSecondaryIndex(definitionIndexProps.definition);
-
-        this.dictionaryFuction = new Function(this, 'dictionary-function', {
-            functionName: 'blog-function',
-            runtime: Runtime.NODEJS_12_X,
-            handler: 'index.handler',
-            code: Code.fromAsset('lambda/blog/dist'),
-            initialPolicy: [
-                new PolicyStatement({
-                    effect: Effect.ALLOW,
-                    actions: ['dynamodb:GetItem', 'dynamodb:UpdateItem', 'dynamodb:PutItem', 'dynamodb:DeleteItem', 'dynamodb:Scan', 'dynamodb:Query'],
-                    resources: [this.entries.tableArn, this.entries.tableArn + '/index/*']
-                })
-            ]
-        })
     }
 }

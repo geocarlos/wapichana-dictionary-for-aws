@@ -69,12 +69,12 @@ export default class ApiStack extends Stack {
         });
 
        const dictionaryApi = new SecureApi(this, 'WapichanaDictionaryApi', fnStack.dictionaryFuction, authorizer);
-       const dictionaryResource = dictionaryApi.addMethod(`${this.apiBase}/entries`, ['GET', 'POST']);
+       const dictionaryResource = dictionaryApi.addMethod(`${this.apiBase}/wapichana-dictionary/entries`, ['GET', 'POST']);
        dictionaryApi.addMethod('{entry_id+}', ['PUT', 'GET', 'DELETE'], dictionaryResource);
        this.apis.push(dictionaryApi.api);
 
        const dictionaryOpenApi = new OpenApi(this, 'WapichanaDictionaryOpenApi', fnStack.dictionaryFuction);
-       const dictionaryOpenResource = dictionaryOpenApi.addMethod(`${this.apiBase}/entries`, ['GET']);
+       const dictionaryOpenResource = dictionaryOpenApi.addMethod(`${this.apiBase}/wapichana-dictionary/entries`, ['GET']);
        dictionaryOpenApi.addMethod('{entry_id+}', ['GET'], dictionaryOpenResource);
        this.apis.push(dictionaryOpenApi.api);
     }
