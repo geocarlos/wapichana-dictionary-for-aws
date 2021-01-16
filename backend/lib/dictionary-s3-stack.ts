@@ -1,5 +1,5 @@
 import { CfnOutput, Construct, RemovalPolicy, StackProps } from "@aws-cdk/core";
-import { Bucket, HttpMethods } from '@aws-cdk/aws-s3';
+import { Bucket, BucketAccessControl, HttpMethods } from '@aws-cdk/aws-s3';
 import TaggingStack from "./tagging-stack";
 
 export default class S3BucketStack extends TaggingStack {
@@ -8,6 +8,8 @@ export default class S3BucketStack extends TaggingStack {
         super(scope, id, props);
         this.wapichanaBucket = new Bucket(this, 'wapichana', {
             removalPolicy: RemovalPolicy.RETAIN,
+            accessControl: BucketAccessControl.PUBLIC_READ,
+            publicReadAccess: true,
             cors: [
                 {
                     maxAge: 3000,

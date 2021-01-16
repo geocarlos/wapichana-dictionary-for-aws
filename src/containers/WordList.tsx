@@ -2,14 +2,18 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../context/app-context';
 import PlayStop from '../components/PlayStop';
+import { useSelector } from 'react-redux';
+import IStore from '../store/IStore';
+import Entry from '../model/Entry';
 
-const isNotNh = (word: any) => {
-	return word.substring(0,2).toLowerCase() !== 'nh'; 
+export const isNotNh = (word: any) => {
+	return word.substring(0, 2).toLowerCase() !== 'nh';
 }
 
-const WordList = ({ letter = 'A'}) => {
-	const { wordList, audioUrl } = useContext(AppContext);
-	
+const WordList = ({ letter = 'A' }) => {
+	const { audioUrl } = useContext(AppContext);
+	const wordList = useSelector<IStore, Entry[]>(state => state.entries);
+
 	const [audio, setAudio] = useState<any>();
 
 	const play = (url: string) => {
@@ -38,19 +42,18 @@ const WordList = ({ letter = 'A'}) => {
 		<section className="wapi">
 			<h2 id={letter}>{letter}</h2>
 			<ul>
-				{Object.keys(wordList).filter(w => wordList[w] !== null).map((d: any, i: number) => {
-					const check = (letter.toLowerCase() === d[0].toLowerCase() && isNotNh(d)) || letter.toLowerCase() === d.substring(0, 2).toLowerCase();
-					return check && wordList[d] && <li className="word-card" key={d + i}>
-							<Link to={`/${i}/${d}`}>{d}</Link> - {wordList[d].definitions.map((d: any) => d.definition).join('; ')}
-							<div>
-								{wordList[d].audios.length > 0 && <span onClick={() => {
-									audio && audio.src.includes(wordList[d].audios[0]) ? stop() : play(`${audioUrl + wordList[d].audios[0]}?alt=media`);
-									}}>
-									<PlayStop isPlaying={audio && audio.src.includes(wordList[d].audios[0])} />
-								</span>}
-							</div>
-						</li>
-				})}
+				{wordList.map((word: any, i: number) => (
+					<li className="word-card" key={word.entry + i}>
+						<Link to={`/${word.entry_id}`}>{word.entry}</Link> - {word.definition}
+						<div>
+							{word.audios.length > 0 && <span onClick={() => {
+								audio && audio.src.includes(word.audios[0]) ? stop() : play(`${audioUrl + word.audios[0]}?alt=media`);
+							}}>
+								<PlayStop isPlaying={audio && audio.src.includes(word.audios[0])} />
+							</span>}
+						</div>
+					</li>
+				))}
 			</ul>
 		</section>
 	)

@@ -1,18 +1,29 @@
 import React, { useEffect } from 'react';
 import Main from './containers/Main';
-import { fetchEntries } from './actions/EntryActions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { checkAuthOnLoad } from './api/auth';
+import Spinner from './components/Spinner';
+import IStore from './store/IStore';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#8B131D'
+    },
+    secondary: {
+      main: '#696969'
+    }
+  }
+})
 
 function App() {
   const dispatch = useDispatch();
+  const loading = useSelector<IStore, boolean>(state => state.loading);
   useEffect(() => {
-    dispatch<any>(fetchEntries('A'))
-    .then((data: any) => console.log('DATA:', data))
-    .catch((error: Error) => console.log(error));
-  })
-  return (
-    <Main />
-  );
+    dispatch({type: 'SIGN_IN', payload: checkAuthOnLoad()});
+  }, [dispatch])
+  return <ThemeProvider theme={theme}><Main />{loading && <div className="loading"><Spinner/></div>}</ThemeProvider>;
 }
 
 export default App;

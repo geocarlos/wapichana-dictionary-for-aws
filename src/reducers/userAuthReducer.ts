@@ -8,6 +8,8 @@ const user: Reducer<User | null, ActionTypes> = (state = initialState.user, acti
     switch (action.type) {
         case ActionTypeKeys.SIGN_IN_RESOLVED:
             return action.payload;
+        case ActionTypeKeys.SIGN_OUT_RESOLVED:
+            return null;
         default:
             return state;
     }

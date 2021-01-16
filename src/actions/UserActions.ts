@@ -1,14 +1,15 @@
+import { handleSignIn, handleSignOut } from "../api/auth";
 import ActionTypeKeys from "./ActionTypeKeys";
 import { ICreateUser, IDeleteUser, IFetchUsers, ISignIn, ISignOut } from "./IActions";
 
 export const signIn = (username: string, password: string): ISignIn => ({
     type: ActionTypeKeys.SIGN_IN,
-    payload: Promise.resolve({username, password})
+    payload: handleSignIn(username, password)
 });
 
 export const signOut = (): ISignOut => ({
     type: ActionTypeKeys.SIGN_OUT,
-    payload: Promise.resolve(true)
+    payload: handleSignOut()
 });
 
 export const fetchUsers = (): IFetchUsers => ({

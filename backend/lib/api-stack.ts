@@ -1,6 +1,6 @@
 import { Construct, Duration, StackProps } from "@aws-cdk/core";
 import { IResource } from '@aws-cdk/aws-apigateway/lib/resource';
-import { LambdaRestApi, TokenAuthorizer } from '@aws-cdk/aws-apigateway';
+import { HttpIntegration, Integration, LambdaRestApi, TokenAuthorizer } from '@aws-cdk/aws-apigateway';
 import { Code, Function, Runtime } from "@aws-cdk/aws-lambda";
 import SecureApi from "./secure-api";
 import OpenApi from "./open-api";
@@ -16,18 +16,18 @@ export default class ApiStack extends TaggingStack {
         resource = ApiStack.addResource(resource, path);
 
         if (authorizer) {
-            resource.addMethod(method, undefined, {authorizer});
+            resource.addMethod(method, undefined, { authorizer });
         } else {
             resource.addMethod(method);
         }
         ApiStack.addPath(resource);
         return resource;
     }
-    
+
     public static addResource(resource: IResource, path: string) {
         if (path && path.includes('/')) {
             const paths = path.split('/');
-            for(let i = 0; i < paths.length; i++) {
+            for (let i = 0; i < paths.length; i++) {
                 resource = resource.addResource(paths[i]);
             }
         } else if (path) {
@@ -39,10 +39,10 @@ export default class ApiStack extends TaggingStack {
     public static addPath(resource: IResource) {
         let name = '';
         let firstResource = resource.parentResource;
-        while(firstResource?.parentResource) {
+        while (firstResource?.parentResource) {
             firstResource = firstResource.parentResource;
         }
-        if(firstResource && firstResource.node && firstResource.node.scope) {
+        if (firstResource && firstResource.node && firstResource.node.scope) {
             name = firstResource.node.id || '';
         }
         if (!this.paths[name]) {
@@ -54,7 +54,7 @@ export default class ApiStack extends TaggingStack {
             } else {
                 this.paths[name].push(resource.path);
             }
-        }   
+        }
     }
 
     constructor(scope: Construct, id: string, fnStack: FunctionStack, props?: StackProps) {
@@ -69,14 +69,20 @@ export default class ApiStack extends TaggingStack {
             memorySize: 1024
         });
 
-       const dictionaryApi = new SecureApi(this, 'WapichanaDictionaryApi', fnStack.dictionaryFuction, authorizer);
-       const dictionaryResource = dictionaryApi.addMethod(`${this.apiBase}/entries`, ['GET', 'POST']);
-       dictionaryApi.addMethod('{entry_id+}', ['PUT', 'GET', 'DELETE'], dictionaryResource);
-       this.apis.push(dictionaryApi.api);
+        const dictionaryApi = new SecureApi(this, 'WapichanaDictionaryApi', fnStack.dictionaryFuction, authorizer);
+        const dictionaryResource = dictionaryApi.addMethod(`${this.apiBase}/entries`, ['GET', 'POST']);
+        dictionaryApi.addMethod('{entry_id+}', ['PUT', 'GET', 'DELETE'], dictionaryResource);
+        this.apis.push(dictionaryApi.api);
 
-       const dictionaryOpenApi = new OpenApi(this, 'WapichanaDictionaryOpenApi', fnStack.dictionaryFuction);
-       const dictionaryOpenResource = dictionaryOpenApi.addMethod(`${this.apiBase}/entries`, ['GET']);
-       dictionaryOpenApi.addMethod('{entry_id+}', ['GET'], dictionaryOpenResource);
-       this.apis.push(dictionaryOpenApi.api);
+        const dictionaryOpenApi = new OpenApi(this, 'WapichanaDictionaryOpenApi', fnStack.dictionaryFuction);
+        const dictionaryOpenResource = dictionaryOpenApi.addMethod(`${this.apiBase}/entries`, ['GET']);
+        dictionaryOpenApi.addMethod('{entry_id+}', ['GET'], dictionaryOpenResource);
+        this.apis.push(dictionaryOpenApi.api);
+
+        const fileUploadApi = new SecureApi(this, 'wapichanaFileUploadApi', fnStack.fileUploadFunction, authorizer);
+        fileUploadApi.addMethod(`${this.apiBase}/wapichana-file-upload`, ['GET']);
+
+        this.apis.push(fileUploadApi.api);
+
     }
 }

@@ -33,7 +33,6 @@ export default class OpenApi {
            allowMethods: Cors.ALL_METHODS
         },
         defaultMethodOptions: {
-
         }
      });
   }

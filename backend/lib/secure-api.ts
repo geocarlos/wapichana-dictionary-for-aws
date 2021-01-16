@@ -42,7 +42,6 @@ export default class SecureApi {
            allowMethods: Cors.ALL_METHODS
         },
         defaultMethodOptions: {
-
         }
      });
   }
