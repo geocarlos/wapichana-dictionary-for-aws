@@ -12,7 +12,21 @@ Amplify.configure({
   });
 
 export const handleSignIn = (username: string, password: string) => {
-    return Auth.signIn(username, password);
+    return Auth.signIn(username, password)
+    .then(user => {
+        return Auth.currentSession()
+        .then(data => {
+            const roles = data.getIdToken().decodePayload()['cognito:groups'];
+            return {
+                ...user,
+                userRoles: roles,
+                isLoggedIn: true
+            }
+        })
+    })
+    .catch(error => {
+        throw error;
+    });
 }
 
 export const handleSignOut = () => {
@@ -21,7 +35,17 @@ export const handleSignOut = () => {
 
 export const checkAuthOnLoad = () => {
     return Auth.currentAuthenticatedUser()
-    .then(user => user)
+    .then(user => {
+        return Auth.currentSession()
+        .then(data => {
+            const roles = data.getIdToken().decodePayload()['cognito:groups'];
+            return {
+                ...user,
+                userRoles: roles,
+                isLoggedIn: true
+            }
+        })
+    })
     .catch(error => {
         throw error;    
     })

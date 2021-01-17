@@ -81,7 +81,8 @@ const Word = ({ setLetter }: IProps) => {
 	return word ? (
 		<div className={classes.root}>
 			<div className={classes.item}>
-				<Button className={classes.returnButton} variant="contained" color="secondary" onClick={() => history.push('/')}>Go Back</Button>
+				<Button className={classes.returnButton} variant="contained" color="secondary" 
+				onClick={() => history.push('/')}>Voltar</Button>
 				<div className={classes.navList}>
 					{wordList.map(w => (
 						<div className="nav-list-item">
@@ -105,11 +106,11 @@ const Word = ({ setLetter }: IProps) => {
 					<div className={classes.media}>
 						{word.audios.map(audio => (
 							<audio key={audio} controls>
-								<source src={audio} />
+								<source src={`${MEDIA_URL}/${audio}`} />
 							</audio>
 						))}
 						{word.images?.map((img: any) => (
-							<img src={`${MEDIA_URL}/${img}`} alt={img} />
+							<img key={img} src={`${MEDIA_URL}/${img}`} alt={img} />
 						))}
 					</div>
 				</div>

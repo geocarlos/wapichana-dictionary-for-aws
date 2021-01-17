@@ -2,9 +2,9 @@ import React from "react";
 import axios from "axios";
 import { API_FILE_UPLOAD_URL } from "../api/constants";
 import { Button } from "@material-ui/core";
-import { input } from "aws-amplify";
+import Spinner from "./Spinner";
 
-const FileUpload = () => {
+const FileUpload = ({handleAdd, type = 'image/*', width = 180, height = 35, children}: any) => {
     // fileToUpload contains the actual file object
     // uploadSuccess becomes true when the file upload is complete
     const [state, setState] = React.useState<any>({
@@ -13,9 +13,12 @@ const FileUpload = () => {
         error: undefined
     });
 
+    const [loading, setLoading] = React.useState(false);
+
     const inputRef = React.useRef<any>();
 
     const uploadFile = () => {
+        setLoading(true);
         // When the upload file button is clicked, 
         // first we need to get the presigned URL
         // URL is the one you get from AWS API Gateway
@@ -33,25 +36,31 @@ const FileUpload = () => {
                 })
                     .then(res => {
                         setState({
-                            uploadSuccess: "File upload successfull",
+                            uploadSuccess: "Arquivo enviado com sucesso!",
                             error: undefined
                         });
+                        handleAdd(
+                            state.fileToUpload.type.substring(0, state.fileToUpload.type.indexOf('/')),
+                            state.fileToUpload.name
+                        );
+
                     })
                     .catch(err => {
                         setState({
-                            error: "Error Occured while uploading the file",
+                            error: "Ocorreu um erro ao enviar arquivo",
                             uploadSuccess: undefined
                         });
-                    });
+                    }).
+                    finally(() => setLoading(false));
             });
     }
 
     const preview = (file: any) => {
         const src = window.URL.createObjectURL(file);
         if (file.type?.includes('image')) {
-            return <img width="100" src={src} alt="preview" />
+            return <img width={width} src={src} alt="preview" />
         }
-        return <audio src={src} controls></audio>
+        return <audio src={src} style={{width, height}} controls></audio>
     }
 
     return (
@@ -62,6 +71,7 @@ const FileUpload = () => {
                         hidden
                         ref={inputRef}
                         type="file"
+                        accept={type || 'image/*'}
                         className="form-control-file"
                         id="fileUpload"
                         onChange={(e: any) => {
@@ -72,12 +82,14 @@ const FileUpload = () => {
                     />
                     {state.fileToUpload ? (
                         <>
+                            {!loading && <>
                             <Button
                                 variant="outlined"
                                 type="button"
                                 size="small"
                                 className="btn btn-light"
-                                onClick={e => {
+                                style={{marginRight: '0.5rem'}}
+                                onClick={() => {
                                     uploadFile();
                                 }}
                             >
@@ -94,12 +106,13 @@ const FileUpload = () => {
                                 }}
                             >
                                 Cancelar
-                            </Button>
+                            </Button></>}
                             <p>{inputRef && inputRef.current.files[0].name}</p>
                             {preview(inputRef.current.files[0])}
                         </>
                     ) : (
                             <Button
+                                style={{background: 'white'}}
                                 variant="outlined"
                                 size="small"
                                 onClick={() => {
@@ -107,15 +120,11 @@ const FileUpload = () => {
                                     inputRef.current.click();
                                 }
                             }}>
-                                Adicionar
+                                {children}
                             </Button>
                         )}
-                    <div>
-                        <span>
-                            {state.uploadSuccess
-                                ? "File Upload Successfully"
-                                : ""}
-                        </span>
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                       {loading && <Spinner />}
                     </div>
                 </div>
             </form>

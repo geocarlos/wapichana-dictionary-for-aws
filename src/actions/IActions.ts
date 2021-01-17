@@ -83,8 +83,8 @@ export interface IDeleteUserResolved {
 
 
 export interface ISignIn {
-    readonly type: keys.SIGN_IN,
-    readonly payload: Promise<any>
+    readonly type: keys.SIGN_IN | keys.SIGN_IN_REJECTED,
+    readonly payload?: Promise<any>
 }
 
 export interface ISignInResolved {
@@ -93,7 +93,7 @@ export interface ISignInResolved {
 }
 
 export interface ISignOut {
-    readonly type: keys.SIGN_OUT,
+    readonly type: keys.SIGN_OUT | keys.SIGN_OUT_REJECTED,
     readonly payload: Promise<any>
 }
 

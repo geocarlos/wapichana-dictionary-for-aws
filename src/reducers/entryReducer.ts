@@ -7,7 +7,7 @@ import initialState from '../store/initialState';
 const entries: Reducer<Array<Entry>, ActionTypes> = (state = initialState.entries, action: ActionTypes): Array<Entry> => {
     switch (action.type) {
         case ActionTypeKeys.FETCH_ENTRIES_RESOLVED:
-            return action.payload;
+            return action.payload.data;
         default:
             return state;
     }

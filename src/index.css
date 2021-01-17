@@ -104,6 +104,13 @@ body {
 	text-decoration: none;
 }
 
+.wapi-header {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
+
 footer {
 	width: auto;
 	height: 200px;

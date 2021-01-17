@@ -5,6 +5,8 @@ import { checkAuthOnLoad } from './api/auth';
 import Spinner from './components/Spinner';
 import IStore from './store/IStore';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const theme = createMuiTheme({
   palette: {
@@ -21,9 +23,14 @@ function App() {
   const dispatch = useDispatch();
   const loading = useSelector<IStore, boolean>(state => state.loading);
   useEffect(() => {
-    dispatch({type: 'SIGN_IN', payload: checkAuthOnLoad()});
+    dispatch({ type: 'SIGN_IN', payload: checkAuthOnLoad() });
   }, [dispatch])
-  return <ThemeProvider theme={theme}><Main />{loading && <div className="loading"><Spinner/></div>}</ThemeProvider>;
+  return (
+    <ThemeProvider theme={theme}>
+      <Main />{loading && <div className="loading"><Spinner /></div>}
+      <ToastContainer />
+    </ThemeProvider>
+  );
 }
 
 export default App;

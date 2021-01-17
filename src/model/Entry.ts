@@ -6,4 +6,5 @@ export default interface Entry {
     examples: Array<string>;
     audios: Array<string>;
     images: Array<string>;
+    initialLetter: string
 }

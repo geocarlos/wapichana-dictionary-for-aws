@@ -1,10 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import AppContext from '../context/app-context';
 import PlayStop from '../components/PlayStop';
 import { useSelector } from 'react-redux';
 import IStore from '../store/IStore';
 import Entry from '../model/Entry';
+import { Button, IconButton } from '@material-ui/core';
+import { Edit } from '@material-ui/icons';
 
 export const isNotNh = (word: any) => {
 	return word.substring(0, 2).toLowerCase() !== 'nh';
@@ -13,6 +15,8 @@ export const isNotNh = (word: any) => {
 const WordList = ({ letter = 'A' }) => {
 	const { audioUrl } = useContext(AppContext);
 	const wordList = useSelector<IStore, Entry[]>(state => state.entries);
+	const isLoggedIn = useSelector<IStore, boolean | null>(state => state.user.isLoggedIn);
+	const history = useHistory();
 
 	const [audio, setAudio] = useState<any>();
 
@@ -36,15 +40,22 @@ const WordList = ({ letter = 'A' }) => {
 			audio.onended = stop;
 			audio.play();
 		}
-	}, [audio])
+	}, [audio]);
 
 	return (
 		<section className="wapi">
-			<h2 id={letter}>{letter}</h2>
+			<div className="wapi-header">
+				<h2 id={letter}>{letter}</h2>
+				{isLoggedIn && 
+				<Button onClick={() => history.push('/editor')} variant="outlined" color="primary" size="small">
+					Adicionar Palavra
+				</Button>}
+			</div>
 			<ul>
 				{wordList.map((word: any, i: number) => (
 					<li className="word-card" key={word.entry + i}>
 						<Link to={`/${word.entry_id}`}>{word.entry}</Link> - {word.definition}
+						{isLoggedIn && <IconButton style={{padding: 0}} onClick={() => history.push(`/editor/${word.entry_id}`)}><Edit /></IconButton>}
 						<div>
 							{word.audios.length > 0 && <span onClick={() => {
 								audio && audio.src.includes(word.audios[0]) ? stop() : play(`${audioUrl + word.audios[0]}?alt=media`);

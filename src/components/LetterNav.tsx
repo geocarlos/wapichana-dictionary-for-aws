@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import User from '../model/User';
 import IStore from '../store/IStore';
 import Authenticator from './Authenticator';
@@ -14,7 +14,7 @@ type IProps = {
 const LetterNav = ({ setLetter }: IProps) => {
 	const dispatch = useDispatch();
 	const location = useLocation();
-	const user = useSelector<IStore, User | null>(state => state.user);
+	const user = useSelector<IStore, User>(state => state.user);
 	const letters = ['A', 'B', 'D', 'G', 'I', 'K', 'M', 'N', 'P', 'R', 'S', 'T', 'U', 'W', 'X', 'Y', 'Z', 'NH', 'CH'];
 
 	useEffect(() => {
@@ -41,8 +41,8 @@ const LetterNav = ({ setLetter }: IProps) => {
 					</ul>
 				</div>
 				<div className="authenticator-button">
-					{user ?
-						<><b>{user?.username}</b>
+					{user.isLoggedIn ?
+						<><b>{user.username}</b>
 							<Button color="primary" onClick={() => {
 								dispatch(signOut());
 							}}>Sair</Button>
