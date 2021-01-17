@@ -3,14 +3,15 @@ import { Link, useHistory, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import IStore from '../store/IStore';
 import Entry from '../model/Entry';
-import { isNotNh } from './WordList';
-import { Button, makeStyles } from '@material-ui/core';
+import { getInitialLetter } from './WordList';
+import { Button, IconButton, makeStyles } from '@material-ui/core';
 import { MEDIA_URL } from '../api/constants';
+import { Edit } from '@material-ui/icons';
 
 const useStyles = makeStyles({
 	root: {
 		display: 'grid',
-		height: '58.5vh',
+		height: '73vh',
 		alignItems: 'flex-start',
 		width: '100%',
 		margin: '0',
@@ -26,7 +27,7 @@ const useStyles = makeStyles({
 		position: 'relative',
 		width: '100%',
 		padding: '1rem',
-		height: '100%',
+		height: '90%',
 		'& a': {
 			color: 'var(--primary-color)'
 		},
@@ -46,6 +47,28 @@ const useStyles = makeStyles({
 		top: 0,
 		zIndex: 100
 	},
+	definition: {
+		fontSize: '1.5rem',
+		padding: '.5rem 0',
+		'& em': {
+			marginRight: '.5rem',
+			fontWeight: 600
+		}
+	},
+	examples: {
+		margin: '.5rem 0',
+		padding: '1rem 0',
+		'& .examples-header': {
+			fontWeight: 600,
+			fontSize: '1.5rem'
+		},
+		'& .example-block': {
+			background: '#efefef',
+			borderRadius: '.5rem',
+			padding: '1rem',
+			margin: '.5rem 0'
+		}
+	},
 	media: {
 		'& img': {
 			width: '15rem'
@@ -64,6 +87,7 @@ const Word = ({ setLetter }: IProps) => {
 	const { entry_id }: any = useParams();
 
 	const wordList = useSelector<IStore, Entry[]>(state => state.entries);
+	const isLoggedIn = useSelector<IStore, boolean | null>(state => state.user.isLoggedIn);
 	const [word, setWord] = React.useState<Entry | null>(null)
 
 	useEffect(() => {
@@ -74,7 +98,7 @@ const Word = ({ setLetter }: IProps) => {
 			}
 		}
 		setLetter(prev => {
-			return entry_id ? isNotNh(entry_id) ? entry_id[0] : entry_id.toUpperCase().substring(0, 2) : prev;
+			return entry_id ? getInitialLetter(entry_id) : prev;
 		})
 	}, [wordList, entry_id])
 
@@ -94,14 +118,26 @@ const Word = ({ setLetter }: IProps) => {
 			<div className={classes.item}>
 				<div className={classes.wordView}>
 					<div>
-						<h1>{word.entry}</h1>
-						<p>{word.definition}</p>
-						{word.examples.map((e: any) => (
-							<React.Fragment key={e.example}>
-								<p><b>{e.example}</b></p>
-								<p>{e.exampleTranslation}</p>
-							</React.Fragment>
-						))}
+						<h1>
+							{word.entry}
+								{isLoggedIn && 
+								<IconButton style={{padding: 0}} onClick={() => history.push(`/editor/${word.entry_id}`)}><Edit /></IconButton>}
+							</h1>
+						<div className={classes.definition}>
+							<em>{word.gramm}</em>
+							{word.definition}
+						</div>
+						<div className={classes.examples}>
+							<div className="examples-header">
+								{`Exemplo${word.examples.length > 1 ? 's' : ''}`}
+							</div>
+							{word.examples.map((e: any) => (
+								<div className="example-block" key={e.example}>
+									<p><b>{e.example}</b></p>
+									<p>{e.exampleTranslation}</p>
+								</div>
+							))}
+						</div>
 					</div>
 					<div className={classes.media}>
 						{word.audios.map(audio => (

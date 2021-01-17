@@ -12,6 +12,10 @@ export const isNotNh = (word: any) => {
 	return word.substring(0, 2).toLowerCase() !== 'nh';
 }
 
+export const getInitialLetter = (entry: string) => {
+    return isNotNh(entry) && entry[0].toLocaleLowerCase() !== 'c' ? entry[0].toUpperCase() : entry.toUpperCase().substring(0, 2);
+}
+
 const WordList = ({ letter = 'A' }) => {
 	const { audioUrl } = useContext(AppContext);
 	const wordList = useSelector<IStore, Entry[]>(state => state.entries);

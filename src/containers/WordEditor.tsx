@@ -3,7 +3,7 @@ import { Link, useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import IStore from '../store/IStore';
 import Entry from '../model/Entry';
-import { isNotNh } from './WordList';
+import { getInitialLetter } from './WordList';
 import { Button, IconButton, makeStyles } from '@material-ui/core';
 import { Edit, Check, Cancel } from '@material-ui/icons';
 import { MEDIA_URL } from '../api/constants';
@@ -118,16 +118,13 @@ const useStyles = makeStyles({
     }
 });
 
-const getInitialLetter = (entry: string) => {
-    return isNotNh(entry) && entry[0].toLocaleLowerCase() !== 'c' ? entry[0].toUpperCase() : entry.toUpperCase().substring(0, 2);
-}
-
 const WordEditor = () => {
     const classes = useStyles();
     const history = useHistory();
     const dispatch = useDispatch();
 
     const { entry_id }: any = useParams();
+    const wordViewRef = React.useRef<any>();
 
     const wordList = useSelector<IStore, Entry[]>(state => state.entries);
 
@@ -197,7 +194,6 @@ const WordEditor = () => {
                 }));
             }
         }
-        console.log('ENTRY_ID: ', entry_id)
     }, [wordList, entry_id, setWord]);
 
     const addExample = () => {
@@ -217,9 +213,14 @@ const WordEditor = () => {
                         styleClass: classes.propBlock
                     }
                 }
-            ]
-        })
+            ],
+            lastExampleId: `${word.examples.length}_example`
+        });
     }
+
+    useEffect(() => {
+        window.document.getElementById(word.lastExampleId)?.scrollIntoView();
+    }, [word.lastExampleId])
 
     const removeExample = (index: number) => {
         const examples = [...word.examples];
@@ -289,7 +290,7 @@ const WordEditor = () => {
                 </Button>
             </div>
             <div className={classes.item}>
-                <div className={classes.wordView}>
+                <div id="word-view" ref={wordViewRef} className={classes.wordView}>
                     <div className={`entry-handler sticky-button ${classes.audio}`}>
                         <FileUpload type="audio/*" handleAdd={addMedia}>Adicionar Áudio</FileUpload>
                     </div>
