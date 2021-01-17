@@ -119,7 +119,7 @@ const useStyles = makeStyles({
 });
 
 const getInitialLetter = (entry: string) => {
-    return isNotNh(entry) && entry[0].toLocaleLowerCase() !== 'c' ? entry[0].toUpperCase() : entry.substring(0, 2);
+    return isNotNh(entry) && entry[0].toLocaleLowerCase() !== 'c' ? entry[0].toUpperCase() : entry.toUpperCase().substring(0, 2);
 }
 
 const WordEditor = () => {
