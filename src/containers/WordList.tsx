@@ -7,6 +7,7 @@ import IStore from '../store/IStore';
 import Entry from '../model/Entry';
 import { Button, IconButton } from '@material-ui/core';
 import { Edit } from '@material-ui/icons';
+import { MEDIA_URL } from '../api/constants';
 
 export const isNotNh = (word: any) => {
 	return word.substring(0, 2).toLowerCase() !== 'nh';
@@ -17,7 +18,6 @@ export const getInitialLetter = (entry: string) => {
 }
 
 const WordList = ({ letter = 'A' }) => {
-	const { audioUrl } = useContext(AppContext);
 	const wordList = useSelector<IStore, Entry[]>(state => state.entries);
 	const isLoggedIn = useSelector<IStore, boolean | null>(state => state.user.isLoggedIn);
 	const history = useHistory();
@@ -62,7 +62,7 @@ const WordList = ({ letter = 'A' }) => {
 						{isLoggedIn && <IconButton style={{padding: 0}} onClick={() => history.push(`/editor/${word.entry_id}`)}><Edit /></IconButton>}
 						<div>
 							{word.audios.length > 0 && <span onClick={() => {
-								audio && audio.src.includes(word.audios[0]) ? stop() : play(`${audioUrl + word.audios[0]}?alt=media`);
+								audio && audio.src.includes(word.audios[0]) ? stop() : play(`${MEDIA_URL}/${word.audios[0]}`);
 							}}>
 								<PlayStop isPlaying={audio && audio.src.includes(word.audios[0])} />
 							</span>}

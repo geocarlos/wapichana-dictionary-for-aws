@@ -8,7 +8,7 @@ import { Button, IconButton, makeStyles } from '@material-ui/core';
 import { MEDIA_URL } from '../api/constants';
 import { Edit } from '@material-ui/icons';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
 	root: {
 		display: 'grid',
 		height: '73vh',
@@ -17,7 +17,10 @@ const useStyles = makeStyles({
 		margin: '0',
 		gridTemplateColumns: '20% auto',
 		columnGap: '2rem',
-		padding: '1rem'
+		padding: '1rem',
+		[theme.breakpoints.down(700)]: {
+			height: '90vh'
+		}
 	},
 	item: {
 		height: '100%',
@@ -40,7 +43,10 @@ const useStyles = makeStyles({
 		gridTemplateColumns: '50% 50%',
 		width: '100%',
 		height: '100%',
-		overflow: 'auto'
+		overflow: 'auto',
+		[theme.breakpoints.down(700)]: {
+			gridTemplateColumns: 'auto'
+		}
 	},
 	returnButton: {
 		position: 'sticky',
@@ -74,7 +80,7 @@ const useStyles = makeStyles({
 			width: '15rem'
 		}
 	}
-});
+}));
 
 type IProps = {
 	setLetter: React.Dispatch<React.SetStateAction<string>>

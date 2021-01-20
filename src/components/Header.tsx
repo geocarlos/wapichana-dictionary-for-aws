@@ -29,12 +29,13 @@ const useStyles = makeStyles({
 		height: '23%',
 		background: '#8B131D',
 		'& .logo': logoStyle,
+		zIndex: 1
 	},
 	headerSmall: {
 		width: '100%',
 		height: '5%',
-		position: 'sticky',
 		top: 0,
+		zIndex: 1,
 		background: '#8B131D',
 		'& .logo': {
 			...logoStyle,

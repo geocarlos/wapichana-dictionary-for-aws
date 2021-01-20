@@ -28,7 +28,7 @@ export default class OpenApi {
            stageName: ''
         },
         defaultCorsPreflightOptions: {
-           allowOrigins: ['http://localhost:3000'],
+           allowOrigins: ['http://localhost:3000', 'https://dicionariowapichana.org'],
            allowCredentials: true,
            allowMethods: Cors.ALL_METHODS
         },
