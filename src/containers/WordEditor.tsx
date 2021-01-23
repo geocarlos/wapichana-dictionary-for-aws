@@ -263,7 +263,7 @@ const WordEditor = () => {
             entry: word.entry.value,
             gramm: word.gramm.value,
             definition: word.definition.value,
-            examples: word.examples.filter((e: any) => e !== null || e.example.value !== '')
+            examples: word.examples.filter((e: any) => e !== null || (e && e.example.value !== ''))
                 .map((e: any) => ({ example: e.example.value, exampleTranslation: e.exampleTranslation.value })),
             audios: word.audios.filter((audio: string) => audio !== null),
             images: word.images.filter((image: string) => image !== null),

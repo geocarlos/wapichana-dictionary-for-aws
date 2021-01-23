@@ -14,6 +14,9 @@ Amplify.configure({
 export const handleSignIn = (username: string, password: string) => {
     return Auth.signIn(username, password)
     .then(user => {
+        if (user.challengeName === 'NEW_PASSWORD_REQUIRED') {
+            return user;
+        }
         return Auth.currentSession()
         .then(data => {
             const roles = data.getIdToken().decodePayload()['cognito:groups'];
