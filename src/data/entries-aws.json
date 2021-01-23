@@ -12,9 +12,6 @@
     ],
     "audios": [
       "audio_1.mp3"
-    ],
-    "images": [
-      "articles.jpg"
     ]
   },
   {
@@ -175,6 +172,9 @@
     ],
     "audios": [
       "audio_6.mp3"
+    ],
+    "images": [
+      "image7.png"
     ]
   },
   {
@@ -205,6 +205,9 @@
     ],
     "audios": [
       "audio_8.mp3"
+    ],
+    "images": [
+      "image10.jpeg"
     ]
   },
   {
@@ -220,6 +223,9 @@
     ],
     "audios": [
       "audio_9.mp3"
+    ],
+    "images": [
+      "image12.png"
     ]
   },
   {
@@ -235,6 +241,9 @@
     ],
     "audios": [
       "audio_10.mp3"
+    ],
+    "images": [
+      "image14.png"
     ]
   },
   {
@@ -355,6 +364,9 @@
     ],
     "audios": [
       "audio_15.mp3"
+    ],
+    "images": [
+      "image20.png"
     ]
   },
   {
@@ -725,6 +737,9 @@
     ],
     "audios": [
       "audio_32.mp3"
+    ],
+    "images": [
+      "image41.jpeg"
     ]
   },
   {
@@ -755,6 +770,9 @@
     ],
     "audios": [
       "audio_34.mp3"
+    ],
+    "images": [
+      "image44.jpeg"
     ]
   },
   {
@@ -815,6 +833,9 @@
     ],
     "audios": [
       "audio_38.mp3"
+    ],
+    "images": [
+      "image49.png"
     ]
   },
   {
@@ -830,6 +851,9 @@
     ],
     "audios": [
       "audio_39.mp3"
+    ],
+    "images": [
+      "image51.jpeg"
     ]
   },
   {
@@ -845,6 +869,9 @@
     ],
     "audios": [
       "audio_40.mp3"
+    ],
+    "images": [
+      "image53.png"
     ]
   },
   {
@@ -1017,7 +1044,10 @@
         "exampleTranslation": "Na cacimba tem muito muçum."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image65.png"
+    ]
   },
   {
     "entry_id": "Aran",
@@ -1062,6 +1092,9 @@
     ],
     "audios": [
       "audio_50.mp3"
+    ],
+    "images": [
+      "image68.png"
     ]
   },
   {
@@ -1077,6 +1110,9 @@
     ],
     "audios": [
       "audio_51.mp3"
+    ],
+    "images": [
+      "image70.png"
     ]
   },
   {
@@ -1107,6 +1143,9 @@
     ],
     "audios": [
       "audio_53.mp3"
+    ],
+    "images": [
+      "image73.png"
     ]
   },
   {
@@ -1167,6 +1206,9 @@
     ],
     "audios": [
       "audio_57.mp3"
+    ],
+    "images": [
+      "image78.png"
     ]
   },
   {
@@ -1182,6 +1224,9 @@
     ],
     "audios": [
       "audio_58.mp3"
+    ],
+    "images": [
+      "image80.png"
     ]
   },
   {
@@ -1210,6 +1255,9 @@
     ],
     "audios": [
       "audio_59.mp3"
+    ],
+    "images": [
+      "image83.jpeg"
     ]
   },
   {
@@ -1474,6 +1522,9 @@
     ],
     "audios": [
       "audio_71.mp3"
+    ],
+    "images": [
+      "image100.png"
     ]
   },
   {
@@ -1517,7 +1568,10 @@
         "exampleTranslation": "O cedro é a melhor madeira para tábua."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image104.png"
+    ]
   },
   {
     "entry_id": "Aturytan",
@@ -1532,6 +1586,9 @@
     ],
     "audios": [
       "audio_74.mp3"
+    ],
+    "images": [
+      "image106.png"
     ]
   },
   {
@@ -1551,6 +1608,9 @@
     ],
     "audios": [
       "audio_75.mp3"
+    ],
+    "images": [
+      "image108.png"
     ]
   },
   {
@@ -1675,6 +1735,9 @@
     ],
     "audios": [
       "audio_81.mp3"
+    ],
+    "images": [
+      "image116.jpeg"
     ]
   },
   {
@@ -1705,6 +1768,9 @@
     ],
     "audios": [
       "audio_83.mp3"
+    ],
+    "images": [
+      "image119.png"
     ]
   },
   {
@@ -1718,7 +1784,10 @@
         "exampleTranslation": " A preguiça defeca depois de um mês."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image121.png"
+    ]
   },
   {
     "entry_id": "Auzap",
@@ -1737,6 +1806,9 @@
     ],
     "audios": [
       "audio_84.mp3"
+    ],
+    "images": [
+      "image123.png"
     ]
   },
   {
@@ -2093,6 +2165,9 @@
     ],
     "audios": [
       "audio_99.mp3"
+    ],
+    "images": [
+      "image144.png"
     ]
   },
   {
@@ -2123,6 +2198,9 @@
     ],
     "audios": [
       "audio_101.mp3"
+    ],
+    "images": [
+      "image148.jpeg"
     ]
   },
   {
@@ -2245,6 +2323,9 @@
     ],
     "audios": [
       "audio_108.mp3"
+    ],
+    "images": [
+      "image156.jpeg"
     ]
   },
   {
@@ -2339,6 +2420,9 @@
     ],
     "audios": [
       "audio_111.mp3"
+    ],
+    "images": [
+      "image161.png"
     ]
   },
   {
@@ -2386,6 +2470,9 @@
     ],
     "audios": [
       "audio_113.mp3"
+    ],
+    "images": [
+      "image165.png"
     ]
   },
   {
@@ -2561,7 +2648,10 @@
         "exampleTranslation": " A cutia come o fruto da cuquitiribá."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image174.png"
+    ]
   },
   {
     "entry_id": "Bakyry",
@@ -2576,6 +2666,9 @@
     ],
     "audios": [
       "audio_120.mp3"
+    ],
+    "images": [
+      "image176.png"
     ]
   },
   {
@@ -2694,6 +2787,9 @@
     ],
     "audios": [
       "audio_126.mp3"
+    ],
+    "images": [
+      "image184.png"
     ]
   },
   {
@@ -2791,6 +2887,9 @@
     ],
     "audios": [
       "audio_129.mp3"
+    ],
+    "images": [
+      "image190.png"
     ]
   },
   {
@@ -2821,6 +2920,9 @@
     ],
     "audios": [
       "audio_131.mp3"
+    ],
+    "images": [
+      "image193.png"
     ]
   },
   {
@@ -2939,6 +3041,9 @@
     ],
     "audios": [
       "audio_134.mp3"
+    ],
+    "images": [
+      "image198.png"
     ]
   },
   {
@@ -3014,6 +3119,9 @@
     ],
     "audios": [
       "audio_139.mp3"
+    ],
+    "images": [
+      "image204.png"
     ]
   },
   {
@@ -3029,6 +3137,9 @@
     ],
     "audios": [
       "audio_139.mp3"
+    ],
+    "images": [
+      "image204.png"
     ]
   },
   {
@@ -3044,6 +3155,9 @@
     ],
     "audios": [
       "audio_140.mp3"
+    ],
+    "images": [
+      "image207.png"
     ]
   },
   {
@@ -3119,6 +3233,9 @@
     ],
     "audios": [
       "audio_144.mp3"
+    ],
+    "images": [
+      "image212.png"
     ]
   },
   {
@@ -3286,6 +3403,9 @@
     ],
     "audios": [
       "audio_151.mp3"
+    ],
+    "images": [
+      "image221.png"
     ]
   },
   {
@@ -3346,6 +3466,9 @@
     ],
     "audios": [
       "audio_155.mp3"
+    ],
+    "images": [
+      "image226.png"
     ]
   },
   {
@@ -3389,6 +3512,9 @@
     ],
     "audios": [
       "audio_157.mp3"
+    ],
+    "images": [
+      "image230.png"
     ]
   },
   {
@@ -3419,6 +3545,9 @@
     ],
     "audios": [
       "audio_159.mp3"
+    ],
+    "images": [
+      "image233.jpeg"
     ]
   },
   {
@@ -3483,6 +3612,9 @@
     ],
     "audios": [
       "audio_163.mp3"
+    ],
+    "images": [
+      "image238.png"
     ]
   },
   {
@@ -3517,6 +3649,9 @@
     ],
     "audios": [
       "audio_166.mp3"
+    ],
+    "images": [
+      "image243.jpeg"
     ]
   },
   {
@@ -3530,7 +3665,10 @@
         "exampleTranslation": "O professor tem uma curica de estimação."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image245.png"
+    ]
   },
   {
     "entry_id": "Buruburan",
@@ -3590,6 +3728,9 @@
     ],
     "audios": [
       "audio_169.mp3"
+    ],
+    "images": [
+      "image249.png"
     ]
   },
   {
@@ -3635,6 +3776,9 @@
     ],
     "audios": [
       "audio_172.mp3"
+    ],
+    "images": [
+      "image253.png"
     ]
   },
   {
@@ -3695,6 +3839,9 @@
     ],
     "audios": [
       "audio_174.mp3"
+    ],
+    "images": [
+      "image256.png"
     ]
   },
   {
@@ -3768,6 +3915,9 @@
     ],
     "audios": [
       "audio_177.mp3"
+    ],
+    "images": [
+      "image261.png"
     ]
   },
   {
@@ -3781,7 +3931,10 @@
         "exampleTranslation": "No mês de abril, jarina dá fruta."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image263.png"
+    ]
   },
   {
     "entry_id": "Byytan",
@@ -4019,6 +4172,9 @@
     ],
     "audios": [
       "audio_189.mp3"
+    ],
+    "images": [
+      "image278.jpeg"
     ]
   },
   {
@@ -4211,6 +4367,9 @@
     ],
     "audios": [
       "audio_195.mp3"
+    ],
+    "images": [
+      "image287.png"
     ]
   },
   {
@@ -4620,6 +4779,9 @@
     ],
     "audios": [
       "audio_214.mp3"
+    ],
+    "images": [
+      "image310.png"
     ]
   },
   {
@@ -4699,6 +4861,9 @@
     ],
     "audios": [
       "audio_219.mp3"
+    ],
+    "images": [
+      "image316.jpeg"
     ]
   },
   {
@@ -4993,6 +5158,9 @@
     ],
     "audios": [
       "audio_232.mp3"
+    ],
+    "images": [
+      "image334.png"
     ]
   },
   {
@@ -5023,6 +5191,9 @@
     ],
     "audios": [
       "audio_234.mp3"
+    ],
+    "images": [
+      "image337.png"
     ]
   },
   {
@@ -5111,6 +5282,9 @@
     ],
     "audios": [
       "audio_239.mp3"
+    ],
+    "images": [
+      "image344.jpeg"
     ]
   },
   {
@@ -5154,7 +5328,10 @@
         "exampleTranslation": " Sanhaçu gosta de comer azeitona."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image348.jpeg"
+    ]
   },
   {
     "entry_id": "Diapaichazun",
@@ -5184,6 +5361,9 @@
     ],
     "audios": [
       "audio_243.mp3"
+    ],
+    "images": [
+      "image351.png"
     ]
   },
   {
@@ -5199,6 +5379,9 @@
     ],
     "audios": [
       "audio_243.mp3"
+    ],
+    "images": [
+      "image351.png"
     ]
   },
   {
@@ -5212,7 +5395,10 @@
         "exampleTranslation": " Tem muito perema na beira do rio."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image353.png"
+    ]
   },
   {
     "entry_id": "Diaypaychian",
@@ -5345,6 +5531,9 @@
     ],
     "audios": [
       "audio_248.mp3"
+    ],
+    "images": [
+      "image360.jpeg"
     ]
   },
   {
@@ -5375,6 +5564,9 @@
     ],
     "audios": [
       "audio_250.mp3"
+    ],
+    "images": [
+      "image363.png"
     ]
   },
   {
@@ -5581,6 +5773,9 @@
     ],
     "audios": [
       "audio_262.mp3"
+    ],
+    "images": [
+      "image379.png"
     ]
   },
   {
@@ -5596,6 +5791,9 @@
     ],
     "audios": [
       "audio_262.mp3"
+    ],
+    "images": [
+      "image379.png"
     ]
   },
   {
@@ -5656,6 +5854,9 @@
     ],
     "audios": [
       "audio_267.mp3"
+    ],
+    "images": [
+      "image385.png"
     ]
   },
   {
@@ -5939,6 +6140,9 @@
     ],
     "audios": [
       "audio_280.mp3"
+    ],
+    "images": [
+      "image402.png"
     ]
   },
   {
@@ -5967,7 +6171,10 @@
         "exampleTranslation": "A osga comeu a mosca."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image405.png"
+    ]
   },
   {
     "entry_id": "Dizuan",
@@ -6042,6 +6249,9 @@
     ],
     "audios": [
       "audio_284.mp3"
+    ],
+    "images": [
+      "image411.png"
     ]
   },
   {
@@ -6132,6 +6342,9 @@
     ],
     "audios": [
       "audio_290.mp3"
+    ],
+    "images": [
+      "image418.png"
     ]
   },
   {
@@ -6353,6 +6566,9 @@
     ],
     "audios": [
       "audio_303.mp3"
+    ],
+    "images": [
+      "image434.png"
     ]
   },
   {
@@ -6383,6 +6599,9 @@
     ],
     "audios": [
       "audio_305.mp3"
+    ],
+    "images": [
+      "image437.jpeg"
     ]
   },
   {
@@ -6580,6 +6799,9 @@
     ],
     "audios": [
       "audio_317.mp3"
+    ],
+    "images": [
+      "image451.jpeg"
     ]
   },
   {
@@ -6627,6 +6849,9 @@
     ],
     "audios": [
       "audio_319.mp3"
+    ],
+    "images": [
+      "image455.png"
     ]
   },
   {
@@ -6671,6 +6896,9 @@
     ],
     "audios": [
       "audio_322.mp3"
+    ],
+    "images": [
+      "image459.png"
     ]
   },
   {
@@ -6980,7 +7208,10 @@
         "exampleTranslation": "Eu pesquei um cangati."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image480.png"
+    ]
   },
   {
     "entry_id": "Iminhary",
@@ -7066,6 +7297,9 @@
     ],
     "audios": [
       "audio_343.mp3"
+    ],
+    "images": [
+      "image487.png"
     ]
   },
   {
@@ -7079,7 +7313,10 @@
         "exampleTranslation": " Espantei-me com a papa-ovo."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image489.png"
+    ]
   },
   {
     "entry_id": "Innhau",
@@ -7193,7 +7430,10 @@
         "exampleTranslation": " A raposa comeu araçá."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image498.png"
+    ]
   },
   {
     "entry_id": "Irikanay",
@@ -7223,6 +7463,9 @@
     ],
     "audios": [
       "audio_350.mp3"
+    ],
+    "images": [
+      "image501.png"
     ]
   },
   {
@@ -7399,6 +7642,9 @@
     ],
     "audios": [
       "audio_360.mp3"
+    ],
+    "images": [
+      "image514.jpeg"
     ]
   },
   {
@@ -7414,6 +7660,9 @@
     ],
     "audios": [
       "audio_361.mp3"
+    ],
+    "images": [
+      "image516.png"
     ]
   },
   {
@@ -7429,6 +7678,9 @@
     ],
     "audios": [
       "audio_362.mp3"
+    ],
+    "images": [
+      "image518.png"
     ]
   },
   {
@@ -7504,6 +7756,9 @@
     ],
     "audios": [
       "audio_367.mp3"
+    ],
+    "images": [
+      "image524.png"
     ]
   },
   {
@@ -7680,7 +7935,10 @@
         "exampleTranslation": " O papai matou o veado galheiro."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image536.jpeg"
+    ]
   },
   {
     "entry_id": "Kadmaidin",
@@ -7708,7 +7966,10 @@
         "exampleTranslation": " Eu pesquei a sardinha no rio."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image539.png"
+    ]
   },
   {
     "entry_id": "Kaduri’u",
@@ -7783,6 +8044,9 @@
     ],
     "audios": [
       "audio_384.mp3"
+    ],
+    "images": [
+      "image547.png"
     ]
   },
   {
@@ -7813,6 +8077,9 @@
     ],
     "audios": [
       "audio_386.mp3"
+    ],
+    "images": [
+      "image550.jpeg"
     ]
   },
   {
@@ -8141,6 +8408,9 @@
     ],
     "audios": [
       "audio_404.mp3"
+    ],
+    "images": [
+      "image572.png"
     ]
   },
   {
@@ -8216,6 +8486,9 @@
     ],
     "audios": [
       "audio_407.mp3"
+    ],
+    "images": [
+      "image577.gif"
     ]
   },
   {
@@ -8291,6 +8564,9 @@
     ],
     "audios": [
       "audio_412.mp3"
+    ],
+    "images": [
+      "image583.png"
     ]
   },
   {
@@ -8306,6 +8582,9 @@
     ],
     "audios": [
       "audio_412.mp3"
+    ],
+    "images": [
+      "image583.png"
     ]
   },
   {
@@ -8321,6 +8600,9 @@
     ],
     "audios": [
       "audio_412.mp3"
+    ],
+    "images": [
+      "image583.png"
     ]
   },
   {
@@ -8351,6 +8633,9 @@
     ],
     "audios": [
       "audio_414.mp3"
+    ],
+    "images": [
+      "image587.png"
     ]
   },
   {
@@ -8437,6 +8722,9 @@
     ],
     "audios": [
       "audio_418.mp3"
+    ],
+    "images": [
+      "image594.jpeg"
     ]
   },
   {
@@ -8495,7 +8783,10 @@
         "exampleTranslation": " Esta mandioca está ralada."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image599.png"
+    ]
   },
   {
     "entry_id": "Kanyzbi’i",
@@ -8525,6 +8816,9 @@
     ],
     "audios": [
       "audio_423.mp3"
+    ],
+    "images": [
+      "image602.png"
     ]
   },
   {
@@ -8583,6 +8877,9 @@
     ],
     "audios": [
       "audio_426.mp3"
+    ],
+    "images": [
+      "image607.png"
     ]
   },
   {
@@ -8626,6 +8923,9 @@
     ],
     "audios": [
       "audio_428.mp3"
+    ],
+    "images": [
+      "image611.png"
     ]
   },
   {
@@ -8654,7 +8954,10 @@
         "exampleTranslation": " O aracuã comeu a pimenta da roça."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image614.png"
+    ]
   },
   {
     "entry_id": "Karapurun",
@@ -8802,6 +9105,9 @@
     ],
     "audios": [
       "audio_438.mp3"
+    ],
+    "images": [
+      "image625.png"
     ]
   },
   {
@@ -8888,7 +9194,10 @@
         "exampleTranslation": "A maracanã vai comer buriti."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image632.png"
+    ]
   },
   {
     "entry_id": "Katyb",
@@ -8933,6 +9242,9 @@
     ],
     "audios": [
       "audio_445.mp3"
+    ],
+    "images": [
+      "image636.jpeg"
     ]
   },
   {
@@ -9008,6 +9320,9 @@
     ],
     "audios": [
       "audio_450.mp3"
+    ],
+    "images": [
+      "image642.png"
     ]
   },
   {
@@ -9023,6 +9338,9 @@
     ],
     "audios": [
       "audio_451.mp3"
+    ],
+    "images": [
+      "image644.png"
     ]
   },
   {
@@ -9053,6 +9371,9 @@
     ],
     "audios": [
       "audio_453.mp3"
+    ],
+    "images": [
+      "image647.png"
     ]
   },
   {
@@ -9356,6 +9677,9 @@
     ],
     "audios": [
       "audio_468.mp3"
+    ],
+    "images": [
+      "image670.png"
     ]
   },
   {
@@ -9515,6 +9839,9 @@
     ],
     "audios": [
       "audio_476.mp3"
+    ],
+    "images": [
+      "image682.png"
     ]
   },
   {
@@ -9562,7 +9889,10 @@
         "exampleTranslation": "Tiririca gosta de brejo."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image686.png"
+    ]
   },
   {
     "entry_id": "Kazan",
@@ -9620,6 +9950,9 @@
     ],
     "audios": [
       "audio_481.mp3"
+    ],
+    "images": [
+      "image691.png"
     ]
   },
   {
@@ -9706,6 +10039,9 @@
     ],
     "audios": [
       "audio_485.mp3"
+    ],
+    "images": [
+      "image697.png"
     ]
   },
   {
@@ -9792,6 +10128,9 @@
     ],
     "audios": [
       "audio_489.mp3"
+    ],
+    "images": [
+      "image703.png"
     ]
   },
   {
@@ -9867,6 +10206,9 @@
     ],
     "audios": [
       "audio_494.mp3"
+    ],
+    "images": [
+      "image709.png"
     ]
   },
   {
@@ -9897,6 +10239,9 @@
     ],
     "audios": [
       "audio_496.mp3"
+    ],
+    "images": [
+      "image712.jpeg"
     ]
   },
   {
@@ -9912,6 +10257,9 @@
     ],
     "audios": [
       "audio_497.mp3"
+    ],
+    "images": [
+      "image714.png"
     ]
   },
   {
@@ -9961,6 +10309,9 @@
     ],
     "audios": [
       "audio_501.mp3"
+    ],
+    "images": [
+      "image719.png"
     ]
   },
   {
@@ -10060,6 +10411,9 @@
     ],
     "audios": [
       "audio_506.mp3"
+    ],
+    "images": [
+      "image728.png"
     ]
   },
   {
@@ -10266,7 +10620,10 @@
         "exampleTranslation": "Ele pescou muitas piabas."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image743.png"
+    ]
   },
   {
     "entry_id": "Kizipid, kizpidi",
@@ -10279,7 +10636,10 @@
         "exampleTranslation": " O visitante nos deu o mamuri."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image745.jpeg"
+    ]
   },
   {
     "entry_id": "Ku’ukun",
@@ -10425,6 +10785,9 @@
     ],
     "audios": [
       "audio_521.mp3"
+    ],
+    "images": [
+      "image754.png"
     ]
   },
   {
@@ -10438,7 +10801,10 @@
         "exampleTranslation": " Há muito peixe-agulha no lago."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image756.png"
+    ]
   },
   {
     "entry_id": "Kuchi",
@@ -10453,6 +10819,9 @@
     ],
     "audios": [
       "audio_522.mp3"
+    ],
+    "images": [
+      "image758.png"
     ]
   },
   {
@@ -10481,7 +10850,10 @@
         "exampleTranslation": " No mato há muitas rãs."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image761.png"
+    ]
   },
   {
     "entry_id": "Kudichan",
@@ -10569,7 +10941,10 @@
         "exampleTranslation": " A pena da ararapiranga é linda."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image768.jpeg"
+    ]
   },
   {
     "entry_id": "Kuki",
@@ -10584,6 +10959,9 @@
     ],
     "audios": [
       "audio_529.mp3"
+    ],
+    "images": [
+      "image770.jpeg"
     ]
   },
   {
@@ -10599,6 +10977,9 @@
     ],
     "audios": [
       "audio_530.mp3"
+    ],
+    "images": [
+      "image772.jpeg"
     ]
   },
   {
@@ -10614,6 +10995,9 @@
     ],
     "audios": [
       "audio_531.mp3"
+    ],
+    "images": [
+      "image774.png"
     ]
   },
   {
@@ -10672,6 +11056,9 @@
     ],
     "audios": [
       "audio_534.mp3"
+    ],
+    "images": [
+      "image780.png"
     ]
   },
   {
@@ -10702,6 +11089,9 @@
     ],
     "audios": [
       "audio_536.mp3"
+    ],
+    "images": [
+      "image783.png"
     ]
   },
   {
@@ -10807,6 +11197,9 @@
     ],
     "audios": [
       "audio_543.mp3"
+    ],
+    "images": [
+      "image791.png"
     ]
   },
   {
@@ -10850,6 +11243,9 @@
     ],
     "audios": [
       "audio_545.mp3"
+    ],
+    "images": [
+      "image795.png"
     ]
   },
   {
@@ -10865,6 +11261,9 @@
     ],
     "audios": [
       "audio_546.mp3"
+    ],
+    "images": [
+      "image797.png"
     ]
   },
   {
@@ -10929,6 +11328,9 @@
     ],
     "audios": [
       "audio_550.mp3"
+    ],
+    "images": [
+      "image802.png"
     ]
   },
   {
@@ -10944,6 +11346,9 @@
     ],
     "audios": [
       "audio_551.mp3"
+    ],
+    "images": [
+      "image804.png"
     ]
   },
   {
@@ -11017,6 +11422,9 @@
     ],
     "audios": [
       "audio_554.mp3"
+    ],
+    "images": [
+      "image809.png"
     ]
   },
   {
@@ -11060,7 +11468,10 @@
         "exampleTranslation": " O coro coró é preto."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image813.jpeg"
+    ]
   },
   {
     "entry_id": "Kurukurun",
@@ -11103,6 +11514,9 @@
     ],
     "audios": [
       "audio_558.mp3"
+    ],
+    "images": [
+      "image817.png"
     ]
   },
   {
@@ -11118,6 +11532,9 @@
     ],
     "audios": [
       "audio_559.mp3"
+    ],
+    "images": [
+      "image819.jpeg"
     ]
   },
   {
@@ -11148,6 +11565,9 @@
     ],
     "audios": [
       "audio_561.mp3"
+    ],
+    "images": [
+      "image822.jpeg"
     ]
   },
   {
@@ -11163,6 +11583,9 @@
     ],
     "audios": [
       "audio_562.mp3"
+    ],
+    "images": [
+      "image824.jpeg"
     ]
   },
   {
@@ -11178,6 +11601,9 @@
     ],
     "audios": [
       "audio_563.mp3"
+    ],
+    "images": [
+      "image826.png"
     ]
   },
   {
@@ -11249,6 +11675,9 @@
     ],
     "audios": [
       "audio_566.mp3"
+    ],
+    "images": [
+      "image832.png"
     ]
   },
   {
@@ -11264,6 +11693,9 @@
     ],
     "audios": [
       "audio_566.mp3"
+    ],
+    "images": [
+      "image832.png"
     ]
   },
   {
@@ -11277,7 +11709,10 @@
         "exampleTranslation": "O tapium ferrou o meu cavalo."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image834.png"
+    ]
   },
   {
     "entry_id": "Kuwan",
@@ -11292,6 +11727,9 @@
     ],
     "audios": [
       "audio_567.mp3"
+    ],
+    "images": [
+      "image836.png"
     ]
   },
   {
@@ -11320,6 +11758,9 @@
     ],
     "audios": [
       "audio_568.mp3"
+    ],
+    "images": [
+      "image839.jpeg"
     ]
   },
   {
@@ -11350,6 +11791,9 @@
     ],
     "audios": [
       "audio_570.mp3"
+    ],
+    "images": [
+      "image842.png"
     ]
   },
   {
@@ -11365,6 +11809,9 @@
     ],
     "audios": [
       "audio_571.mp3"
+    ],
+    "images": [
+      "image844.png"
     ]
   },
   {
@@ -11395,6 +11842,9 @@
     ],
     "audios": [
       "audio_573.mp3"
+    ],
+    "images": [
+      "image847.png"
     ]
   },
   {
@@ -11528,7 +11978,10 @@
         "exampleTranslation": " Comprei uma tesoura nova e afiada."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image857.png"
+    ]
   },
   {
     "entry_id": "Kywai",
@@ -11637,6 +12090,9 @@
     ],
     "audios": [
       "audio_587.mp3"
+    ],
+    "images": [
+      "image864.png"
     ]
   },
   {
@@ -11695,7 +12151,10 @@
         "exampleTranslation": "O leite da sucuba é bom para remédio."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image869.png"
+    ]
   },
   {
     "entry_id": "Ma’uzkan",
@@ -11753,6 +12212,9 @@
     ],
     "audios": [
       "audio_593.mp3"
+    ],
+    "images": [
+      "image874.png"
     ]
   },
   {
@@ -11768,6 +12230,9 @@
     ],
     "audios": [
       "audio_594.mp3"
+    ],
+    "images": [
+      "image876.jpeg"
     ]
   },
   {
@@ -12081,7 +12546,10 @@
         "exampleTranslation": "A borboleta é bonita."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image899.png"
+    ]
   },
   {
     "entry_id": "Makyytan",
@@ -12141,6 +12609,9 @@
     ],
     "audios": [
       "audio_613.mp3"
+    ],
+    "images": [
+      "image902.png"
     ]
   },
   {
@@ -12188,7 +12659,10 @@
         "exampleTranslation": "O urubu-rei é o único que tem pena branca."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image906.png"
+    ]
   },
   {
     "entry_id": "Mana’u",
@@ -12233,6 +12707,9 @@
     ],
     "audios": [
       "audio_618.mp3"
+    ],
+    "images": [
+      "image910.png"
     ]
   },
   {
@@ -12248,6 +12725,9 @@
     ],
     "audios": [
       "audio_619.mp3"
+    ],
+    "images": [
+      "image912.png"
     ]
   },
   {
@@ -12276,7 +12756,10 @@
         "exampleTranslation": "A peneira é bem feita."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image915.png"
+    ]
   },
   {
     "entry_id": "Manautan",
@@ -12381,6 +12864,9 @@
     ],
     "audios": [
       "audio_626.mp3"
+    ],
+    "images": [
+      "image922.png"
     ]
   },
   {
@@ -12394,7 +12880,10 @@
         "exampleTranslation": "Eu comprei apagador novo."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image924.png"
+    ]
   },
   {
     "entry_id": "Manhykynytanb",
@@ -12454,6 +12943,9 @@
     ],
     "audios": [
       "audio_630.mp3"
+    ],
+    "images": [
+      "image929.png"
     ]
   },
   {
@@ -12469,6 +12961,9 @@
     ],
     "audios": [
       "audio_630.mp3"
+    ],
+    "images": [
+      "image929.png"
     ]
   },
   {
@@ -12529,6 +13024,9 @@
     ],
     "audios": [
       "audio_633.mp3"
+    ],
+    "images": [
+      "image934.png"
     ]
   },
   {
@@ -12632,6 +13130,9 @@
     ],
     "audios": [
       "audio_639.mp3"
+    ],
+    "images": [
+      "image942.png"
     ]
   },
   {
@@ -12746,6 +13247,9 @@
     ],
     "audios": [
       "audio_644.mp3"
+    ],
+    "images": [
+      "image951.png"
     ]
   },
   {
@@ -12774,7 +13278,10 @@
         "exampleTranslation": "O casco do matamatá é feio."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image954.png"
+    ]
   },
   {
     "entry_id": "Matayry",
@@ -12845,7 +13352,10 @@
         "exampleTranslation": "O pavão come minhoca."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image959.png"
+    ]
   },
   {
     "entry_id": "Mau’yn",
@@ -12875,6 +13385,9 @@
     ],
     "audios": [
       "audio_649.mp3"
+    ],
+    "images": [
+      "image962.png"
     ]
   },
   {
@@ -12948,6 +13461,9 @@
     ],
     "audios": [
       "audio_653.mp3"
+    ],
+    "images": [
+      "image968.png"
     ]
   },
   {
@@ -12961,7 +13477,10 @@
         "exampleTranslation": "À noite têm muitos vaga-lumes."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image970.png"
+    ]
   },
   {
     "entry_id": "Maunap",
@@ -13111,6 +13630,9 @@
     ],
     "audios": [
       "audio_661.mp3"
+    ],
+    "images": [
+      "image981.png"
     ]
   },
   {
@@ -13284,6 +13806,9 @@
     ],
     "audios": [
       "audio_672.mp3"
+    ],
+    "images": [
+      "image993.png"
     ]
   },
   {
@@ -13400,6 +13925,9 @@
     ],
     "audios": [
       "audio_678.mp3"
+    ],
+    "images": [
+      "image1002.png"
     ]
   },
   {
@@ -13443,7 +13971,10 @@
         "exampleTranslation": "A tucandeira ferroou o homem no mato."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1006.jpeg"
+    ]
   },
   {
     "entry_id": "Minxy’y",
@@ -13629,6 +14160,9 @@
     ],
     "audios": [
       "audio_690.mp3"
+    ],
+    "images": [
+      "image1018.jpeg"
     ]
   },
   {
@@ -13674,6 +14208,9 @@
     ],
     "audios": [
       "audio_693.mp3"
+    ],
+    "images": [
+      "image1022.png"
     ]
   },
   {
@@ -13910,6 +14447,9 @@
     ],
     "audios": [
       "audio_705.mp3"
+    ],
+    "images": [
+      "image1039.png"
     ]
   },
   {
@@ -13940,6 +14480,9 @@
     ],
     "audios": [
       "audio_707.mp3"
+    ],
+    "images": [
+      "image1042.png"
     ]
   },
   {
@@ -13983,6 +14526,9 @@
     ],
     "audios": [
       "audio_709.mp3"
+    ],
+    "images": [
+      "image1046.jpeg"
     ]
   },
   {
@@ -14220,6 +14766,9 @@
     ],
     "audios": [
       "audio_722.mp3"
+    ],
+    "images": [
+      "image1062.png"
     ]
   },
   {
@@ -14248,6 +14797,9 @@
     ],
     "audios": [
       "audio_723.mp3"
+    ],
+    "images": [
+      "image1065.png"
     ]
   },
   {
@@ -14524,7 +15076,10 @@
         "exampleTranslation": "Ele viu a sucuri."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1083.png"
+    ]
   },
   {
     "entry_id": "Pakutan",
@@ -14603,6 +15158,9 @@
     ],
     "audios": [
       "audio_741.mp3"
+    ],
+    "images": [
+      "image1089.png"
     ]
   },
   {
@@ -14719,6 +15277,9 @@
     ],
     "audios": [
       "audio_747.mp3"
+    ],
+    "images": [
+      "image1098.png"
     ]
   },
   {
@@ -14764,6 +15325,9 @@
     ],
     "audios": [
       "audio_750.mp3"
+    ],
+    "images": [
+      "image1102.png"
     ]
   },
   {
@@ -14779,6 +15343,9 @@
     ],
     "audios": [
       "audio_751.mp3"
+    ],
+    "images": [
+      "image1104.png"
     ]
   },
   {
@@ -14809,6 +15376,9 @@
     ],
     "audios": [
       "audio_753.mp3"
+    ],
+    "images": [
+      "image1107.png"
     ]
   },
   {
@@ -14824,6 +15394,9 @@
     ],
     "audios": [
       "audio_754.mp3"
+    ],
+    "images": [
+      "image1109.png"
     ]
   },
   {
@@ -14839,6 +15412,9 @@
     ],
     "audios": [
       "audio_754.mp3"
+    ],
+    "images": [
+      "image1109.png"
     ]
   },
   {
@@ -14854,6 +15430,9 @@
     ],
     "audios": [
       "audio_754.mp3"
+    ],
+    "images": [
+      "image1109.png"
     ]
   },
   {
@@ -14873,6 +15452,9 @@
     ],
     "audios": [
       "audio_754.mp3"
+    ],
+    "images": [
+      "image1109.png"
     ]
   },
   {
@@ -14903,6 +15485,9 @@
     ],
     "audios": [
       "audio_756.mp3"
+    ],
+    "images": [
+      "image1112.png"
     ]
   },
   {
@@ -14918,6 +15503,9 @@
     ],
     "audios": [
       "audio_757.mp3"
+    ],
+    "images": [
+      "image1114.png"
     ]
   },
   {
@@ -14931,7 +15519,10 @@
         "exampleTranslation": "Mamãe usa pente fino."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1116.png"
+    ]
   },
   {
     "entry_id": "Parytau",
@@ -15152,6 +15743,9 @@
     ],
     "audios": [
       "audio_769.mp3"
+    ],
+    "images": [
+      "image1131.png"
     ]
   },
   {
@@ -15182,6 +15776,9 @@
     ],
     "audios": [
       "audio_771.mp3"
+    ],
+    "images": [
+      "image1134.png"
     ]
   },
   {
@@ -15227,6 +15824,9 @@
     ],
     "audios": [
       "audio_774.mp3"
+    ],
+    "images": [
+      "image1138.png"
     ]
   },
   {
@@ -15302,6 +15902,9 @@
     ],
     "audios": [
       "audio_778.mp3"
+    ],
+    "images": [
+      "image1143.png"
     ]
   },
   {
@@ -15330,6 +15933,9 @@
     ],
     "audios": [
       "audio_779.mp3"
+    ],
+    "images": [
+      "image1146.png"
     ]
   },
   {
@@ -15345,6 +15951,9 @@
     ],
     "audios": [
       "audio_780.mp3"
+    ],
+    "images": [
+      "image1148.png"
     ]
   },
   {
@@ -15360,6 +15969,9 @@
     ],
     "audios": [
       "audio_781.mp3"
+    ],
+    "images": [
+      "image1150.png"
     ]
   },
   {
@@ -15375,6 +15987,9 @@
     ],
     "audios": [
       "audio_782.mp3"
+    ],
+    "images": [
+      "image1152.png"
     ]
   },
   {
@@ -15420,6 +16035,9 @@
     ],
     "audios": [
       "audio_784.mp3"
+    ],
+    "images": [
+      "image1155.png"
     ]
   },
   {
@@ -15435,6 +16053,9 @@
     ],
     "audios": [
       "audio_785.mp3"
+    ],
+    "images": [
+      "image1157.png"
     ]
   },
   {
@@ -15480,6 +16101,9 @@
     ],
     "audios": [
       "audio_788.mp3"
+    ],
+    "images": [
+      "image1161.png"
     ]
   },
   {
@@ -15495,6 +16119,9 @@
     ],
     "audios": [
       "audio_789.mp3"
+    ],
+    "images": [
+      "image1163.png"
     ]
   },
   {
@@ -15682,6 +16309,9 @@
     ],
     "audios": [
       "audio_798.mp3"
+    ],
+    "images": [
+      "image1177.png"
     ]
   },
   {
@@ -15783,7 +16413,10 @@
         "exampleTranslation": " O sapo ferreiro está cantando na lagoa."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1185.png"
+    ]
   },
   {
     "entry_id": "Puka’u",
@@ -15828,6 +16461,9 @@
     ],
     "audios": [
       "audio_806.mp3"
+    ],
+    "images": [
+      "image1189.png"
     ]
   },
   {
@@ -15888,6 +16524,9 @@
     ],
     "audios": [
       "audio_810.mp3"
+    ],
+    "images": [
+      "image1194.png"
     ]
   },
   {
@@ -15937,6 +16576,9 @@
     ],
     "audios": [
       "audio_813.mp3"
+    ],
+    "images": [
+      "image1198.png"
     ]
   },
   {
@@ -15952,6 +16594,9 @@
     ],
     "audios": [
       "audio_813.mp3"
+    ],
+    "images": [
+      "image1198.png"
     ]
   },
   {
@@ -15967,6 +16612,9 @@
     ],
     "audios": [
       "audio_815.mp3"
+    ],
+    "images": [
+      "image1201.png"
     ]
   },
   {
@@ -16010,7 +16658,10 @@
         "exampleTranslation": " Um forno para fazer farinha."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1205.png"
+    ]
   },
   {
     "entry_id": "Putuz",
@@ -16040,6 +16691,9 @@
     ],
     "audios": [
       "audio_819.mp3"
+    ],
+    "images": [
+      "image1209.png"
     ]
   },
   {
@@ -16070,6 +16724,9 @@
     ],
     "audios": [
       "audio_821.mp3"
+    ],
+    "images": [
+      "image1211.png"
     ]
   },
   {
@@ -16113,6 +16770,9 @@
     ],
     "audios": [
       "audio_823.mp3"
+    ],
+    "images": [
+      "image1215.png"
     ]
   },
   {
@@ -16537,6 +17197,9 @@
     ],
     "audios": [
       "audio_844.mp3"
+    ],
+    "images": [
+      "image1242.png"
     ]
   },
   {
@@ -16580,6 +17243,9 @@
     ],
     "audios": [
       "audio_846.mp3"
+    ],
+    "images": [
+      "image1246.jpeg"
     ]
   },
   {
@@ -16595,6 +17261,9 @@
     ],
     "audios": [
       "audio_847.mp3"
+    ],
+    "images": [
+      "image1248.png"
     ]
   },
   {
@@ -16788,6 +17457,9 @@
     ],
     "audios": [
       "audio_856.mp3"
+    ],
+    "images": [
+      "image1259.png"
     ]
   },
   {
@@ -16816,6 +17488,9 @@
     ],
     "audios": [
       "audio_857.mp3"
+    ],
+    "images": [
+      "image1262.png"
     ]
   },
   {
@@ -16921,6 +17596,9 @@
     ],
     "audios": [
       "audio_863.mp3"
+    ],
+    "images": [
+      "image1269.png"
     ]
   },
   {
@@ -17118,6 +17796,9 @@
     ],
     "audios": [
       "audio_875.mp3"
+    ],
+    "images": [
+      "image1283.png"
     ]
   },
   {
@@ -17133,6 +17814,9 @@
     ],
     "audios": [
       "audio_876.mp3"
+    ],
+    "images": [
+      "image1285.png"
     ]
   },
   {
@@ -17206,7 +17890,10 @@
         "exampleTranslation": "O cabo do meu machado é de pau rainha."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1291.png"
+    ]
   },
   {
     "entry_id": "Saraawan",
@@ -17251,6 +17938,9 @@
     ],
     "audios": [
       "audio_883.mp3"
+    ],
+    "images": [
+      "image1295.png"
     ]
   },
   {
@@ -17324,6 +18014,9 @@
     ],
     "audios": [
       "audio_887.mp3"
+    ],
+    "images": [
+      "image1301.png"
     ]
   },
   {
@@ -17367,6 +18060,9 @@
     ],
     "audios": [
       "audio_889.mp3"
+    ],
+    "images": [
+      "image1305.png"
     ]
   },
   {
@@ -17472,6 +18168,9 @@
     ],
     "audios": [
       "audio_896.mp3"
+    ],
+    "images": [
+      "image1314.png"
     ]
   },
   {
@@ -17487,6 +18186,9 @@
     ],
     "audios": [
       "audio_897.mp3"
+    ],
+    "images": [
+      "image1316.png"
     ]
   },
   {
@@ -17532,6 +18234,9 @@
     ],
     "audios": [
       "audio_900.mp3"
+    ],
+    "images": [
+      "image1320.png"
     ]
   },
   {
@@ -17592,6 +18297,9 @@
     ],
     "audios": [
       "audio_904.mp3"
+    ],
+    "images": [
+      "image1325.png"
     ]
   },
   {
@@ -17635,6 +18343,9 @@
     ],
     "audios": [
       "audio_906.mp3"
+    ],
+    "images": [
+      "image1329.png"
     ]
   },
   {
@@ -17650,6 +18361,9 @@
     ],
     "audios": [
       "audio_907.mp3"
+    ],
+    "images": [
+      "image1331.png"
     ]
   },
   {
@@ -17663,7 +18377,10 @@
         "exampleTranslation": ""
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1333.png"
+    ]
   },
   {
     "entry_id": "Sum",
@@ -17678,6 +18395,9 @@
     ],
     "audios": [
       "audio_908.mp3"
+    ],
+    "images": [
+      "image1335.png"
     ]
   },
   {
@@ -17691,7 +18411,10 @@
         "exampleTranslation": "A corda do arco está esticada demais."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1337.png"
+    ]
   },
   {
     "entry_id": "Sumbara",
@@ -17747,7 +18470,10 @@
         "exampleTranslation": " Lá em casa tem oito terçados."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1342.png"
+    ]
   },
   {
     "entry_id": "Supichan",
@@ -17790,6 +18516,9 @@
     ],
     "audios": [
       "audio_913.mp3"
+    ],
+    "images": [
+      "image1347.jpeg"
     ]
   },
   {
@@ -17809,6 +18538,9 @@
     ],
     "audios": [
       "audio_913.mp3"
+    ],
+    "images": [
+      "image1347.jpeg"
     ]
   },
   {
@@ -17854,6 +18586,9 @@
     ],
     "audios": [
       "audio_916.mp3"
+    ],
+    "images": [
+      "image1352.png"
     ]
   },
   {
@@ -17899,6 +18634,9 @@
     ],
     "audios": [
       "audio_918.mp3"
+    ],
+    "images": [
+      "image1355.png"
     ]
   },
   {
@@ -17927,7 +18665,10 @@
         "exampleTranslation": "Sete veados roxos passaram na roça."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1358.png"
+    ]
   },
   {
     "entry_id": "Suwan",
@@ -17942,6 +18683,9 @@
     ],
     "audios": [
       "audio_920.mp3"
+    ],
+    "images": [
+      "image1360.jpeg"
     ]
   },
   {
@@ -18000,6 +18744,9 @@
     ],
     "audios": [
       "audio_923.mp3"
+    ],
+    "images": [
+      "image1365.png"
     ]
   },
   {
@@ -18015,6 +18762,9 @@
     ],
     "audios": [
       "audio_924.mp3"
+    ],
+    "images": [
+      "image1367.png"
     ]
   },
   {
@@ -18086,6 +18836,9 @@
     ],
     "audios": [
       "audio_926.mp3"
+    ],
+    "images": [
+      "image1372.jpeg"
     ]
   },
   {
@@ -18101,6 +18854,9 @@
     ],
     "audios": [
       "audio_927.mp3"
+    ],
+    "images": [
+      "image1374.png"
     ]
   },
   {
@@ -18172,7 +18928,10 @@
         "exampleTranslation": "O cabelo da moça tem quirana."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1380.jpeg"
+    ]
   },
   {
     "entry_id": "Syryyta’u",
@@ -18215,6 +18974,9 @@
     ],
     "audios": [
       "audio_932.mp3"
+    ],
+    "images": [
+      "image1384.png"
     ]
   },
   {
@@ -18249,6 +19011,9 @@
     ],
     "audios": [
       "audio_934.mp3"
+    ],
+    "images": [
+      "image1387.png"
     ]
   },
   {
@@ -18339,7 +19104,10 @@
         "exampleTranslation": "Papai fez um banco."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1395.png"
+    ]
   },
   {
     "entry_id": "Tabiuru",
@@ -18429,6 +19197,9 @@
     ],
     "audios": [
       "audio_944.mp3"
+    ],
+    "images": [
+      "image1402.png"
     ]
   },
   {
@@ -18457,6 +19228,9 @@
     ],
     "audios": [
       "audio_945.mp3"
+    ],
+    "images": [
+      "image1405.png"
     ]
   },
   {
@@ -18470,7 +19244,10 @@
         "exampleTranslation": ""
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1407.png"
+    ]
   },
   {
     "entry_id": "Tanap",
@@ -18558,7 +19335,10 @@
         "exampleTranslation": "Tem muita mosca voando."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1414.png"
+    ]
   },
   {
     "entry_id": "Taraipura",
@@ -18706,6 +19486,9 @@
     ],
     "audios": [
       "audio_958.mp3"
+    ],
+    "images": [
+      "image1424.png"
     ]
   },
   {
@@ -18751,6 +19534,9 @@
     ],
     "audios": [
       "audio_961.mp3"
+    ],
+    "images": [
+      "image1428.png"
     ]
   },
   {
@@ -18996,6 +19782,9 @@
     ],
     "audios": [
       "audio_973.mp3"
+    ],
+    "images": [
+      "image1446.png"
     ]
   },
   {
@@ -19039,6 +19828,9 @@
     ],
     "audios": [
       "audio_975.mp3"
+    ],
+    "images": [
+      "image1450.png"
     ]
   },
   {
@@ -19246,6 +20038,9 @@
     ],
     "audios": [
       "audio_988.mp3"
+    ],
+    "images": [
+      "image1465.png"
     ]
   },
   {
@@ -19261,6 +20056,9 @@
     ],
     "audios": [
       "audio_989.mp3"
+    ],
+    "images": [
+      "image1467.jpeg"
     ]
   },
   {
@@ -19428,6 +20226,9 @@
     ],
     "audios": [
       "audio_998.mp3"
+    ],
+    "images": [
+      "image1479.jpeg"
     ]
   },
   {
@@ -19458,6 +20259,9 @@
     ],
     "audios": [
       "audio_1000.mp3"
+    ],
+    "images": [
+      "image1482.png"
     ]
   },
   {
@@ -19516,6 +20320,9 @@
     ],
     "audios": [
       "audio_1003.mp3"
+    ],
+    "images": [
+      "image1487.png"
     ]
   },
   {
@@ -19904,6 +20711,9 @@
     ],
     "audios": [
       "audio_1022.mp3"
+    ],
+    "images": [
+      "image1514.png"
     ]
   },
   {
@@ -19964,6 +20774,9 @@
     ],
     "audios": [
       "audio_1026.mp3"
+    ],
+    "images": [
+      "image1519.png"
     ]
   },
   {
@@ -19994,6 +20807,9 @@
     ],
     "audios": [
       "audio_1028.mp3"
+    ],
+    "images": [
+      "image1522.png"
     ]
   },
   {
@@ -20009,6 +20825,9 @@
     ],
     "audios": [
       "audio_1029.mp3"
+    ],
+    "images": [
+      "image1524.png"
     ]
   },
   {
@@ -20024,6 +20843,9 @@
     ],
     "audios": [
       "audio_1030.mp3"
+    ],
+    "images": [
+      "image1526.jpeg"
     ]
   },
   {
@@ -20140,6 +20962,9 @@
     ],
     "audios": [
       "audio_1036.mp3"
+    ],
+    "images": [
+      "image1535.png"
     ]
   },
   {
@@ -20273,6 +21098,9 @@
     ],
     "audios": [
       "audio_1044.mp3"
+    ],
+    "images": [
+      "image1545.png"
     ]
   },
   {
@@ -20288,6 +21116,9 @@
     ],
     "audios": [
       "audio_1045.mp3"
+    ],
+    "images": [
+      "image1547.png"
     ]
   },
   {
@@ -20316,6 +21147,9 @@
     ],
     "audios": [
       "audio_1046.mp3"
+    ],
+    "images": [
+      "image1550.png"
     ]
   },
   {
@@ -20389,6 +21223,9 @@
     ],
     "audios": [
       "audio_1050.mp3"
+    ],
+    "images": [
+      "image1556.png"
     ]
   },
   {
@@ -20402,7 +21239,10 @@
         "exampleTranslation": "A asa da galega é branca."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1558.png"
+    ]
   },
   {
     "entry_id": "Wamu",
@@ -20417,6 +21257,9 @@
     ],
     "audios": [
       "audio_1051.mp3"
+    ],
+    "images": [
+      "image1560.png"
     ]
   },
   {
@@ -20460,7 +21303,10 @@
         "exampleTranslation": "O espelho quebrou em pedaços."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1565.png"
+    ]
   },
   {
     "entry_id": "Wanybau",
@@ -20565,7 +21411,10 @@
         "exampleTranslation": "Hoje só comemos mandi."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1575.png"
+    ]
   },
   {
     "entry_id": "Waramaxi_1",
@@ -20582,7 +21431,10 @@
         "exampleTranslation": "Ele fez um balaio bonito."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1575.png"
+    ]
   },
   {
     "entry_id": "Waran ii",
@@ -20612,6 +21464,9 @@
     ],
     "audios": [
       "audio_1061.mp3"
+    ],
+    "images": [
+      "image1579.png"
     ]
   },
   {
@@ -20627,6 +21482,9 @@
     ],
     "audios": [
       "audio_1062.mp3"
+    ],
+    "images": [
+      "image1581.png"
     ]
   },
   {
@@ -20640,7 +21498,10 @@
         "exampleTranslation": "A asa de urubu é leve."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1583.jpeg"
+    ]
   },
   {
     "entry_id": "Watukup",
@@ -20670,6 +21531,9 @@
     ],
     "audios": [
       "audio_1064.mp3"
+    ],
+    "images": [
+      "image1586.png"
     ]
   },
   {
@@ -20947,6 +21811,9 @@
     ],
     "audios": [
       "audio_1078.mp3"
+    ],
+    "images": [
+      "image1605.png"
     ]
   },
   {
@@ -20962,6 +21829,9 @@
     ],
     "audios": [
       "audio_1078.mp3"
+    ],
+    "images": [
+      "image1605.png"
     ]
   },
   {
@@ -20975,7 +21845,10 @@
         "exampleTranslation": "Eu pesquei pirarucu. "
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1607.png"
+    ]
   },
   {
     "entry_id": "Wiku",
@@ -21005,6 +21878,9 @@
     ],
     "audios": [
       "audio_1080.mp3"
+    ],
+    "images": [
+      "image1610.png"
     ]
   },
   {
@@ -21050,6 +21926,9 @@
     ],
     "audios": [
       "audio_1083.mp3"
+    ],
+    "images": [
+      "image1614.png"
     ]
   },
   {
@@ -21080,6 +21959,9 @@
     ],
     "audios": [
       "audio_1085.mp3"
+    ],
+    "images": [
+      "image1617.jpeg"
     ]
   },
   {
@@ -21095,6 +21977,9 @@
     ],
     "audios": [
       "audio_1086.mp3"
+    ],
+    "images": [
+      "image1619.png"
     ]
   },
   {
@@ -21200,6 +22085,9 @@
     ],
     "audios": [
       "audio_1092.mp3"
+    ],
+    "images": [
+      "image1626.png"
     ]
   },
   {
@@ -21481,7 +22369,10 @@
         "exampleTranslation": "Pau d’arco é uma madeira dura."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1645.png"
+    ]
   },
   {
     "entry_id": "Xumada’ u",
@@ -21560,6 +22451,9 @@
     ],
     "audios": [
       "audio_1109.mp3"
+    ],
+    "images": [
+      "image1651.png"
     ]
   },
   {
@@ -21665,6 +22559,9 @@
     ],
     "audios": [
       "audio_1116.mp3"
+    ],
+    "images": [
+      "image1659.png"
     ]
   },
   {
@@ -21770,6 +22667,9 @@
     ],
     "audios": [
       "audio_1121.mp3"
+    ],
+    "images": [
+      "image1667.jpeg"
     ]
   },
   {
@@ -21886,6 +22786,9 @@
     ],
     "audios": [
       "audio_1127.mp3"
+    ],
+    "images": [
+      "image1676.png"
     ]
   },
   {
@@ -21991,6 +22894,9 @@
     ],
     "audios": [
       "audio_1133.mp3"
+    ],
+    "images": [
+      "image1683.png"
     ]
   },
   {
@@ -22006,6 +22912,9 @@
     ],
     "audios": [
       "audio_1134.mp3"
+    ],
+    "images": [
+      "image1685.png"
     ]
   },
   {
@@ -22109,6 +23018,9 @@
     ],
     "audios": [
       "audio_1140.mp3"
+    ],
+    "images": [
+      "image1693.png"
     ]
   },
   {
@@ -22137,7 +23049,10 @@
         "exampleTranslation": "Aqui tem folha verde."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1696.png"
+    ]
   },
   {
     "entry_id": "Zikun",
@@ -22197,6 +23112,9 @@
     ],
     "audios": [
       "audio_1145.mp3"
+    ],
+    "images": [
+      "image1701.png"
     ]
   },
   {
@@ -22353,6 +23271,9 @@
     ],
     "audios": [
       "audio_1153.mp3"
+    ],
+    "images": [
+      "image1711.png"
     ]
   },
   {
@@ -22383,6 +23304,9 @@
     ],
     "audios": [
       "audio_1155.mp3"
+    ],
+    "images": [
+      "image1714.png"
     ]
   },
   {
@@ -22396,7 +23320,10 @@
         "exampleTranslation": "A anta gosta de comer taperebá."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1716.png"
+    ]
   },
   {
     "entry_id": "Zuyadian",
@@ -22480,6 +23407,9 @@
     ],
     "audios": [
       "audio_1158.mp3"
+    ],
+    "images": [
+      "image1723.png"
     ]
   },
   {
@@ -22570,6 +23500,9 @@
     ],
     "audios": [
       "audio_1163.mp3"
+    ],
+    "images": [
+      "image1729.png"
     ]
   },
   {
@@ -22632,7 +23565,10 @@
         "exampleTranslation": "O zurro do jumento assusta."
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1733.png"
+    ]
   },
   {
     "entry_id": "Chakaapan",
@@ -22696,6 +23632,9 @@
     ],
     "audios": [
       "audio_1167.mp3"
+    ],
+    "images": [
+      "image1738.png"
     ]
   },
   {
@@ -22730,6 +23669,9 @@
     ],
     "audios": [
       "audio_1169.mp3"
+    ],
+    "images": [
+      "image1741.jpeg"
     ]
   },
   {
@@ -22791,7 +23733,10 @@
         "example": ""
       }
     ],
-    "audios": []
+    "audios": [],
+    "images": [
+      "image1746.png"
+    ]
   },
   {
     "entry_id": "Chariri",
@@ -22806,6 +23751,9 @@
     ],
     "audios": [
       "audio_1173.mp3"
+    ],
+    "images": [
+      "image1748.png"
     ]
   },
   {
@@ -22840,6 +23788,9 @@
     ],
     "audios": [
       "audio_1175.mp3"
+    ],
+    "images": [
+      "image1751.png"
     ]
   },
   {
@@ -22870,6 +23821,9 @@
     ],
     "audios": [
       "audio_1177.mp3"
+    ],
+    "images": [
+      "image1754.png"
     ]
   },
   {
@@ -22913,6 +23867,9 @@
     ],
     "audios": [
       "audio_1179.mp3"
+    ],
+    "images": [
+      "image1758.png"
     ]
   },
   {
@@ -22969,6 +23926,9 @@
     ],
     "audios": [
       "audio_1181.mp3"
+    ],
+    "images": [
+      "image1763.png"
     ]
   },
   {
@@ -22984,6 +23944,9 @@
     ],
     "audios": [
       "audio_1181.mp3"
+    ],
+    "images": [
+      "image1763.png"
     ]
   },
   {
@@ -23029,6 +23992,9 @@
     ],
     "audios": [
       "audio_1184.mp3"
+    ],
+    "images": [
+      "image1768.png"
     ]
   },
   {
@@ -23044,6 +24010,9 @@
     ],
     "audios": [
       "audio_1185.mp3"
+    ],
+    "images": [
+      "image1770.png"
     ]
   },
   {
@@ -23059,6 +24028,9 @@
     ],
     "audios": [
       "audio_1186.mp3"
+    ],
+    "images": [
+      "image1772.png"
     ]
   },
   {
@@ -23132,6 +24104,9 @@
     ],
     "audios": [
       "audio_1190.mp3"
+    ],
+    "images": [
+      "image1778.png"
     ]
   },
   {
@@ -23160,6 +24135,9 @@
     ],
     "audios": [
       "audio_1191.mp3"
+    ],
+    "images": [
+      "image1781.png"
     ]
   },
   {
@@ -23190,6 +24168,9 @@
     ],
     "audios": [
       "audio_1193.mp3"
+    ],
+    "images": [
+      "image1784.png"
     ]
   },
   {
@@ -23280,6 +24261,9 @@
     ],
     "audios": [
       "audio_1197.mp3"
+    ],
+    "images": [
+      "image1789.png"
     ]
   },
   {
@@ -23295,6 +24279,9 @@
     ],
     "audios": [
       "audio_1198.mp3"
+    ],
+    "images": [
+      "image1791.png"
     ]
   },
   {
@@ -23325,6 +24312,9 @@
     ],
     "audios": [
       "audio_1200.mp3"
+    ],
+    "images": [
+      "image1794.png"
     ]
   }
 ]

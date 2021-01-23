@@ -118,7 +118,11 @@ const useStyles = makeStyles({
     }
 });
 
-const WordEditor = () => {
+type IProps = {
+	setLetter: React.Dispatch<React.SetStateAction<string>>
+}
+
+const WordEditor = ({ setLetter }: IProps) => {
     const classes = useStyles();
     const history = useHistory();
     const dispatch = useDispatch();
@@ -194,6 +198,9 @@ const WordEditor = () => {
                 }));
             }
         }
+        setLetter(prev => {
+			return entry_id ? getInitialLetter(entry_id) : prev;
+		})
     }, [wordList, entry_id, setWord]);
 
     const addExample = () => {
@@ -273,7 +280,9 @@ const WordEditor = () => {
         dispatch<any>(createEntry(wordToSave))
             .then((result: any) => {
                 console.log('RESULT:', result);
-                toast.success('Palavra salva com sucesso!')
+                setLetter(getInitialLetter(wordToSave.entry_id));
+                history.push(`/${wordToSave.entry_id}`)
+                toast.success('Palavra salva com sucesso!');
             })
             .catch((error: Error) => {
                 console.log(error);
@@ -364,7 +373,7 @@ const WordEditor = () => {
                         {word.audios.map((audio: string, i: number) => audio ? (
                             <div style={{ display: 'flex', alignItems: 'center' }} key={audio}>
                                 <audio style={{ width: 180, height: 35 }} controls>
-                                    <source src={`${MEDIA_URL}/${audio}`} />
+                                    <source src={`${MEDIA_URL}/audio/${audio}`} />
                                 </audio>
                                 <IconButton size="small" style={{ padding: 0 }} onClick={() => removeMedia('audios', i)}><Cancel /></IconButton>
                             </div>
@@ -373,7 +382,7 @@ const WordEditor = () => {
                     <div className={`${classes.media} ${classes.image}`}>
                         {word.images?.map((img: any, i: number) => img ? (
                             <div style={{ display: 'flex', alignItems: 'center' }} key={img}>
-                                <img src={`${MEDIA_URL}/${img}`} alt={img} />
+                                <img src={`${MEDIA_URL}/image/${img}`} alt={img} />
                                 <IconButton size="small" style={{ padding: 0 }} onClick={() => removeMedia('images', i)}><Cancel /></IconButton>
                             </div>
                         ) : null)}

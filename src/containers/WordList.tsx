@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import AppContext from '../context/app-context';
 import PlayStop from '../components/PlayStop';
 import { useSelector } from 'react-redux';
 import IStore from '../store/IStore';
@@ -62,7 +61,7 @@ const WordList = ({ letter = 'A' }) => {
 						{isLoggedIn && <IconButton style={{padding: 0}} onClick={() => history.push(`/editor/${word.entry_id}`)}><Edit /></IconButton>}
 						<div>
 							{word.audios.length > 0 && <span onClick={() => {
-								audio && audio.src.includes(word.audios[0]) ? stop() : play(`${MEDIA_URL}/${word.audios[0]}`);
+								audio && audio.src.includes(word.audios[0]) ? stop() : play(`${MEDIA_URL}/audio/${word.audios[0]}`);
 							}}>
 								<PlayStop isPlaying={audio && audio.src.includes(word.audios[0])} />
 							</span>}

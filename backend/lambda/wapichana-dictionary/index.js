@@ -62,11 +62,11 @@ function createEntry(entry) {
         Item: entry
     }
     return db.put(params).promise()
-        .then(data => {
+        .then(() => {
             return {
                 statusCode: 200,
                 headers: getHeaders(),
-                body: JSON.stringify(data.Item)
+                body: JSON.stringify(params.Item)
             }
         })
         .catch(error => {

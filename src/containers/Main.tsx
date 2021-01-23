@@ -57,13 +57,13 @@ const Main = () => {
 					isLoggedIn={isLoggedIn}
 					roles={['DictionaryEditor']}
 					userRoles={userRoles || []}
-				><WordEditor /></ProtectedRoute>
+				><WordEditor setLetter={setLetter} /></ProtectedRoute>
 				<ProtectedRoute
 					exact path='/editor/:entry_id'
 					isLoggedIn={isLoggedIn}
 					roles={['DictionaryEditor']}
 					userRoles={userRoles || []}
-				><WordEditor /></ProtectedRoute>
+				><WordEditor setLetter={setLetter} /></ProtectedRoute>
 				<Route path="/:entry_id">
 					<Word setLetter={setLetter} />
 				</Route>

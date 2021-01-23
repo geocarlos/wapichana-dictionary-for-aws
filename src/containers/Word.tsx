@@ -111,8 +111,8 @@ const Word = ({ setLetter }: IProps) => {
 	return word ? (
 		<div className={classes.root}>
 			<div className={classes.item}>
-				<Button className={classes.returnButton} variant="contained" color="secondary" 
-				onClick={() => history.push('/')}>Voltar</Button>
+				<Button className={classes.returnButton} variant="contained" color="secondary"
+					onClick={() => history.push('/')}>Voltar</Button>
 				<div className={classes.navList}>
 					{wordList.map(w => (
 						<div className="nav-list-item">
@@ -126,9 +126,9 @@ const Word = ({ setLetter }: IProps) => {
 					<div>
 						<h1>
 							{word.entry}
-								{isLoggedIn && 
-								<IconButton style={{padding: 0}} onClick={() => history.push(`/editor/${word.entry_id}`)}><Edit /></IconButton>}
-							</h1>
+							{isLoggedIn &&
+								<IconButton style={{ padding: 0 }} onClick={() => history.push(`/editor/${word.entry_id}`)}><Edit /></IconButton>}
+						</h1>
 						<div className={classes.definition}>
 							<em>{word.gramm}</em>
 							{word.definition}
@@ -146,13 +146,13 @@ const Word = ({ setLetter }: IProps) => {
 						</div>
 					</div>
 					<div className={classes.media}>
+						{word.images?.map((img: any) => (
+							<img key={img} src={`${MEDIA_URL}/image/${img}`} alt={img} />
+						))}
 						{word.audios.map(audio => (
 							<audio key={audio} controls>
-								<source src={`${MEDIA_URL}/${audio}`} />
+								<source src={`${MEDIA_URL}/audio/${audio}`} />
 							</audio>
-						))}
-						{word.images?.map((img: any) => (
-							<img key={img} src={`${MEDIA_URL}/${img}`} alt={img} />
 						))}
 					</div>
 				</div>

@@ -3,7 +3,7 @@ const cp = require('child_process');
 
 const tableName = 'wapichana-dictionary';
 
-const entries_with_leter = entries.map(w => ({
+const entries_with_leter = entries.filter(entry => !!entry.images).map(w => ({
     initialLetter: {S: getInitialLetter(w.entry)},
     entry_id: {S: w.entry_id},
     entry: {S: w.entry},
@@ -11,7 +11,7 @@ const entries_with_leter = entries.map(w => ({
     definition: {S: w.definition},
     examples: {L: w.examples.map(e => ({M: {example: {S: e.example}, exampleTranslation: {S: e.exampleTranslation}}}))},
     audios: {L: w.audios.map(a => ({S: a}))},
-    images: {L: []}
+    images: {L: w.images.map(i => ({S: i}))}
 }));
 
 for (const entry of entries_with_leter) {
