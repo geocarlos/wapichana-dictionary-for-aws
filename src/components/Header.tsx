@@ -71,7 +71,7 @@ const Header = () => {
 					setHeaderClass(prev => {
 						return prev === classes.header ? classes.headerSmall : prev;
 					});
-				} else {
+				} else if (window.scrollY === 0 && window.document.getElementById('root')?.clientHeight! > window.innerHeight) {
 					setHeaderClass(prev => {
 						return prev === classes.headerSmall ? classes.header : prev;
 					});

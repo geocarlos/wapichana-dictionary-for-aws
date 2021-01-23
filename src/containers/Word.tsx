@@ -76,6 +76,7 @@ const useStyles = makeStyles(theme => ({
 		}
 	},
 	media: {
+		padding: '1rem 2rem',
 		'& img': {
 			width: '15rem'
 		}
