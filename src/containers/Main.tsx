@@ -47,7 +47,7 @@ const Main = () => {
 			</div>
 			<Switch>
 				<Route exact path="/">
-					<WordList letter={letter} />
+					<WordList letter={letter} setLetter={setLetter} />
 				</Route>
 				<Route exact path="/fileupload">
 					<FileUpload />

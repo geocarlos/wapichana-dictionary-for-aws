@@ -92,7 +92,7 @@ const Header = () => {
 				<figure>
 					<img width="200" height="100" src={logo} alt="" />
 				</figure>
-				<h1>Dicionario Wapichana</h1>
+				<h1>Dicionário Wapichana</h1>
 			</div>
 		</header>
 	);

@@ -66,7 +66,7 @@ const Authenticator = () => {
     }
 
     return (
-        <div>
+        <>
             <Button color="primary" variant="outlined" onClick={handleClickOpen}>
                 Login
             </Button>
@@ -123,7 +123,7 @@ const Authenticator = () => {
                     </DialogActions>
                 </form>
             </Dialog>
-        </div>
+        </>
     );
 }
 

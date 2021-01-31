@@ -1,16 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import IStore from '../store/IStore';
 import Entry from '../model/Entry';
 import { getInitialLetter } from './WordList';
-import { Button, IconButton, makeStyles } from '@material-ui/core';
+import { Button, IconButton, makeStyles, Paper, useMediaQuery } from '@material-ui/core';
 import { MEDIA_URL } from '../api/constants';
-import { Edit } from '@material-ui/icons';
+import { ArrowBack, Edit, Menu } from '@material-ui/icons';
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		display: 'grid',
+		position: 'relative',
 		height: '73vh',
 		alignItems: 'flex-start',
 		width: '100%',
@@ -19,15 +20,34 @@ const useStyles = makeStyles(theme => ({
 		columnGap: '2rem',
 		padding: '1rem',
 		[theme.breakpoints.down(700)]: {
-			height: '90vh'
+			height: '73vh',
+			gridTemplateColumns: 'auto',
+			gridTemplateRows: 'fit-content(100%)'
 		}
 	},
 	item: {
 		height: '100%',
 		overflow: 'auto',
 	},
+	navigation: {
+		position: 'sticky',
+		display: 'flex',
+		width: '100%',
+		height: 'fit-content',
+		color: 'white',
+		top: 20,
+		padding: 0,
+		margin: 0,
+		zIndex: 1,
+		'& .icon-buttons': {
+			display: 'flex',
+			position: 'sticky',
+			top: 0,
+			width: '100%',
+			justifyContent: 'space-between'
+		}
+	},
 	navList: {
-		position: 'relative',
 		width: '100%',
 		padding: '1rem',
 		height: '90%',
@@ -36,13 +56,23 @@ const useStyles = makeStyles(theme => ({
 		},
 		'& .nav-list-item': {
 			padding: '.5rem 0'
+		},
+		[theme.breakpoints.down(700)]: {
+			position: 'absolute',
+			height: 'fit-content',
+			maxHeight: '65vh',
+			top: '100%',
+			overflowY: 'auto',
+			transition: 'left 500ms linear',
+			background: '#efefef',
+			animation: '$appear 1s'
 		}
 	},
 	wordView: {
 		display: 'grid',
 		gridTemplateColumns: '50% 50%',
 		width: '100%',
-		height: '100%',
+		height: 'fit-content',
 		overflow: 'auto',
 		[theme.breakpoints.down(700)]: {
 			gridTemplateColumns: 'auto'
@@ -80,6 +110,14 @@ const useStyles = makeStyles(theme => ({
 		'& img': {
 			width: '15rem'
 		}
+	},
+	'@keyframes appear': {
+		from: {
+			width: '0%'
+		},
+		to: {
+			width: '100%'
+		}
 	}
 }));
 
@@ -95,7 +133,10 @@ const Word = ({ setLetter }: IProps) => {
 
 	const wordList = useSelector<IStore, Entry[]>(state => state.entries);
 	const isLoggedIn = useSelector<IStore, boolean | null>(state => state.user.isLoggedIn);
-	const [word, setWord] = React.useState<Entry | null>(null)
+	const [word, setWord] = React.useState<Entry | null>(null);
+	const isLargeScreen = useMediaQuery('(min-width:700px)');
+
+	const [showNavList, setShowNavList] = useState(false);
 
 	useEffect(() => {
 		if (wordList && wordList.length) {
@@ -111,16 +152,20 @@ const Word = ({ setLetter }: IProps) => {
 
 	return word ? (
 		<div className={classes.root}>
-			<div className={classes.item}>
+			<div className={isLargeScreen ? classes.item : classes.navigation}>
+				{isLargeScreen ? 
 				<Button className={classes.returnButton} variant="contained" color="secondary"
-					onClick={() => history.push('/')}>Voltar</Button>
-				<div className={classes.navList}>
+					onClick={() => history.push('/')}>Voltar</Button> :
+				<div className="icon-buttons"><IconButton onClick={() => history.push('/')}><ArrowBack /></IconButton>
+				<IconButton onClick={() => setShowNavList(prev => !prev)}><Menu /></IconButton></div>}
+				{(isLargeScreen || showNavList) && 
+				<Paper className={classes.navList}>
 					{wordList.map(w => (
 						<div className="nav-list-item">
-							<Link to={`/${w.entry_id}`}>{w.entry}</Link>
+							<Link onClick={() => isLargeScreen ? null : setShowNavList(false)} to={`/${w.entry_id}`}>{w.entry}</Link>
 						</div>
 					))}
-				</div>
+				</Paper>}
 			</div>
 			<div className={classes.item}>
 				<div className={classes.wordView}>

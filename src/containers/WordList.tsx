@@ -7,6 +7,7 @@ import Entry from '../model/Entry';
 import { Button, IconButton } from '@material-ui/core';
 import { Edit } from '@material-ui/icons';
 import { MEDIA_URL } from '../api/constants';
+import Search from '../components/Search';
 
 export const isNotNh = (word: any) => {
 	return word.substring(0, 2).toLowerCase() !== 'nh';
@@ -16,7 +17,7 @@ export const getInitialLetter = (entry: string) => {
     return isNotNh(entry) && entry[0].toLocaleLowerCase() !== 'c' ? entry[0].toUpperCase() : entry.toUpperCase().substring(0, 2);
 }
 
-const WordList = ({ letter = 'A' }) => {
+const WordList = ({ letter = 'A', setLetter }: any) => {
 	const wordList = useSelector<IStore, Entry[]>(state => state.entries);
 	const isLoggedIn = useSelector<IStore, boolean | null>(state => state.user.isLoggedIn);
 	const history = useHistory();
@@ -55,6 +56,9 @@ const WordList = ({ letter = 'A' }) => {
 				</Button>}
 			</div>
 			<ul>
+				<li className="search">
+					<Search letter={letter} setLetter={setLetter} />			
+				</li>
 				{wordList.map((word: any, i: number) => (
 					<li className="word-card" key={word.entry + i}>
 						<Link to={`/${word.entry_id}`}>{word.entry}</Link> - {word.definition}
