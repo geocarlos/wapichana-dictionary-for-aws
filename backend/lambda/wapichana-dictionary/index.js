@@ -28,6 +28,32 @@ function fetchAllEntries() {
         })
 }
 
+function searchEntries(search, searchLang) {
+    const FilterExpression = searchLang === 'wp' ? 'contains (#entry, :search)' : 'contains (#definition, :search)';
+    const ExpressionAttributeNames = searchLang === 'wp' ?  {'#entry': 'entry'} : {'#definition': 'definition'};
+
+    const params = {
+        TableName,
+        FilterExpression,
+        ExpressionAttributeValues: {
+            ':search': search
+        },
+        ExpressionAttributeNames
+    }
+
+    return db.scan(params).promise()
+        .then(data => {
+            return {
+                statusCode: 200,
+                headers: getHeaders(),
+                body: JSON.stringify(data.Items)
+            }
+        })
+        .catch(error => {
+            return JSON.stringify(error);
+        })
+}
+
 function fetchEntriesByFirstLetter(firstLetter) {
     const params = {
         TableName,
@@ -167,10 +193,14 @@ exports.handler = (event) => {
     if (method === 'GET' && path === '' || path === '/') {
         const initialLetter = event.queryStringParameters ? event.queryStringParameters.initialLetter : null;
         const entry = event.queryStringParameters ? event.queryStringParameters.entry : null;
+        const search = event.queryStringParameters ? event.queryStringParameters.search : null;
+        const searchLang = event.queryStringParameters ? event.queryStringParameters.searchLang : 'wp';
         if (initialLetter) {
             return fetchEntriesByFirstLetter(initialLetter);
         } else if (entry) {
             return getEntry(entry);
+        } else if (search) {
+            return searchEntries(search, searchLang);
         }
         return fetchAllEntries();
     } else if (method === 'GET' && path === '/{entry_id+}') {
