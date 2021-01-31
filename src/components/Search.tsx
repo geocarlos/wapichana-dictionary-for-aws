@@ -48,7 +48,8 @@ const Search = ({setLetter}: any) => {
     
     const dispatch = useDispatch();
 
-    const performSearch = () => {
+    const performSearch = (e: any) => {
+        e.preventDefault();
         dispatch<any>({
             type: 'FETCH_ENTRIES',
             payload: axios.get(`${API_BASE_URL}/entries?search=${search}&searchLang=${lang}`)
@@ -58,7 +59,7 @@ const Search = ({setLetter}: any) => {
     }
 
     return (
-        <Paper component="form" className={classes.root}>
+        <Paper component="form" className={classes.root} onSubmit={performSearch}>
             <Select className={classes.languageSelector} value={lang} onChange={(e: any) => setLang(e.target.value)}>
                 <MenuItem value="wp">Wapichana</MenuItem>
                 <MenuItem value="pt">Português</MenuItem>
@@ -73,7 +74,7 @@ const Search = ({setLetter}: any) => {
                 <SearchIcon />
             </IconButton>
             <Divider className={classes.divider} orientation="vertical" />
-            <IconButton disabled={search === ''} onClick={performSearch} color="primary" className={classes.iconButton}>
+            <IconButton disabled={search === ''} type="submit" color="primary" className={classes.iconButton}>
                 <DirectionsIcon />
             </IconButton>
         </Paper>
