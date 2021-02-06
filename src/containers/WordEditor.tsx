@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react';
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import IStore from '../store/IStore';
 import Entry from '../model/Entry';
 import { getInitialLetter } from './WordList';
 import { Button, IconButton, makeStyles } from '@material-ui/core';
-import { Edit, Check, Cancel } from '@material-ui/icons';
+import { Edit, Check, Cancel, DeleteForever } from '@material-ui/icons';
 import { MEDIA_URL } from '../api/constants';
 import FileUpload from '../components/FileUpload';
-import { createEntry } from '../actions/EntryActions';
+import { createEntry, deleteEntry, fetchEntries } from '../actions/EntryActions';
 import { toast } from 'react-toastify';
 import { handleFetchEntry } from '../api/entries';
+import ConfirmDialog from '../components/ConfirmDialog';
 
 const propBlockStyle = {
     display: 'flex',
@@ -132,7 +133,7 @@ const WordEditor = ({ setLetter }: IProps) => {
 
     const wordList = useSelector<IStore, Entry[]>(state => state.entries);
 
-    const [word, setWord] = React.useState<any>({
+    const initialWord = {
         entry_id: '',
         entry: { value: '', tip: 'Palavra em wapichana', styleClass: classes.propBlock },
         definition: { value: '', tip: 'Definição em português', styleClass: classes.propBlock },
@@ -140,7 +141,24 @@ const WordEditor = ({ setLetter }: IProps) => {
         examples: [],
         audios: [],
         images: []
-    });
+    }
+
+    const [word, setWord] = React.useState<any>(initialWord);
+
+    const [openConfirm, setOpenConfirm] = React.useState(false);
+
+    const handleCloseConfirm = (response: boolean) => {
+        if (response) {
+            dispatch<any>(deleteEntry(word.entry_id))
+            .then(() => {
+                toast.success('A palavra foi excluída!');
+                history.push('/editor');
+                setWord(initialWord);
+            })
+            .catch(() => toast.error('Não foi possível excluir a palavra'));
+        }
+        setOpenConfirm(false);
+    }
 
     const handleInput = ({ target }: any) => {
         if (target.id.includes('example')) {
@@ -299,6 +317,9 @@ const WordEditor = ({ setLetter }: IProps) => {
                 </Button>
             </div>
             <div className={classes.item}>
+                {word.entry_id && <div style={{ width: '30%', display: 'flex'}}>
+                    <Button onClick={() => setOpenConfirm(true)} startIcon={<DeleteForever/>} size="small" variant="outlined" color="primary">Excluir Palavra</Button>
+                </div>}
                 <div id="word-view" ref={wordViewRef} className={classes.wordView}>
                     <div className={`entry-handler sticky-button ${classes.audio}`}>
                         <FileUpload type="audio/*" handleAdd={addMedia}>Adicionar Áudio</FileUpload>
@@ -389,6 +410,7 @@ const WordEditor = ({ setLetter }: IProps) => {
                     </div>
                 </div>
             </div>
+            <ConfirmDialog open={openConfirm} word={word.entry.value} handleClose={handleCloseConfirm} />
         </div>
     ) : null;
 }

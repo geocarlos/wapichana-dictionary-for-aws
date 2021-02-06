@@ -22,3 +22,7 @@ export const handleFetchEntry = (entry: string) => {
 export const handleCreateEntry = (entry: Entry) => {
     return axios.post(`${API_BASE_SECURE_URL}/entries`, entry);
 };
+
+export const handleDeleteEntry = (entry_id: string) => {
+    return axios.delete(`${API_BASE_SECURE_URL}/entries/${entry_id}`);
+};

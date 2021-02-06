@@ -1,7 +1,7 @@
 import { ICreateEntry, IDeleteEntry, IFetchEntries } from "./IActions";
 import keys from './ActionTypeKeys';
 import Entry from "../model/Entry";
-import { handleCreateEntry, handleFetchEntries } from "../api/entries";
+import { handleCreateEntry, handleFetchEntries, handleDeleteEntry } from "../api/entries";
 
 export const fetchEntries = (initialLetter: string): IFetchEntries => ({
     type: keys.FETCH_ENTRIES,
@@ -13,7 +13,7 @@ export const createEntry = (entry: Entry): ICreateEntry => ({
     payload: handleCreateEntry(entry)
 });
 
-export const deleteEntry = (entry: Entry): IDeleteEntry => ({
+export const deleteEntry = (entry_id: string): IDeleteEntry => ({
     type: keys.DELETE_ENTRY,
-    payload: Promise.resolve(entry)
+    payload: handleDeleteEntry(entry_id)
 })

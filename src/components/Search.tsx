@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
-import DirectionsIcon from '@material-ui/icons/Directions';
 import { MenuItem, Select } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
@@ -16,12 +14,12 @@ const useStyles = makeStyles(theme => ({
     root: {
         gridColumn: '1 / 3',
         padding: '.25rem .5rem',
-        gridTemplateColumns: '10% 81% 4% 1% 4%',
+        gridTemplateColumns: '10% 86% 4%',
         display: 'grid',
         alignItems: 'center',
         width: '100%',
         [theme.breakpoints.down(700)]: {
-            gridTemplateColumns: '85% 6% 3% 6%',
+            gridTemplateColumns: '94% 6%',
         }
     },
     input: {
@@ -50,6 +48,9 @@ const Search = ({setLetter}: any) => {
 
     const performSearch = (e: any) => {
         e.preventDefault();
+        if (!search) {
+            return;
+        }
         dispatch<any>({
             type: 'FETCH_ENTRIES',
             payload: axios.get(`${API_BASE_URL}/entries?search=${search}&searchLang=${lang}`)
@@ -66,16 +67,12 @@ const Search = ({setLetter}: any) => {
             </Select>
             <InputBase
                 className={classes.input}
-                placeholder="Pesquisar palavra em wapichana"
+                placeholder={`Pesquisar palavra em ${lang === 'wp' ? 'wapichana' : 'português'}`}
                 value={search}
                 onChange={(e: any) => setSearch(e.target.value)}
             />
             <IconButton type="submit" className={classes.iconButton}>
                 <SearchIcon />
-            </IconButton>
-            <Divider className={classes.divider} orientation="vertical" />
-            <IconButton disabled={search === ''} type="submit" color="primary" className={classes.iconButton}>
-                <DirectionsIcon />
             </IconButton>
         </Paper>
     );
