@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import IStore from '../store/IStore';
 import Entry from '../model/Entry';
@@ -10,7 +10,7 @@ import { MEDIA_URL } from '../api/constants';
 import FileUpload from '../components/FileUpload';
 import { createEntry, deleteEntry, fetchEntries } from '../actions/EntryActions';
 import { toast } from 'react-toastify';
-import { handleFetchEntry } from '../api/entries';
+import { handleFetchEntries, handleFetchEntry } from '../api/entries';
 import ConfirmDialog from '../components/ConfirmDialog';
 
 const propBlockStyle = {
@@ -67,7 +67,7 @@ const useStyles = makeStyles({
         display: 'grid',
         gridTemplateColumns: '50% 20% 20% 10%',
         width: '100%',
-        height: '100%',
+        height: '92%',
         overflow: 'auto',
         alignItems: 'flex-start'
     },
@@ -128,10 +128,12 @@ const WordEditor = ({ setLetter }: IProps) => {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const { entry_id }: any = useParams();
+    const { entry }: any = useParams();
     const wordViewRef = React.useRef<any>();
 
-    const wordList = useSelector<IStore, Entry[]>(state => state.entries);
+    const wordList = useSelector<IStore, Array<Entry[]>>(state => state.entries);
+    const [definitions, setDefinitions] = useState<Entry[] | null>(null);
+    const [index, setIndex] = useState(0); 
 
     const initialWord = {
         entry_id: '',
@@ -147,13 +149,43 @@ const WordEditor = ({ setLetter }: IProps) => {
 
     const [openConfirm, setOpenConfirm] = React.useState(false);
 
+    const handleWordChange = (prev: any, definitions: Entry[], index: number) => ({
+        ...definitions[index],
+        entry: { ...prev.entry, value: definitions[index].entry },
+        definition: { ...prev.definition, value: definitions[index].definition},
+        gramm: { ...prev.gramm, value: definitions[index].gramm },
+        examples: definitions[index].examples.map((e: any) => ({
+            example: {
+                value: e.example,
+                tip: 'Exemplo em wapichana',
+                styleClass: classes.propBlock
+            },
+            exampleTranslation: {
+                value: e.exampleTranslation,
+                tip: 'Tradução em português',
+                styleClass: classes.propBlock
+            }
+        })),
+    });
+
     const handleCloseConfirm = (response: boolean) => {
         if (response) {
             dispatch<any>(deleteEntry(word.entry_id))
             .then(() => {
                 toast.success('A palavra foi excluída!');
-                history.push('/editor');
-                setWord(initialWord);
+                const defs = definitions;
+                defs?.splice(index, 1);
+                if (defs && defs.length > 0) {
+                    history.push(`/editor/${word.entry.value}`);
+                    setDefinitions(defs);
+                    setIndex(0)
+                } else {
+                    history.push('/editor');
+                    setDefinitions(null);
+                    setIndex(0);
+                    setWord(initialWord);
+                }
+                dispatch(fetchEntries(getInitialLetter(word.entry.value)))
             })
             .catch(() => toast.error('Não foi possível excluir a palavra'));
         }
@@ -194,32 +226,23 @@ const WordEditor = ({ setLetter }: IProps) => {
 
     useEffect(() => {
         if (wordList && wordList.length) {
-            const _word = wordList.filter(word => entry_id === word.entry_id)[0];
-            if (_word) {
-                setWord((prev: any) => ({
-                    ..._word,
-                    entry: { ...prev.entry, value: _word.entry },
-                    definition: { ...prev.definition, value: _word.definition},
-                    gramm: { ...prev.gramm, value: _word.gramm },
-                    examples: _word.examples.map((e: any) => ({
-                        example: {
-                            value: e.example,
-                            tip: 'Exemplo em wapichana',
-                            styleClass: classes.propBlock
-                        },
-                        exampleTranslation: {
-                            value: e.exampleTranslation,
-                            tip: 'Tradução em português',
-                            styleClass: classes.propBlock
-                        }
-                    })),
-                }));
+            const _word = wordList.filter(word => word.some(w => w.entry === entry))[0];
+            setDefinitions(prev => prev === null ? _word : prev);
+
+            if (_word && _word[0]) {
+                setWord((prev: any) => handleWordChange(prev, _word, 0));
             }
         }
         setLetter(prev => {
-			return entry_id ? getInitialLetter(entry_id) : prev;
+			return entry ? getInitialLetter(entry) : prev;
 		})
-    }, [wordList, entry_id, setWord]);
+    }, [wordList, entry, setWord]);
+
+    useEffect(() => {
+        if (definitions) {
+            setWord((prev: any) => handleWordChange(prev, definitions, index));
+        }
+    }, [index, definitions]);
 
     const addExample = () => {
         setWord({
@@ -298,8 +321,8 @@ const WordEditor = ({ setLetter }: IProps) => {
         dispatch<any>(createEntry(wordToSave))
             .then((result: any) => {
                 console.log('RESULT:', result);
-                setLetter(getInitialLetter(wordToSave.entry_id));
-                history.push(`/${wordToSave.entry_id}`)
+                setLetter(getInitialLetter(wordToSave.entry));
+                history.push(`/${wordToSave.entry}`)
                 toast.success('Palavra salva com sucesso!');
             })
             .catch((error: Error) => {
@@ -315,6 +338,31 @@ const WordEditor = ({ setLetter }: IProps) => {
                     onClick={() => history.push('/')}>
                     Voltar
                 </Button>
+                {definitions && definitions.length > 0 && 
+                <div>
+                    <h5>Definições:</h5>
+                    {definitions?.map((e, i) => (
+                        <div key={e.entry_id + i} style={{padding: '.5rem 0'}}>
+                            <Link 
+                                style={{color: 'var(--primary-color)', textDecoration: i === index ? 'underline' : 'none'}} 
+                                to={`/editor/${e.entry}`}
+                                onClick={() => setIndex(i)}>{i + 1}ª definição</Link>
+                        </div>
+                    ))}
+                    <Button onClick={() => {
+                        const newEntry = {
+                            entry_id: null,
+                            entry: word.entry.value,
+                            gramm: '',
+                            definition: '',
+                            examples: [],
+                            audios: [],
+                            images: []
+                        }
+                        setIndex(definitions.length);
+                        setDefinitions((prev: any) => [...prev, newEntry]);
+                    }} variant="outlined" style={{fontSize: '.5rem'}} size="small" color="primary">Adicionar definição</Button>
+                </div>}
             </div>
             <div className={classes.item}>
                 {word.entry_id && <div style={{ width: '30%', display: 'flex'}}>

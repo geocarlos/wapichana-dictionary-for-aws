@@ -129,79 +129,82 @@ const Word = ({ setLetter }: IProps) => {
 	const classes = useStyles();
 	const history = useHistory();
 
-	const { entry_id }: any = useParams();
+	const { entry }: any = useParams();
 
-	const wordList = useSelector<IStore, Entry[]>(state => state.entries);
+	const wordList = useSelector<IStore, Array<Entry[]>>(state => state.entries);
 	const isLoggedIn = useSelector<IStore, boolean | null>(state => state.user.isLoggedIn);
-	const [word, setWord] = React.useState<Entry | null>(null);
+	const [word, setWord] = React.useState<Entry[] | null>(null);
 	const isLargeScreen = useMediaQuery('(min-width:700px)');
 
 	const [showNavList, setShowNavList] = useState(false);
 
 	useEffect(() => {
 		if (wordList && wordList.length) {
-			const _word = wordList.filter(word => entry_id === word.entry_id);
+			const _word = wordList.filter(word => entry === word[0].entry);
 			if (_word[0]) {
 				setWord(_word[0]);
 			}
 		}
 		setLetter(prev => {
-			return entry_id ? getInitialLetter(entry_id) : prev;
+			return entry ? getInitialLetter(entry) : prev;
 		})
-	}, [wordList, entry_id])
+	}, [wordList, entry])
 
 	return word ? (
 		<div className={classes.root}>
 			<div className={isLargeScreen ? classes.item : classes.navigation}>
-				{isLargeScreen ? 
-				<Button className={classes.returnButton} variant="contained" color="secondary"
-					onClick={() => history.push('/')}>Voltar</Button> :
-				<div className="icon-buttons"><IconButton onClick={() => history.push('/')}><ArrowBack /></IconButton>
-				<IconButton onClick={() => setShowNavList(prev => !prev)}><Menu /></IconButton></div>}
-				{(isLargeScreen || showNavList) && 
-				<Paper className={classes.navList}>
-					{wordList.map(w => (
-						<div className="nav-list-item">
-							<Link onClick={() => isLargeScreen ? null : setShowNavList(false)} to={`/${w.entry_id}`}>{w.entry}</Link>
-						</div>
-					))}
-				</Paper>}
+				{isLargeScreen ?
+					<Button className={classes.returnButton} variant="contained" color="secondary"
+						onClick={() => history.push('/')}>Voltar</Button> :
+					<div className="icon-buttons"><IconButton onClick={() => history.push('/')}><ArrowBack /></IconButton>
+						<IconButton onClick={() => setShowNavList(prev => !prev)}><Menu /></IconButton></div>}
+				{(isLargeScreen || showNavList) &&
+					<Paper className={classes.navList}>
+						{wordList.map(w => (
+							<div className="nav-list-item">
+								<Link onClick={() => isLargeScreen ? null : setShowNavList(false)} to={`/${w[0].entry}`}>{w[0].entry}</Link>
+							</div>
+						))}
+					</Paper>}
 			</div>
 			<div className={classes.item}>
-				<div className={classes.wordView}>
-					<div>
-						<h1>
-							{word.entry}
-							{isLoggedIn &&
-								<IconButton style={{ padding: 0 }} onClick={() => history.push(`/editor/${word.entry_id}`)}><Edit /></IconButton>}
-						</h1>
-						<div className={classes.definition}>
-							<em>{word.gramm}</em>
-							{word.definition}
-						</div>
-						<div className={classes.examples}>
-							<div className="examples-header">
-								{`Exemplo${word.examples.length > 1 ? 's' : ''}`}
+				<h1>
+					{word[0].entry}
+					{isLoggedIn &&
+						<IconButton style={{ padding: 0 }} onClick={() => history.push(`/editor/${word[0].entry}`)}><Edit /></IconButton>}
+				</h1>
+				{word && word.map((w: Entry, index: number) => (
+					<div key={w.entry_id} className={classes.wordView}>
+						<div>
+							<div className={classes.definition}>
+								<b>{index + 1}. </b><em>{w.gramm}</em>
+								{w.definition}
 							</div>
-							{word.examples.map((e: any) => (
-								<div className="example-block" key={e.example}>
-									<p><b>{e.example}</b></p>
-									<p>{e.exampleTranslation}</p>
+							{w.examples.length > 0 && 
+							<div className={classes.examples}>
+								<div className="examples-header">
+									{`Exemplo${w.examples.length > 1 ? 's' : ''}`}
 								</div>
+								{w.examples.map((e: any) => (
+									<div className="example-block" key={e.example}>
+										<p><b>{e.example}</b></p>
+										<p>{e.exampleTranslation}</p>
+									</div>
+								))}
+							</div>}
+						</div>
+						<div className={classes.media}>
+							{w.images?.map((img: any) => (
+								<img key={img} src={`${MEDIA_URL}/image/${img}`} alt={img} />
+							))}
+							{w.audios.map(audio => (
+								<audio key={audio} controls>
+									<source src={`${MEDIA_URL}/audio/${audio}`} />
+								</audio>
 							))}
 						</div>
 					</div>
-					<div className={classes.media}>
-						{word.images?.map((img: any) => (
-							<img key={img} src={`${MEDIA_URL}/image/${img}`} alt={img} />
-						))}
-						{word.audios.map(audio => (
-							<audio key={audio} controls>
-								<source src={`${MEDIA_URL}/audio/${audio}`} />
-							</audio>
-						))}
-					</div>
-				</div>
+				))}
 			</div>
 		</div>
 	) : null;

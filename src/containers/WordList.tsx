@@ -18,7 +18,7 @@ export const getInitialLetter = (entry: string) => {
 }
 
 const WordList = ({ letter = 'A', setLetter }: any) => {
-	const wordList = useSelector<IStore, Entry[]>(state => state.entries);
+	const wordList = useSelector<IStore, Array<Entry[]>>(state => state.entries);
 	const isLoggedIn = useSelector<IStore, boolean | null>(state => state.user.isLoggedIn);
 	const history = useHistory();
 
@@ -59,15 +59,15 @@ const WordList = ({ letter = 'A', setLetter }: any) => {
 				<li className="search">
 					<Search letter={letter} setLetter={setLetter} />			
 				</li>
-				{wordList.map((word: any, i: number) => (
-					<li className="word-card" key={word.entry + i}>
-						<Link to={`/${word.entry_id}`}>{word.entry}</Link> - {word.definition}
-						{isLoggedIn && <IconButton style={{padding: 0}} onClick={() => history.push(`/editor/${word.entry_id}`)}><Edit /></IconButton>}
+				{wordList.map((word: Array<any>, i: number) => (
+					<li className="word-card" key={word[0].entry + i}>
+						<Link to={`/${word[0].entry}`}>{word[0].entry}</Link> - {word.map(w => w.definition).join('; ')}
+						{isLoggedIn && <IconButton style={{padding: 0}} onClick={() => history.push(`/editor/${word[0].entry}`)}><Edit /></IconButton>}
 						<div>
-							{word.audios.length > 0 && <span onClick={() => {
-								audio && audio.src.includes(word.audios[0]) ? stop() : play(`${MEDIA_URL}/audio/${word.audios[0]}`);
+							{word[0].audios.length > 0 && <span onClick={() => {
+								audio && audio.src.includes(word[0].audios[0]) ? stop() : play(`${MEDIA_URL}/audio/${word[0].audios[0]}`);
 							}}>
-								<PlayStop isPlaying={audio && audio.src.includes(word.audios[0])} />
+								<PlayStop isPlaying={audio && audio.src.includes(word[0].audios[0])} />
 							</span>}
 						</div>
 					</li>

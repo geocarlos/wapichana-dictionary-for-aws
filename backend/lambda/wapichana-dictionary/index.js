@@ -43,10 +43,18 @@ function searchEntries(search, searchLang) {
 
     return db.scan(params).promise()
         .then(data => {
+            const response = data.Items.reduce((ac, cv) => {
+                if (!ac[cv.entry]) {
+                    ac[cv.entry] = [cv];
+                } else {
+                    ac[cv.entry].push(cv);
+                }
+                return ac;
+            }, {});
             return {
                 statusCode: 200,
                 headers: getHeaders(),
-                body: JSON.stringify(data.Items)
+                body: JSON.stringify(Object.values(response))
             }
         })
         .catch(error => {
@@ -70,10 +78,18 @@ function fetchEntriesByFirstLetter(firstLetter) {
     return db.query(params).promise()
         .then(data => {
             console.log('Filtered by letter:', data);
+            const response = data.Items.reduce((ac, cv) => {
+                if (!ac[cv.entry]) {
+                    ac[cv.entry] = [cv];
+                } else {
+                    ac[cv.entry].push(cv);
+                }
+                return ac;
+            }, {});
             return {
                 statusCode: 200,
                 headers: getHeaders(),
-                body: JSON.stringify(data.Items)
+                body: JSON.stringify(Object.values(response))
             }
         })
         .catch(error => {
