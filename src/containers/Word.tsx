@@ -148,7 +148,7 @@ const Word = ({ setLetter }: IProps) => {
 		setLetter(prev => {
 			return entry ? getInitialLetter(entry) : prev;
 		})
-	}, [wordList, entry])
+	}, [wordList, entry, setLetter])
 
 	return word ? (
 		<div className={classes.root}>
@@ -161,7 +161,7 @@ const Word = ({ setLetter }: IProps) => {
 				{(isLargeScreen || showNavList) &&
 					<Paper className={classes.navList}>
 						{wordList.map(w => (
-							<div className="nav-list-item">
+							<div key={w[0].entry} className="nav-list-item">
 								<Link onClick={() => isLargeScreen ? null : setShowNavList(false)} to={`/${w[0].entry}`}>{w[0].entry}</Link>
 							</div>
 						))}

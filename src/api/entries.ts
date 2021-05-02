@@ -3,7 +3,7 @@ import Entry from '../model/Entry';
 import { API_BASE_SECURE_URL, API_BASE_URL } from './constants';
 
 // Dev
-const data = require('../data/entries-aws.json');
+// const data = require('../data/entries-aws.json');
 
 export const handleFetchEntries = (initialLetter: string) => {
     return axios.get(`${API_BASE_URL}/entries?initialLetter=${initialLetter}`);    
