@@ -6,7 +6,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { Auth, toast } from 'aws-amplify';
+import { Auth } from 'aws-amplify';
 import { signIn } from '../actions/UserActions';
 import { useDispatch } from 'react-redux';
 

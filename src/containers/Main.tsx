@@ -22,7 +22,7 @@ const ProtectedRoute = ({ isLoggedIn, roles, path, userRoles, children, ...rest 
 		return <Route {...rest}>{children}</Route>
 	} else {
 		return <Route path={path} render={() => (
-			isLoggedIn ? <h1>YOU ARE NOT ALLOWED TO SEE THE PAGE!</h1> :
+			isLoggedIn ? <h1>VOCÊ NÃO TEM PERMISSÃO PARA VER ESTA PÁGINA!</h1> :
 				<Redirect to="/" />
 		)} {...rest} />
 	}

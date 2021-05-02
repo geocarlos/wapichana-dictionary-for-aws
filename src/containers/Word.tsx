@@ -159,7 +159,7 @@ const Word = ({ setLetter }: IProps) => {
 					<div className="icon-buttons"><IconButton onClick={() => history.push('/')}><ArrowBack /></IconButton>
 						<IconButton onClick={() => setShowNavList(prev => !prev)}><Menu /></IconButton></div>}
 				{(isLargeScreen || showNavList) &&
-					<Paper className={classes.navList}>
+					<Paper elevation={0} className={classes.navList}>
 						{wordList.map(w => (
 							<div key={w[0].entry} className="nav-list-item">
 								<Link onClick={() => isLargeScreen ? null : setShowNavList(false)} to={`/${w[0].entry}`}>{w[0].entry}</Link>
