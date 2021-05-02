@@ -19,10 +19,12 @@ const FileUpload = ({handleAdd, type = 'image/*', width = 180, height = 35, chil
 
     const uploadFile = () => {
         setLoading(true);
+        const fileType = state.fileToUpload.type.substring(0, state.fileToUpload.type.indexOf('/'));
+        const filename = state.fileToUpload.name;
         // When the upload file button is clicked, 
         // first we need to get the presigned URL
         // URL is the one you get from AWS API Gateway
-        axios.get(`${API_FILE_UPLOAD_URL}/?filename=${state.fileToUpload.name}`)
+        axios.get(`${API_FILE_UPLOAD_URL}/?filename=${fileType}/${filename}`)
             .then(response => {
                 // Getting the url from response
                 const url = response.data.fileUploadURL;
@@ -40,8 +42,8 @@ const FileUpload = ({handleAdd, type = 'image/*', width = 180, height = 35, chil
                             error: undefined
                         });
                         handleAdd(
-                            state.fileToUpload.type.substring(0, state.fileToUpload.type.indexOf('/')),
-                            state.fileToUpload.name
+                            fileType,
+                            filename
                         );
 
                     })
