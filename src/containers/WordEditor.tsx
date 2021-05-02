@@ -10,7 +10,7 @@ import { MEDIA_URL } from '../api/constants';
 import FileUpload from '../components/FileUpload';
 import { createEntry, deleteEntry, fetchEntries } from '../actions/EntryActions';
 import { toast } from 'react-toastify';
-import { handleFetchEntries, handleFetchEntry } from '../api/entries';
+import { handleFetchEntry } from '../api/entries';
 import ConfirmDialog from '../components/ConfirmDialog';
 
 const propBlockStyle = {
@@ -322,6 +322,7 @@ const WordEditor = ({ setLetter }: IProps) => {
             .then((result: any) => {
                 console.log('RESULT:', result);
                 setLetter(getInitialLetter(wordToSave.entry));
+                dispatch(fetchEntries(getInitialLetter(wordToSave.entry)));
                 history.push(`/${wordToSave.entry}`)
                 toast.success('Palavra salva com sucesso!');
             })
