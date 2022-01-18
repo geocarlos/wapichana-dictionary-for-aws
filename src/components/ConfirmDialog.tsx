@@ -1,9 +1,15 @@
 import React from "react";
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@material-ui/core"
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, DialogProps } from "@material-ui/core";
+import { WordProps } from "../containers/Word";
 
-const ConfirmDialog = ({word, open, handleClose}: any) => {
+interface ConfirmDialogProps extends DialogProps {
+    word: WordProps;
+    handleClose: (response: boolean) => void;
+}
+
+const ConfirmDialog = ({word, open, handleClose}: ConfirmDialogProps) => {
     return (
-        <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+        <Dialog open={open} onClose={() => handleClose(false)} aria-labelledby="form-dialog-title">
             <DialogTitle>Excluir Palavra</DialogTitle>
             <DialogContent>
                 <DialogContentText>

@@ -121,11 +121,11 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-type IProps = {
+export type WordProps = {
 	setLetter: React.Dispatch<React.SetStateAction<string>>
 }
 
-const Word = ({ setLetter }: IProps) => {
+const Word = ({ setLetter }: WordProps) => {
 	const classes = useStyles();
 	const history = useHistory();
 
