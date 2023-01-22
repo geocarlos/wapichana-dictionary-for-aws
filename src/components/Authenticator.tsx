@@ -23,7 +23,8 @@ const Authenticator = () => {
     });
 
     const [currentUser, setCurrentUser] = React.useState<any>(null);
-    const [authState, setAuthState] = React.useState<AuthState>('SignIn')
+    const [authState, setAuthState] = React.useState<AuthState>('SignIn');
+    const [formHelpText, setformHelpText] = React.useState('Faça login com seu e-mail e senha cadastrados.');
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -31,7 +32,8 @@ const Authenticator = () => {
 
     const handleClose = () => {
         setAuthState('SignIn');
-        setState({ username: '', password: '', confirmPassword: '', resetCode: '' });
+        setformHelpText('Faça login com seu e-mail e senha cadastrados.');
+        setState(prev => ({ ...prev, password: '', confirmPassword: '', resetCode: '' }));
         setOpen(false);
     };
 
@@ -45,6 +47,7 @@ const Authenticator = () => {
                     if (user.challengeName && user.challengeName === 'NEW_PASSWORD_REQUIRED') {
                         setCurrentUser(user);
                         setAuthState('ForceChangePassword');
+                        setformHelpText('Redefina sua senha.');
                         setState(prev => ({ ...prev, password: '', confirmPassword: '' }));
                         handleClickOpen();
                         return;
@@ -54,8 +57,13 @@ const Authenticator = () => {
                 .catch((error: Error) => {
                     if (error.message.includes('Password reset required')) {
                         setAuthState('ForgotPassword');
+                        setformHelpText('Redefina sua senha.');
                         setState(prev => ({ ...prev, password: '' }));
                         handleClickOpen();
+                    } else if (error.message.includes('Incorrect username or password')) {
+                        alert('Email ou senha incorretos.');
+                    } else {
+                        alert(error.message);
                     }
                 });
         } else if (authState === 'ForceChangePassword' && state.password === state.confirmPassword) {
@@ -98,8 +106,14 @@ const Authenticator = () => {
         Auth.forgotPassword(state.username)
             .then(() => {
                 setAuthState('ForgotPassword');
+                setformHelpText('Redefina sua senha')
             })
             .catch((err) => console.log(err));
+    }
+
+    const handleRequestCodeForm = () => {
+        setAuthState('SendCode');
+        setformHelpText('Insira seu email para receber o código.')
     }
 
     return (
@@ -112,7 +126,7 @@ const Authenticator = () => {
                 <form onSubmit={handleSubmit}>
                     <DialogContent>
                         <DialogContentText>
-                            {authState === 'ForceChangePassword' ? 'Cadastre uma nova senha' : 'Faça login com seu e-mail e senha cadastrados.'}
+                            {formHelpText}
                         </DialogContentText>
                         {(authState === 'SignIn' || authState === 'SendCode') &&
                             <TextField
@@ -164,14 +178,14 @@ const Authenticator = () => {
                         <Button onClick={handleClose} color="primary">
                             Cancelar
                         </Button>
-                        {(authState === 'SignIn' || authState === 'ForgotPassword') ? <Button type="submit" color="primary">
-                            {authState === 'SignIn' ? 'Fazer login' : 'Redefinir e entrar' }
+                        {(authState === 'SignIn' || authState === 'ForgotPassword' || authState === 'ForceChangePassword') ? <Button type="submit" color="primary">
+                            {authState === 'SignIn' ? 'Fazer login' : 'Redefinir e entrar'}
                         </Button> : authState === 'SendCode' ? <Button onClick={handleSendResetCode} color="primary">
                             Receber código por email
                         </Button> : null}
                     </DialogActions>
-                    {authState === 'SignIn' ? <div style={{ padding: "1rem" }}>Esqueceu a senha? Clica <Button onClick={() => setAuthState('SendCode')} size='small'>aqui</Button> para redefinir.</div> :
-                        authState === 'ForgotPassword' ? <div style={{ padding: "1rem" }}>Não recebeu o código? <Button onClick={() => setAuthState('SendCode')} size='small'>Renviar código</Button></div> : null}
+                    {authState === 'SignIn' ? <div style={{ padding: "1rem" }}>Esqueceu a senha? Clica <Button onClick={handleRequestCodeForm} size='small'>aqui</Button> para redefinir.</div> :
+                        authState === 'ForgotPassword' ? <div style={{ padding: "1rem" }}>Não recebeu o código? <Button onClick={handleSendResetCode} size='small'>Renviar código</Button></div> : null}
                 </form>
             </Dialog>
         </>
