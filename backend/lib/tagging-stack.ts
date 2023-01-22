@@ -1,5 +1,6 @@
-import { Construct, Stack, StackProps } from '@aws-cdk/core';
-import { Tags } from '@aws-cdk/core';
+import { Stack, StackProps } from 'aws-cdk-lib';
+import { Construct } from 'constructs';
+import { Tags } from 'aws-cdk-lib';
 
 export default class TaggingStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {

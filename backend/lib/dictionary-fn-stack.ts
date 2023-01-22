@@ -1,6 +1,7 @@
-import { Construct, StackProps } from "@aws-cdk/core";
-import { Code, Function, Runtime } from "@aws-cdk/aws-lambda";
-import { Effect, PolicyStatement } from "@aws-cdk/aws-iam";
+import { StackProps } from "aws-cdk-lib";
+import { Construct } from 'constructs';
+import { Code, Function, Runtime } from "aws-cdk-lib/aws-lambda";
+import { Effect, PolicyStatement } from "aws-cdk-lib/aws-iam";
 import DatabaseStack from './dictionary-db-stack';
 import S3BucketStack from "./dictionary-s3-stack";
 import TaggingStack from "./tagging-stack";
@@ -14,7 +15,7 @@ export default class FunctionStack extends TaggingStack {
 
         this.dictionaryFuction = new Function(this, 'wapichana-dictionary-function', {
             functionName: 'wapichana-dictionary-function',
-            runtime: Runtime.NODEJS_12_X,
+            runtime: Runtime.NODEJS_16_X,
             handler: 'index.handler',
             code: Code.fromAsset('lambda/wapichana-dictionary/dist'),
             initialPolicy: [
@@ -28,7 +29,7 @@ export default class FunctionStack extends TaggingStack {
 
         this.fileUploadFunction = new Function(this, 'wapichana-fileupload-function', {
             functionName: 'wapichana-fileupload-function',
-            runtime: Runtime.NODEJS_12_X,
+            runtime: Runtime.NODEJS_16_X,
             handler: 'index.handler',
             code: Code.fromAsset('lambda/file-upload/dist'),
             initialPolicy: [

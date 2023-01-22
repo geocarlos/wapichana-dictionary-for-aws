@@ -1,9 +1,10 @@
-import {Construct, RemovalPolicy, StackProps} from "@aws-cdk/core";
-import {HostedZone, IHostedZone} from "@aws-cdk/aws-route53";
-import {DnsValidatedCertificate, ICertificate} from "@aws-cdk/aws-certificatemanager";
-import {OriginAccessIdentity} from "@aws-cdk/aws-cloudfront";
-import {Bucket, HttpMethods, RedirectProtocol} from "@aws-cdk/aws-s3";
-import {BucketDeployment, Source} from "@aws-cdk/aws-s3-deployment";
+import { RemovalPolicy, StackProps } from "aws-cdk-lib";
+import { Construct } from 'constructs';
+import { HostedZone, IHostedZone } from "aws-cdk-lib/aws-route53";
+import { DnsValidatedCertificate, ICertificate } from "aws-cdk-lib/aws-certificatemanager";
+import { OriginAccessIdentity } from "aws-cdk-lib/aws-cloudfront";
+import { Bucket, HttpMethods, RedirectProtocol } from "aws-cdk-lib/aws-s3";
+import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
 
 import fs = require('fs');
 import TaggingStack from "./tagging-stack";
@@ -26,7 +27,7 @@ export class FrontendStack extends TaggingStack {
 			comment: identityName
 		});
 
-		const bucketName = 'wapichana-s3-bucket-frontend';
+		const bucketName = 'wapichana-s3-bucket-frontend-app';
 		this.bucket = new Bucket(this, bucketName, {
 			bucketName: bucketName,
 			removalPolicy: RemovalPolicy.DESTROY,
@@ -58,12 +59,13 @@ export class FrontendStack extends TaggingStack {
 		this.hostedZone = HostedZone.fromLookup(this, 'HostedZoneWipichanaDictionary', {
 			domainName: this.domain
 		});
-	
+
 		this.cert = new DnsValidatedCertificate(this, 'wapichana-dictionary-validation-certificate', {
 			domainName: this.domain,
 			hostedZone: this.hostedZone,
 			region: 'us-east-1',
-			subjectAlternativeNames: []
+			subjectAlternativeNames: [],
+			
 		});
 
 		const frontendPath = '../build'

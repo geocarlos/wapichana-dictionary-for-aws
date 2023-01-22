@@ -1,7 +1,8 @@
-import { Construct, Duration, StackProps } from "@aws-cdk/core";
-import { IResource } from '@aws-cdk/aws-apigateway/lib/resource';
-import { LambdaRestApi, TokenAuthorizer } from '@aws-cdk/aws-apigateway';
-import { Code, Function, Runtime } from "@aws-cdk/aws-lambda";
+import { Duration, StackProps } from "aws-cdk-lib";
+import { Construct } from "constructs";
+import { IResource } from 'aws-cdk-lib/aws-apigateway/lib/resource';
+import { LambdaRestApi, TokenAuthorizer } from 'aws-cdk-lib/aws-apigateway';
+import { Code, Function, Runtime } from "aws-cdk-lib/aws-lambda";
 import SecureApi from "./secure-api";
 import OpenApi from "./open-api";
 import FunctionStack from "./dictionary-fn-stack";
@@ -62,7 +63,7 @@ export default class ApiStack extends TaggingStack {
 
         const authorizer = new Function(this, 'wapichana-dictionary-authorizer', {
             functionName: 'wapichana-dictionary-authorizer',
-            runtime: Runtime.NODEJS_12_X,
+            runtime: Runtime.NODEJS_16_X,
             handler: 'index.handler',
             code: Code.fromAsset('lambda/authorizer/dist'),
             timeout: Duration.seconds(30),

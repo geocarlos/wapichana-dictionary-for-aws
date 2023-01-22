@@ -1,6 +1,7 @@
-import { Construct, RemovalPolicy, StackProps } from "@aws-cdk/core";
-import { AttributeType, BillingMode, Table } from '@aws-cdk/aws-dynamodb';
-import { Function } from "@aws-cdk/aws-lambda";
+import { RemovalPolicy, StackProps } from "aws-cdk-lib";
+import { Construct } from "constructs";
+import { AttributeType, BillingMode, Table } from 'aws-cdk-lib/aws-dynamodb';
+import { Function } from "aws-cdk-lib/aws-lambda";
 import TaggingStack from "./tagging-stack";
 
 export default class DatabaseStack extends TaggingStack {

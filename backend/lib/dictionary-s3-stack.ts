@@ -1,5 +1,6 @@
-import { CfnOutput, Construct, RemovalPolicy, StackProps } from "@aws-cdk/core";
-import { Bucket, BucketAccessControl, HttpMethods } from '@aws-cdk/aws-s3';
+import { CfnOutput, RemovalPolicy, StackProps } from "aws-cdk-lib";
+import { Construct } from 'constructs';
+import { Bucket, BucketAccessControl, HttpMethods } from 'aws-cdk-lib/aws-s3';
 import TaggingStack from "./tagging-stack";
 
 export default class S3BucketStack extends TaggingStack {

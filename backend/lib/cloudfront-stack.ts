@@ -1,18 +1,20 @@
-import {CfnOutput, Construct, StackProps} from "@aws-cdk/core";
-import {AaaaRecord, ARecord, RecordTarget} from "@aws-cdk/aws-route53";
+import { CfnOutput, StackProps } from "aws-cdk-lib";
+import { Construct } from 'constructs';
+import { AaaaRecord, ARecord, RecordTarget } from "aws-cdk-lib/aws-route53";
 import {
 	CloudFrontWebDistribution,
 	HttpVersion,
 	PriceClass,
 	SecurityPolicyProtocol,
 	SSLMethod,
+	ViewerCertificate,
 	ViewerProtocolPolicy,
-	Behavior,
-	SourceConfiguration,
-	CloudFrontAllowedMethods,
-} from "@aws-cdk/aws-cloudfront";
-import {FrontendStack} from "./frontend-stack";
-import {CloudFrontTarget} from "@aws-cdk/aws-route53-targets";
+	// Behavior,
+	// SourceConfiguration,
+	// CloudFrontAllowedMethods,
+} from "aws-cdk-lib/aws-cloudfront";
+import { FrontendStack } from "./frontend-stack";
+import { CloudFrontTarget } from "aws-cdk-lib/aws-route53-targets";
 import ApiStack from "./api-stack";
 import TaggingStack from "./tagging-stack";
 
@@ -62,12 +64,11 @@ export class CloudfrontStack extends TaggingStack {
 			viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
 			priceClass: PriceClass.PRICE_CLASS_ALL,
 			httpVersion: HttpVersion.HTTP2,
-			aliasConfiguration: {
-				names: [this.domain],
+			viewerCertificate: ViewerCertificate.fromAcmCertificate(frontend.cert, {
+				aliases: [this.domain],
 				sslMethod: SSLMethod.SNI,
-				securityPolicy: SecurityPolicyProtocol.TLS_V1_1_2016,
-				acmCertRef: frontend.cert.certificateArn
-			},
+				securityPolicy: SecurityPolicyProtocol.TLS_V1_2_2021
+			}),
 			errorConfigurations: [
 				{
 					errorCode: 403,

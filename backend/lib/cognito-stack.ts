@@ -1,6 +1,7 @@
-import { CfnIdentityPool, CfnUserPool, CfnUserPoolClient, CfnUserPoolGroup } from "@aws-cdk/aws-cognito";
-import { Effect, FederatedPrincipal, PolicyDocument, PolicyStatement, Role } from "@aws-cdk/aws-iam";
-import { CfnOutput, Construct, StackProps } from "@aws-cdk/core";
+import { CfnIdentityPool, CfnUserPool, CfnUserPoolClient, CfnUserPoolGroup } from "aws-cdk-lib/aws-cognito";
+import { Effect, FederatedPrincipal, PolicyDocument, PolicyStatement, Role } from "aws-cdk-lib/aws-iam";
+import { CfnOutput, StackProps } from "aws-cdk-lib";
+import { Construct } from 'constructs';
 import TaggingStack from "./tagging-stack";
 
 const USER_POOL_NAME = 'wdUserPool';
