@@ -10,7 +10,7 @@ import { Auth } from 'aws-amplify';
 import { signIn } from '../actions/UserActions';
 import { useDispatch } from 'react-redux';
 
-type AuthState = 'SignIn' | 'ForceChangePassword' | 'ForgotPassword';
+type AuthState = 'SignIn' | 'ForceChangePassword' | 'ForgotPassword' | 'SendCode';
 
 const Authenticator = () => {
     const dispatch = useDispatch();
@@ -18,7 +18,8 @@ const Authenticator = () => {
     const [state, setState] = React.useState({
         username: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        resetCode: ''
     });
 
     const [currentUser, setCurrentUser] = React.useState<any>(null);
@@ -29,6 +30,8 @@ const Authenticator = () => {
     };
 
     const handleClose = () => {
+        setAuthState('SignIn');
+        setState({ username: '', password: '', confirmPassword: '', resetCode: '' });
         setOpen(false);
     };
 
@@ -38,6 +41,7 @@ const Authenticator = () => {
             handleClose();
             dispatch<any>(signIn(state.username, state.password))
                 .then((user: any) => {
+                    console.log(user.challengeName);
                     if (user.challengeName && user.challengeName === 'NEW_PASSWORD_REQUIRED') {
                         setCurrentUser(user);
                         setAuthState('ForceChangePassword');
@@ -45,24 +49,57 @@ const Authenticator = () => {
                         handleClickOpen();
                         return;
                     }
-                    setState({ username: '', password: '', confirmPassword: '' });
+                    setState({ username: '', password: '', confirmPassword: '', resetCode: '' });
                 })
                 .catch((error: Error) => {
-                    alert(error.message);
+                    if (error.message.includes('Password reset required')) {
+                        setAuthState('ForgotPassword');
+                        setState(prev => ({ ...prev, password: '' }));
+                        handleClickOpen();
+                    }
                 });
         } else if (authState === 'ForceChangePassword' && state.password === state.confirmPassword) {
             handleClose();
             Auth.completeNewPassword(currentUser, state.confirmPassword)
                 .then(() => {
                     dispatch<any>(signIn(state.username, state.password))
-                    .then(() => setState({ username: '', password: '', confirmPassword: '' }))
-                    .catch((error: Error) => alert(error.message));
+                        .then(() => setState({ username: '', password: '', confirmPassword: '', resetCode: '' }))
+                        .catch((error: Error) => alert(error.message));
                 })
+                .catch(error => {
+                    if (error.message.includes('Password does not conform to policy')) {
+                        alert("A senha precisa ter:\npelo menos 8 caracteres;\npelo menos um número;\npelo menos uma letra maiúscula;\npelo menos uma letra minúscula;\npelo menos um caracter especial.")
+                    } else {
+                        alert('Ocorreu um erro. Tente novamnte. Se o erro continuar, contate o desenvolvedor.');
+                    }
+                });
+        } else if (authState === 'ForgotPassword') {
+            Auth.forgotPasswordSubmit(state.username, state.resetCode, state.password)
+                .then(() => {
+                    dispatch<any>(signIn(state.username, state.password))
+                        .then(() => setState({ username: '', password: '', confirmPassword: '', resetCode: '' }))
+                        .catch((error: Error) => alert(error.message));
+                })
+                .catch(error => {
+                    if (error.message.includes('Password does not conform to policy')) {
+                        alert("A senha precisa ter:\npelo menos 8 caracteres;\npelo menos um número;\npelo menos uma letra maiúscula;\npelo menos uma letra minúscula;\npelo menos um caracter especial.")
+                    } else {
+                        alert('Ocorreu um erro. Verifique seu código e tente novamnte. Se o erro continuar, contate o desenvolvedor.');
+                    }
+                });
         }
     }
 
     const handleChange = ({ target }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setState(prev => ({ ...prev, [target.name]: target.value }))
+    }
+
+    const handleSendResetCode = () => {
+        Auth.forgotPassword(state.username)
+            .then(() => {
+                setAuthState('ForgotPassword');
+            })
+            .catch((err) => console.log(err));
     }
 
     return (
@@ -75,9 +112,9 @@ const Authenticator = () => {
                 <form onSubmit={handleSubmit}>
                     <DialogContent>
                         <DialogContentText>
-                            Faça login com seu e-mail e senha cadastrados.
-                    </DialogContentText>
-                        {authState === 'SignIn' &&
+                            {authState === 'ForceChangePassword' ? 'Cadastre uma nova senha' : 'Faça login com seu e-mail e senha cadastrados.'}
+                        </DialogContentText>
+                        {(authState === 'SignIn' || authState === 'SendCode') &&
                             <TextField
                                 margin="dense"
                                 name="username"
@@ -88,16 +125,26 @@ const Authenticator = () => {
                                 fullWidth
                                 required
                             />}
-                        <TextField
+                        {authState === 'ForgotPassword' ? <TextField
+                            margin="dense"
+                            name="resetCode"
+                            value={state.resetCode}
+                            onChange={handleChange}
+                            label="Insira o código que você recebeu por email"
+                            type="text"
+                            fullWidth
+                            required
+                        /> : null}
+                        {authState !== 'SendCode' && <TextField
                             margin="dense"
                             name="password"
                             value={state.password}
                             onChange={handleChange}
-                            label="Senha"
+                            label={authState === 'ForgotPassword' ? "Nova senha" : "Senha"}
                             type="password"
                             fullWidth
                             required
-                        />
+                        />}
                         {authState === 'ForceChangePassword' &&
                             <TextField
                                 margin="dense"
@@ -116,11 +163,15 @@ const Authenticator = () => {
                     <DialogActions>
                         <Button onClick={handleClose} color="primary">
                             Cancelar
-                    </Button>
-                        <Button type="submit" color="primary">
-                            Fazer login
-                    </Button>
+                        </Button>
+                        {(authState === 'SignIn' || authState === 'ForgotPassword') ? <Button type="submit" color="primary">
+                            {authState === 'SignIn' ? 'Fazer login' : 'Redefinir e entrar' }
+                        </Button> : authState === 'SendCode' ? <Button onClick={handleSendResetCode} color="primary">
+                            Receber código por email
+                        </Button> : null}
                     </DialogActions>
+                    {authState === 'SignIn' ? <div style={{ padding: "1rem" }}>Esqueceu a senha? Clica <Button onClick={() => setAuthState('SendCode')} size='small'>aqui</Button> para redefinir.</div> :
+                        authState === 'ForgotPassword' ? <div style={{ padding: "1rem" }}>Não recebeu o código? <Button onClick={() => setAuthState('SendCode')} size='small'>Renviar código</Button></div> : null}
                 </form>
             </Dialog>
         </>
