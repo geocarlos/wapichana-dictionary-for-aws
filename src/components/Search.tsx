@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
-import { MenuItem, Select } from '@material-ui/core';
+import { makeStyles } from '@mui/styles';
+import Paper from '@mui/material/Paper';
+import InputBase from '@mui/material/InputBase';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
+import { MenuItem, Select } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { API_BASE_URL } from '../api/constants';
 import { toast } from 'react-toastify';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme: any) => ({
     root: {
         gridColumn: '1 / 3',
         padding: '.25rem .5rem',

@@ -1,71 +1,59 @@
-import Amplify, { Auth } from 'aws-amplify';
-import axios, { AxiosRequestConfig } from 'axios';
-import {AWS_REGION, USER_POOL_ID, APP_CLIENT_ID, API_BASE_SECURE_URL, API_FILE_UPLOAD_URL} from './constants';
+import { Amplify } from 'aws-amplify';
+import { signIn as amplifySignIn, signOut as amplifySignOut, getCurrentUser, fetchAuthSession } from 'aws-amplify/auth';
+import axios, { InternalAxiosRequestConfig } from 'axios';
+import { AWS_REGION, USER_POOL_ID, APP_CLIENT_ID, API_BASE_SECURE_URL, API_FILE_UPLOAD_URL } from './constants';
 
 Amplify.configure({
     Auth: {
-      mandatorySignIn: true,
-      region: AWS_REGION,
-      userPoolId: USER_POOL_ID,
-      userPoolWebClientId: APP_CLIENT_ID
-    }
-  });
-
-export const handleSignIn = (username: string, password: string) => {
-    return Auth.signIn(username, password)
-    .then(user => {
-        if (user.challengeName === 'NEW_PASSWORD_REQUIRED') {
-            return user;
+        Cognito: {
+            userPoolId: USER_POOL_ID,
+            userPoolClientId: APP_CLIENT_ID
         }
-        return Auth.currentSession()
-        .then(data => {
-            const roles = data.getIdToken().decodePayload()['cognito:groups'];
-            return {
-                ...user,
-                userRoles: roles,
-                isLoggedIn: true
-            }
-        })
-    })
-    .catch(error => {
-        throw error;
-    });
-}
+    }
+});
+
+export const handleSignIn = async (username: string, password: string) => {
+    const result = await amplifySignIn({ username, password });
+    if (result.nextStep.signInStep === 'CONFIRM_SIGN_IN_WITH_NEW_PASSWORD_REQUIRED') {
+        return { challengeName: 'NEW_PASSWORD_REQUIRED', username };
+    }
+    const session = await fetchAuthSession();
+    const roles = (session.tokens?.idToken?.payload['cognito:groups'] as string[]) || [];
+    return {
+        username,
+        userRoles: roles,
+        isLoggedIn: true
+    };
+};
 
 export const handleSignOut = () => {
-    return Auth.signOut();
-}
+    return amplifySignOut();
+};
 
-export const checkAuthOnLoad = () => {
-    return Auth.currentAuthenticatedUser()
-    .then(user => {
-        return Auth.currentSession()
-        .then(data => {
-            const roles = data.getIdToken().decodePayload()['cognito:groups'];
-            return {
-                ...user,
-                userRoles: roles,
-                isLoggedIn: true
-            }
-        })
-    })
-    .catch(error => {
-        throw error;    
-    })
-}
+export const checkAuthOnLoad = async () => {
+    const user = await getCurrentUser();
+    const session = await fetchAuthSession();
+    const roles = (session.tokens?.idToken?.payload['cognito:groups'] as string[]) || [];
+    return {
+        username: user.username,
+        userRoles: roles,
+        isLoggedIn: true
+    };
+};
 
-axios.interceptors.request.use((request: AxiosRequestConfig) => {
+axios.interceptors.request.use(async (request: InternalAxiosRequestConfig) => {
     if (request.url && !(request.url.includes(API_BASE_SECURE_URL) || request.url.includes(API_FILE_UPLOAD_URL))) {
         return request;
     }
 
-    return Auth.currentSession()
-    .then(data => {
-        request.headers.Authorization = `Bearer ${data.getIdToken().getJwtToken()}`;
-        return request;
-    })
-    .catch(error => {
+    try {
+        const session = await fetchAuthSession();
+        const idToken = session.tokens?.idToken?.toString();
+        if (idToken) {
+            request.headers.set('Authorization', `Bearer ${idToken}`);
+        }
+    } catch (error) {
         console.log(error);
-        return request;
-    })
-})
+    }
+    return request;
+});

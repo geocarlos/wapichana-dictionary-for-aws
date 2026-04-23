@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { API_FILE_UPLOAD_URL } from "../api/constants";
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/material";
 import Spinner from "./Spinner";
 
 const FileUpload = ({handleAdd, type = 'image/*', width = 180, height = 35, children}: any) => {

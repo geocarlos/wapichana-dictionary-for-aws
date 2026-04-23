@@ -1,10 +1,10 @@
-import jwt_decode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 exports.handler = function(event, context, callback) {
     console.log(JSON.stringify(event, null, 2));
     const token = event.authorizationToken.replace('Bearer ', '');
     try {
-        const decodedToken = jwt_decode(token);
+        const decodedToken = jwtDecode(token);
         if ((decodedToken.exp * 1000) < new Date().getTime()) {
             throw new Error('Token expired!');
         }
@@ -33,7 +33,7 @@ function generatePolicy(principalId, effect, resource) {
     authResponse.context = {
         "stringKey": "stringVal",
         "numberKey": 123,
-        "boleanKey": true
+        "booleanKey": true
     }
 
     console.log(JSON.stringify(authResponse, null, 2));
