@@ -125,9 +125,10 @@ function updateEntry(entry) {
     const params = {
         TableName,
         Key: { entry_id: entry.entry_id },
-        UpdateExpression: 'set #entry = :entry, definition = :definition',
+        UpdateExpression: 'set #entry = :entry, #definition = :definition',
         ExpressionAttributeNames: {
-            '#entry': 'entry'
+            '#entry': 'entry',
+            '#definition': 'definition'
         },
         ExpressionAttributeValues: {
             ':entry': entry.entry,
