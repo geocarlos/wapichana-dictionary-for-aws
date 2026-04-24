@@ -31,14 +31,18 @@ export const handleSignOut = () => {
 };
 
 export const checkAuthOnLoad = async () => {
-    const user = await getCurrentUser();
-    const session = await fetchAuthSession();
-    const roles = (session.tokens?.idToken?.payload['cognito:groups'] as string[]) || [];
-    return {
-        username: user.username,
-        userRoles: roles,
-        isLoggedIn: true
-    };
+    try {
+        const user = await getCurrentUser();
+        const session = await fetchAuthSession();
+        const roles = (session.tokens?.idToken?.payload['cognito:groups'] as string[]) || [];
+        return {
+            username: user.username,
+            userRoles: roles,
+            isLoggedIn: true
+        };
+    } catch {
+        return { username: '', userRoles: [], isLoggedIn: false };
+    }
 };
 
 axios.interceptors.request.use(async (request: InternalAxiosRequestConfig) => {
