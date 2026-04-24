@@ -1,12 +1,12 @@
 import React, { ChangeEvent } from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import { Auth } from 'aws-amplify';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import { confirmSignIn, resetPassword, confirmResetPassword } from 'aws-amplify/auth';
 import { signIn } from '../actions/UserActions';
 import { useDispatch } from 'react-redux';
 
@@ -22,7 +22,6 @@ const Authenticator = () => {
         resetCode: ''
     });
 
-    const [currentUser, setCurrentUser] = React.useState<any>(null);
     const [authState, setAuthState] = React.useState<AuthState>('SignIn');
     const [formHelpText, setformHelpText] = React.useState('Faça login com seu e-mail e senha cadastrados.');
 
@@ -43,9 +42,7 @@ const Authenticator = () => {
             handleClose();
             dispatch<any>(signIn(state.username, state.password))
                 .then((user: any) => {
-                    console.log(user.challengeName);
                     if (user.challengeName && user.challengeName === 'NEW_PASSWORD_REQUIRED') {
-                        setCurrentUser(user);
                         setAuthState('ForceChangePassword');
                         setformHelpText('Redefina sua senha.');
                         setState(prev => ({ ...prev, password: '', confirmPassword: '' }));
@@ -60,7 +57,7 @@ const Authenticator = () => {
                         setformHelpText('Redefina sua senha.');
                         setState(prev => ({ ...prev, password: '' }));
                         handleClickOpen();
-                    } else if (error.message.includes('Incorrect username or password')) {
+                    } else if (error.message.includes('Incorrect username or password') || error.message.includes('NotAuthorizedException')) {
                         alert('Email ou senha incorretos.');
                     } else {
                         alert(error.message);
@@ -68,28 +65,28 @@ const Authenticator = () => {
                 });
         } else if (authState === 'ForceChangePassword' && state.password === state.confirmPassword) {
             handleClose();
-            Auth.completeNewPassword(currentUser, state.confirmPassword)
+            confirmSignIn({ challengeResponse: state.confirmPassword })
                 .then(() => {
                     dispatch<any>(signIn(state.username, state.password))
                         .then(() => setState({ username: '', password: '', confirmPassword: '', resetCode: '' }))
                         .catch((error: Error) => alert(error.message));
                 })
-                .catch(error => {
-                    if (error.message.includes('Password does not conform to policy')) {
+                .catch((error: Error) => {
+                    if (error.message.includes('Password does not conform to policy') || error.message.includes('InvalidPasswordException')) {
                         alert("A senha precisa ter:\npelo menos 8 caracteres;\npelo menos um número;\npelo menos uma letra maiúscula;\npelo menos uma letra minúscula;\npelo menos um caracter especial.")
                     } else {
                         alert('Ocorreu um erro. Tente novamnte. Se o erro continuar, contate o desenvolvedor.');
                     }
                 });
         } else if (authState === 'ForgotPassword') {
-            Auth.forgotPasswordSubmit(state.username, state.resetCode, state.password)
+            confirmResetPassword({ username: state.username, confirmationCode: state.resetCode, newPassword: state.password })
                 .then(() => {
                     dispatch<any>(signIn(state.username, state.password))
                         .then(() => setState({ username: '', password: '', confirmPassword: '', resetCode: '' }))
                         .catch((error: Error) => alert(error.message));
                 })
-                .catch(error => {
-                    if (error.message.includes('Password does not conform to policy')) {
+                .catch((error: Error) => {
+                    if (error.message.includes('Password does not conform to policy') || error.message.includes('InvalidPasswordException')) {
                         alert("A senha precisa ter:\npelo menos 8 caracteres;\npelo menos um número;\npelo menos uma letra maiúscula;\npelo menos uma letra minúscula;\npelo menos um caracter especial.")
                     } else {
                         alert('Ocorreu um erro. Verifique seu código e tente novamnte. Se o erro continuar, contate o desenvolvedor.');
@@ -103,7 +100,7 @@ const Authenticator = () => {
     }
 
     const handleSendResetCode = () => {
-        Auth.forgotPassword(state.username)
+        resetPassword({ username: state.username })
             .then(() => {
                 setAuthState('ForgotPassword');
                 setformHelpText('Redefina sua senha')

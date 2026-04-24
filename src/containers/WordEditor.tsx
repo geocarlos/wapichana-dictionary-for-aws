@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import IStore from '../store/IStore';
 import Entry from '../model/Entry';
 import { getInitialLetter } from './WordList';
-import { Button, IconButton, makeStyles } from '@material-ui/core';
-import { Edit, Check, Cancel, DeleteForever } from '@material-ui/icons';
+import { Button, IconButton } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { Edit, Check, Cancel, DeleteForever } from '@mui/icons-material';
 import { MEDIA_URL } from '../api/constants';
 import FileUpload from '../components/FileUpload';
 import { createEntry, deleteEntry, fetchEntries } from '../actions/EntryActions';
@@ -120,12 +121,12 @@ const useStyles = makeStyles({
 });
 
 type IProps = {
-	setLetter: React.Dispatch<React.SetStateAction<string>>
+setLetter: React.Dispatch<React.SetStateAction<string>>
 }
 
 const WordEditor = ({ setLetter }: IProps) => {
     const classes = useStyles();
-    const history = useHistory();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const { entry }: any = useParams();
@@ -176,11 +177,11 @@ const WordEditor = ({ setLetter }: IProps) => {
                 const defs = definitions;
                 defs?.splice(index, 1);
                 if (defs && defs.length > 0) {
-                    history.push(`/editor/${word.entry.value}`);
+                    navigate(`/editor/${word.entry.value}`);
                     setDefinitions(defs);
                     setIndex(0)
                 } else {
-                    history.push('/editor');
+                    navigate('/editor');
                     setDefinitions(null);
                     setIndex(0);
                     setWord(initialWord);
@@ -234,8 +235,8 @@ const WordEditor = ({ setLetter }: IProps) => {
             }
         }
         setLetter(prev => {
-			return entry ? getInitialLetter(entry) : prev;
-		})
+return entry ? getInitialLetter(entry) : prev;
+})
     }, [wordList, entry, setWord]);
 
     useEffect(() => {
@@ -323,7 +324,7 @@ const WordEditor = ({ setLetter }: IProps) => {
                 console.log('RESULT:', result);
                 setLetter(getInitialLetter(wordToSave.entry));
                 dispatch(fetchEntries(getInitialLetter(wordToSave.entry)));
-                history.push(`/${wordToSave.entry}`)
+                navigate(`/${wordToSave.entry}`)
                 toast.success('Palavra salva com sucesso!');
             })
             .catch((error: Error) => {
@@ -336,7 +337,7 @@ const WordEditor = ({ setLetter }: IProps) => {
         <div className={classes.root}>
             <div className={classes.item}>
                 <Button className="sticky-button" variant="contained" color="secondary"
-                    onClick={() => history.push('/')}>
+                    onClick={() => navigate('/')}>
                     Voltar
                 </Button>
                 {definitions && definitions.length > 0 && 

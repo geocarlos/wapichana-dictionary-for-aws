@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { checkAuthOnLoad } from './api/auth';
 import Spinner from './components/Spinner';
 import IStore from './store/IStore';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+import { createTheme, ThemeProvider } from '@mui/material';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: '#8B131D'

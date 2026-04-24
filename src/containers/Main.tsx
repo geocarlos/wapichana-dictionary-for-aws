@@ -3,7 +3,7 @@ import WordList from './WordList';
 import Word from './Word';
 import LetterNav from '../components/LetterNav';
 import Header from '../components/Header';
-import { BrowserRouter as Router, Redirect, Route, RouteProps, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import FileUpload from '../components/FileUpload';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchEntries } from '../actions/EntryActions';
@@ -11,21 +11,18 @@ import IStore from '../store/IStore';
 import User from '../model/User';
 import WordEditor from './WordEditor';
 
-interface IProtectedRoute extends RouteProps {
-	isLoggedIn: boolean;
+interface IProtectedRoute {
+	isLoggedIn: boolean | null;
 	roles: Array<string>;
-	userRoles: Array<string>
+	userRoles: Array<string>;
+	children: React.ReactNode;
 }
 
-const ProtectedRoute = ({ isLoggedIn, roles, path, userRoles, children, ...rest }: IProtectedRoute) => {
+const ProtectedRoute = ({ isLoggedIn, roles, userRoles, children }: IProtectedRoute) => {
 	if (isLoggedIn && roles.some(role => userRoles.includes(role))) {
-		return <Route {...rest}>{children}</Route>
-	} else {
-		return <Route path={path} render={() => (
-			isLoggedIn ? <h1>VOCÊ NÃO TEM PERMISSÃO PARA VER ESTA PÁGINA!</h1> :
-				<Redirect to="/" />
-		)} {...rest} />
+		return <>{children}</>;
 	}
+	return isLoggedIn ? <h1>VOCÊ NÃO TEM PERMISSÃO PARA VER ESTA PÁGINA!</h1> : <Navigate to="/" />;
 }
 
 const Main = () => {
@@ -45,29 +42,25 @@ const Main = () => {
 				<Header />
 				<LetterNav setLetter={setLetter} />
 			</div>
-			<Switch>
-				<Route exact path="/">
-					<WordList letter={letter} setLetter={setLetter} />
-				</Route>
-				<Route exact path="/fileupload">
-					<FileUpload />
-				</Route>
-				<ProtectedRoute
-					exact path='/editor'
-					isLoggedIn={isLoggedIn}
-					roles={['DictionaryEditor']}
-					userRoles={userRoles || []}
-				><WordEditor setLetter={setLetter} /></ProtectedRoute>
-				<ProtectedRoute
-					exact path='/editor/:entry'
-					isLoggedIn={isLoggedIn}
-					roles={['DictionaryEditor']}
-					userRoles={userRoles || []}
-				><WordEditor setLetter={setLetter} /></ProtectedRoute>
-				<Route path="/:entry">
-					<Word setLetter={setLetter} />
-				</Route>
-			</Switch>
+			<Routes>
+				<Route path="/" element={<WordList letter={letter} setLetter={setLetter} />} />
+				<Route path="/fileupload" element={<FileUpload />} />
+				<Route path="/editor" element={
+					<ProtectedRoute
+						isLoggedIn={isLoggedIn}
+						roles={['DictionaryEditor']}
+						userRoles={userRoles || []}
+					><WordEditor setLetter={setLetter} /></ProtectedRoute>
+				} />
+				<Route path="/editor/:entry" element={
+					<ProtectedRoute
+						isLoggedIn={isLoggedIn}
+						roles={['DictionaryEditor']}
+						userRoles={userRoles || []}
+					><WordEditor setLetter={setLetter} /></ProtectedRoute>
+				} />
+				<Route path="/:entry" element={<Word setLetter={setLetter} />} />
+			</Routes>
 		</Router>
 	);
 }

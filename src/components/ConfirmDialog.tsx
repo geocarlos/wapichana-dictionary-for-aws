@@ -1,9 +1,8 @@
 import React from "react";
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, DialogProps } from "@material-ui/core";
-import { WordProps } from "../containers/Word";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, DialogProps } from "@mui/material";
 
 interface ConfirmDialogProps extends DialogProps {
-    word: WordProps;
+    word: string;
     handleClose: (response: boolean) => void;
 }
 

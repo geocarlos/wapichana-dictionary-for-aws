@@ -17,30 +17,21 @@ export default class DatabaseStack extends TaggingStack {
                 partitionKey: {
                     name: 'entry',
                     type: AttributeType.STRING
-                },
-                billingMode: BillingMode.PROVISIONED,
-                writeCapacity: 1,
-                readCapacity: 1
+                }
             },
             initialLetter: {
                 indexName: 'initialLetter',
                 partitionKey: {
                     name: 'initialLetter',
                     type: AttributeType.STRING
-                },
-                billingMode: BillingMode.PROVISIONED,
-                writeCapacity: 1,
-                readCapacity: 1
+                }
             },
             definition: {
                 indexName: 'definition',
                 partitionKey: {
                     name: 'definition',
                     type: AttributeType.STRING
-                },
-                billingMode: BillingMode.PROVISIONED,
-                writeCapacity: 1,
-                readCapacity: 1
+                }
             },
 
         }
@@ -51,9 +42,7 @@ export default class DatabaseStack extends TaggingStack {
                 name: 'entry_id',
                 type: AttributeType.STRING
             },
-            billingMode: BillingMode.PROVISIONED,
-            writeCapacity: 1,
-            readCapacity: 1,
+            billingMode: BillingMode.PAY_PER_REQUEST,
             removalPolicy: RemovalPolicy.RETAIN
         });
 

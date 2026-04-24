@@ -63,7 +63,7 @@ export default class ApiStack extends TaggingStack {
 
         const authorizer = new Function(this, 'wapichana-dictionary-authorizer', {
             functionName: 'wapichana-dictionary-authorizer',
-            runtime: Runtime.NODEJS_16_X,
+            runtime: Runtime.NODEJS_20_X,
             handler: 'index.handler',
             code: Code.fromAsset('lambda/authorizer/dist'),
             timeout: Duration.seconds(30),
